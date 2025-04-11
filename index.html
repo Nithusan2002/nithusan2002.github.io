@@ -4,54 +4,125 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nithusan | Portefølje</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f4;
+      font-family: 'Fira Code', monospace;
+      background-color: #f8f9fb;
+      color: #2c2f36;
       margin: 0;
       padding: 0;
     }
     header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
+      background: #e2e6f0;
+      padding: 40px 20px;
       text-align: center;
     }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #007acc;
+    }
+    header p {
+      color: #4d4d4d;
+      margin-top: 10px;
+    }
+    .print-button {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .print-button button {
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Fira Code', monospace;
+    }
+    .print-button button:hover {
+      background-color: #005fa3;
+    }
     nav {
+      background-color: #dce3ec;
       display: flex;
       justify-content: center;
-      background: #555;
+      gap: 20px;
+      padding: 10px;
+      flex-wrap: wrap;
     }
     nav a {
-      color: white;
-      padding: 14px 20px;
+      color: #007acc;
       text-decoration: none;
+      padding: 8px 12px;
+      transition: 0.3s;
     }
     nav a:hover {
-      background-color: #777;
+      background-color: #c9d6e5;
+      border-radius: 4px;
     }
     section {
-      padding: 20px;
-      max-width: 900px;
+      padding: 40px 20px;
+      max-width: 1000px;
       margin: auto;
     }
     h2 {
-      color: #333;
+      border-left: 4px solid #007acc;
+      padding-left: 10px;
+      color: #1c1e22;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
     .project {
-      background: #fff;
-      margin-bottom: 20px;
-      padding: 15px;
+      background: #ffffff;
+      padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border: 1px solid #d2d9e3;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+    .project:hover {
+      transform: scale(1.02);
+    }
+    .project a {
+      color: #007acc;
+    }
+    .tech-stack {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .tech-stack img {
+      vertical-align: middle;
+      margin-right: 5px;
     }
     footer {
       text-align: center;
-      padding: 10px;
-      background: #333;
-      color: white;
-      margin-top: 20px;
+      padding: 20px;
+      background: #e2e6f0;
+      color: #555;
+    }
+    .contact-icons a {
+      margin: 0 10px;
+      color: #007acc;
+      font-size: 1.5rem;
+      transition: 0.3s;
+    }
+    .contact-icons a:hover {
+      color: #005a99;
+    }
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -59,6 +130,9 @@
   <header>
     <h1>Nithusan</h1>
     <p>Informatikkstudent | Backend & DevOps entusiast</p>
+    <div class="print-button">
+      <button onclick="window.print()">🖨️ Last ned som PDF</button>
+    </div>
   </header>
   <nav>
     <a href="#om">Om meg</a>
@@ -74,21 +148,57 @@
 
   <section id="prosjekter">
     <h2>Prosjekter</h2>
-    <div class="project">
-      <h3>TreningsTracker API</h3>
-      <p>Et REST-API bygget i Flask med JWT-autentisering og PostgreSQL.</p>
-      <a href="https://github.com/dittbrukernavn/trenings-tracker-api" target="_blank">Se prosjektet på GitHub</a>
+    <div class="projects-grid">
+      <div class="project">
+        <h3>TreningsTracker API</h3>
+        <p>Et REST-API bygget i Flask med JWT-autentisering og PostgreSQL.</p>
+        <div class="tech-stack">
+          <img src="https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white" alt="Flask">
+          <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL">
+          <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker">
+        </div>
+        <a href="https://github.com/dittbrukernavn/trenings-tracker-api" target="_blank">🔗 Se prosjektet på GitHub</a>
+      </div>
+      <div class="project">
+        <h3>Todo API</h3>
+        <p>Et enkelt API for å administrere todo-lister, bygget med FastAPI og SQLite.</p>
+        <div class="tech-stack">
+          <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI">
+          <img src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white" alt="SQLite">
+          <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black" alt="Swagger">
+        </div>
+        <a href="https://github.com/dittbrukernavn/todo-api" target="_blank">🔗 Se prosjektet på GitHub</a>
+      </div>
+      <div class="project">
+        <h3>Portfolio CMS</h3>
+        <p>Et lite innholdssystem der jeg kan publisere prosjekter og erfaringer.</p>
+        <div class="tech-stack">
+          <img src="https://img.shields.io/badge/Django-092E20?style=flat&logo=django&logoColor=white" alt="Django">
+          <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL">
+          <img src="https://img.shields.io/badge/Heroku-430098?style=flat&logo=heroku&logoColor=white" alt="Heroku">
+        </div>
+        <a href="https://github.com/dittbrukernavn/portfolio-cms" target="_blank">🔗 Se prosjektet på GitHub</a>
+      </div>
     </div>
   </section>
 
   <section id="cv">
     <h2>CV</h2>
-    <p><a href="cv.pdf" download>Last ned CV (PDF)</a></p>
+    <p><a href="cv.pdf" download>⬇️ Last ned CV (PDF)</a></p>
+  </section>
+
+  <section>
+    <h2>Teknologier jeg jobber med</h2>
+    <p>Python • Java • Flask • FastAPI • PostgreSQL • SQLite • Docker • Git • GitHub Actions • AWS EC2 • Azure • Linux • Bash • CI/CD</p>
   </section>
 
   <section id="kontakt">
     <h2>Kontakt</h2>
     <p>Send meg gjerne en e-post: <a href="mailto:nithusan@example.com">nithusan@example.com</a></p>
+    <div class="contact-icons">
+      <a href="https://github.com/nithusan" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/nithusan" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
   </section>
 
   <footer>
