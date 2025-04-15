@@ -95,6 +95,9 @@
       margin-top: 10px;
       font-size: 0.9rem;
       color: #555;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .tech-stack img {
       vertical-align: middle;
@@ -115,50 +118,66 @@
     .contact-icons a:hover {
       color: #005a99;
     }
-    @media screen and (max-width: 600px) {
-      header h1 {
-        font-size: 2em;
-      }
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
+    .lang-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+    .lang-toggle button {
+      padding: 6px 12px;
+      font-family: 'Fira Code', monospace;
+      background: #007acc;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <div class="lang-toggle">
+    <button onclick="toggleLanguage()">🌐 Bytt til engelsk</button>
+  </div>
+  <a href="#om" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Hopp til hovedinnhold</a>
   <header>
     <h1>Nithusan Krishnasamymudali</h1>
-    <p>BSc. Informatikk: Programmering og systemarkitektur</p>
+    <p data-lang="degree">BSc. Informatikk: Programmering og systemarkitektur</p>
   </header>
   <nav>
-    <a href="#om">Om meg</a>
-    <a href="#prosjekter">Prosjekter</a>
-    <a href="#cv">CV</a>
-    <a href="#kontakt">Kontakt</a>
+    <a href="#om" data-lang="nav-about">Om meg</a>
+    <a href="#prosjekter" data-lang="nav-projects">Prosjekter</a>
+    <a href="#cv" data-lang="nav-cv">CV</a>
+    <a href="#kontakt" data-lang="nav-contact">Kontakt</a>
   </nav>
 
   <section id="om">
-    <h2>Om meg</h2>
-    <p>Jeg studerer informatikk ved Universitetet i Oslo og brenner for backend-utvikling og cloud-løsninger som AWS og Azure.</p>
+    <h2 data-lang="about-title">Om meg</h2>
+    <p data-lang="about-text">
+      Jeg er informatikkstudent ved Universitetet i Oslo med interesse for backend-utvikling og systemarkitektur. 
+    I fritiden liker jeg å trene styrke, reise og lese. Jeg liker å jobbe med konkrete problemer og skape løsninger som kan brukes i praksis.
+    </p>
   </section>
 
   <section id="prosjekter">
-    <h2>Prosjekter</h2>
+    <h2 data-lang="projects-title">Prosjekter</h2>
+    <h3 data-lang="projects-mobile">📱 Mobilutvikling</h3>
     <div class="projects-grid">
       <div class="project">
-        <h3>IN2000 Værvarsel-prosjekt</h3>
-        <p>App utviklet i faget IN2000. Applikasjonen er laget i Kotlin med Jetpack Compose og henter værdata via MET API. Bruker moderne mobilbiblioteker som Room, Ktor, Retrofit og ViewModel. Applikasjonen støtter asynkron databehandling og kartvisning med Google Maps.</p>
+        <h3 data-lang="project-in2000-title">IN2000 Værvarsel-prosjekt</h3>
+        <p data-lang="project-in2000-desc">App utviklet i faget IN2000. Applikasjonen er laget i Kotlin med Jetpack Compose og henter værdata via MET API. Bruker moderne mobilbiblioteker som Room, Ktor, Retrofit og ViewModel. Applikasjonen støtter asynkron databehandling og kartvisning med Google Maps.</p>
         <div class="tech-stack">
           <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white" alt="Kotlin">
           <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=flat&logo=android-studio&logoColor=white" alt="Android Studio">
-          <img src="https://img.shields.io/badge/Jetpack%20Compose-4285F4?style=flat&logo=jetpack-compose&logoColor=white" alt="Jetpack Compose">
-</div>
+        </div>
         <a href="https://github.com/Nithusan2002/IN2000-prosjekt" target="_blank">🔗 Se prosjektet på GitHub</a>
       </div>
+    </div>
+    <h3 data-lang="projects-backend">☁️ Backend og sky</h3>
+    <div class="projects-grid">
       <div class="project">
-        <h3>Workout Tracker Java</h3>
-        <p>Et backend-prosjekt i Java som lagrer treningsøkter i en Azure SQL Database. Bruker JDBC, objektorientert design og skybasert datalagring. Perfekt for å vise sky- og backend-kompetanse.</p>
+        <h3 data-lang="project-workout-title">Workout Tracker Java</h3>
+        <p data-lang="project-workout-desc">Et backend-prosjekt i Java som lagrer treningsøkter i en Azure SQL Database. Bruker JDBC, objektorientert design og skybasert datalagring.</p>
         <div class="tech-stack">
           <img src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=java&logoColor=white" alt="Java">
           <img src="https://img.shields.io/badge/Azure-0078D4?style=flat&logo=microsoftazure&logoColor=white" alt="Azure">
@@ -169,13 +188,13 @@
   </section>
 
   <section id="cv">
-    <h2>CV</h2>
-    <p><a href="cv.pdf" download>⬇️ Last ned CV (PDF)</a></p>
+    <h2 data-lang="cv-title">CV</h2>
+    <p><a href="cv.pdf" download data-lang="cv-download">⬇️ Last ned CV (PDF)</a></p>
   </section>
 
   <section>
-    <h2>Tech-Stack</h2>
-    <div class="tech-stack" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+    <h2 data-lang="tech-title">Teknologier jeg har jobbet med</h2>
+    <div class="tech-stack">
       <img src="https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white" alt="Java">
       <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
       <img src="https://img.shields.io/badge/SQL-CC2927?style=flat&logo=sqlite&logoColor=white" alt="SQL">
@@ -187,8 +206,8 @@
   </section>
 
   <section id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Send meg gjerne en e-post: <a href="mailto:nithusan@example.com">nithusank.2002@gmail.com</a></p>
+    <h2 data-lang="contact-title">Kontakt</h2>
+    <p data-lang="contact-text">Send meg gjerne en e-post: <a href="mailto:nithusank.2002@gmail.com">nithusank.2002@gmail.com</a></p>
     <div class="contact-icons">
       <a href="https://github.com/nithusan2002" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/nithusan-k" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -198,5 +217,60 @@
   <footer>
     <p>&copy; 2025 Nithusan</p>
   </footer>
+
+  <script>
+    const translations = {
+      'no': {
+        'degree': 'BSc. Informatikk: Programmering og systemarkitektur',
+        'nav-about': 'Om meg', 'nav-projects': 'Prosjekter', 'nav-cv': 'CV', 'nav-contact': 'Kontakt',
+        'about-title': 'Om meg',
+        'about-text': 'Jeg er informatikkstudent ved Universitetet i Oslo med stor interesse for backend-utvikling, systemarkitektur og skyteknologier som AWS og Azure. I fritiden liker jeg å trene styrke, reise og lese – gjerne om teknologi og selvutvikling. Jeg liker å jobbe med konkrete problemer og skape løsninger som kan brukes i praksis.',
+        'projects-title': 'Prosjekter',
+        'projects-mobile': '📱 Mobilutvikling',
+        'project-in2000-title': 'IN2000 Værvarsel-prosjekt',
+        'project-in2000-desc': 'App utviklet i faget IN2000. Applikasjonen er laget i Kotlin med Jetpack Compose og henter værdata via MET API. Bruker moderne mobilbiblioteker som Room, Ktor, Retrofit og ViewModel. Applikasjonen støtter asynkron databehandling og kartvisning med Google Maps.',
+        'projects-backend': '☁️ Backend og sky',
+        'project-workout-title': 'Workout Tracker Java',
+        'project-workout-desc': 'Et backend-prosjekt i Java som lagrer treningsøkter i en Azure SQL Database. Bruker JDBC, objektorientert design og skybasert datalagring.',
+        'cv-title': 'CV',
+        'cv-download': '⬇️ Last ned CV (PDF)',
+        'tech-title': 'Teknologier jeg har jobbet med',
+        'contact-title': 'Kontakt',
+        'contact-text': 'Send meg gjerne en e-post: <a href="mailto:nithusank.2002@gmail.com">nithusank.2002@gmail.com</a>'
+      },
+      'en': {
+        'degree': 'BSc. Computer Science: Programming and System Architecture',
+        'nav-about': 'About Me', 'nav-projects': 'Projects', 'nav-cv': 'Resume', 'nav-contact': 'Contact',
+        'about-title': 'About Me',
+        'about-text': "I'm an informatics student at the University of Oslo with an interest in backend development and system architecture. In my free time, I enjoy strength training, traveling, and reading. I like working on concrete problems and creating solutions that can be used in practice.",
+        'projects-title': 'Projects',
+        'projects-mobile': '📱 Mobile Development',
+        'project-in2000-title': 'IN2000 Weather App Project',
+        'project-in2000-desc': 'An app developed in the IN2000 course. Built with Kotlin and Jetpack Compose, fetching weather data from the MET API. Uses libraries like Room, Ktor, Retrofit and ViewModel. Supports asynchronous data and map display with Google Maps.',
+        'projects-backend': '☁️ Backend & Cloud',
+        'project-workout-title': 'Workout Tracker Java',
+        'project-workout-desc': 'A backend Java project that stores workouts in an Azure SQL Database. Utilizes JDBC, object-oriented design, and cloud storage.',
+        'cv-title': 'Resume',
+        'cv-download': '⬇️ Download Resume (PDF)',
+        'tech-title': 'Technologies I have worked with',
+        'contact-title': 'Contact',
+        'contact-text': 'Feel free to send me an email: <a href="mailto:nithusank.2002@gmail.com">nithusank.2002@gmail.com</a> '
+      }
+    };
+
+    let currentLang = 'no';
+
+    function toggleLanguage() {
+  currentLang = currentLang === 'no' ? 'en' : 'no';
+  document.querySelector('.lang-toggle button').innerText = currentLang === 'no' ? '🌐 Bytt til engelsk' : '🌐 Switch to Norwegian';
+
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    const key = el.getAttribute('data-lang');
+    if (translations[currentLang][key]) {
+      el.innerHTML = translations[currentLang][key]; // Endret fra textContent
+    }
+  });
+}
+  </script>
 </body>
 </html>
