@@ -133,6 +133,105 @@
       color: white;
       cursor: pointer;
     }
+
+    /* Mobiloptimalisering og generell polish */
+body {
+  font-family: 'Fira Code', monospace;
+  background-color: #f8f9fb;
+  color: #2c2f36;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background: #e2e6f0;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2em;
+  color: #007acc;
+  word-wrap: break-word;
+}
+
+header p {
+  color: #4d4d4d;
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+.lang-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.lang-toggle button {
+  font-size: 0.9em;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* Navigasjon */
+nav {
+  background-color: #dce3ec;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 5px;
+}
+
+nav a {
+  color: #007acc;
+  text-decoration: none;
+  padding: 8px 10px;
+  font-size: 1em;
+}
+
+section {
+  padding: 30px 15px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.project {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #d2d9e3;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Responsiv tilpasning */
+@media (min-width: 700px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  header h1 {
+    font-size: 2.8em;
+  }
+
+  nav a {
+    font-size: 1.1em;
+  }
+
+  .lang-toggle {
+    top: 20px;
+    right: 20px;
+  }
+}
   </style>
 </head>
 <body>
