@@ -4,200 +4,298 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nithusan | Portefølje</title>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    :root {
-      --main-color: #007acc;
-      --bg-color: #f8f9fb;
-      --text-color: #2c2f36;
-      --section-padding: 60px 20px;
+    html {
+      scroll-behavior: smooth;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
+      font-family: 'Fira Code', monospace;
+      background-color: #f8f9fb;
+      color: #2c2f36;
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
+      padding: 0;
     }
-
     header {
       background: #e2e6f0;
+      padding: 40px 20px;
       text-align: center;
-      padding: 60px 20px 40px;
     }
-
     header h1 {
-      font-family: 'Abril Fatface', cursive;
-      font-size: 3em;
       margin: 0;
-      color: var(--main-color);
+      font-size: 2.5em;
+      color: #007acc;
     }
-
     header p {
-      font-size: 1.1em;
+      color: #4d4d4d;
       margin-top: 10px;
     }
-
-    .lang-toggle {
-      position: absolute;
-      top: 10px;
-      right: 10px;
+    .print-button {
+      text-align: center;
+      margin-top: 10px;
     }
-
-    .lang-toggle button {
-      background-color: var(--main-color);
-      color: #fff;
+    .print-button button {
+      background-color: #007acc;
+      color: white;
       border: none;
-      padding: 6px 12px;
+      padding: 10px 20px;
       border-radius: 6px;
       cursor: pointer;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Fira Code', monospace;
     }
-
+    .print-button button:hover {
+      background-color: #005fa3;
+    }
     nav {
+      background-color: #dce3ec;
       display: flex;
       justify-content: center;
       gap: 20px;
-      padding: 15px;
-      background-color: #dce3ec;
+      padding: 10px;
       flex-wrap: wrap;
     }
-
     nav a {
+      color: #007acc;
       text-decoration: none;
-      color: var(--main-color);
-      font-weight: bold;
-      padding: 8px 16px;
-      border-radius: 4px;
+      padding: 8px 12px;
       transition: 0.3s;
     }
-
     nav a:hover {
       background-color: #c9d6e5;
+      border-radius: 4px;
     }
-
     section {
-      padding: var(--section-padding);
-      max-width: 900px;
+      padding: 40px 20px;
+      max-width: 1000px;
       margin: auto;
     }
-
     h2 {
-      border-left: 5px solid var(--main-color);
-      padding-left: 15px;
-      font-size: 1.8em;
+      border-left: 4px solid #007acc;
+      padding-left: 10px;
+      color: #1c1e22;
     }
-
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
-
     .project {
-      background: white;
+      background: #ffffff;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s;
+      border-radius: 8px;
+      border: 1px solid #d2d9e3;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
     }
-
     .project:hover {
-      transform: translateY(-5px);
+      transform: scale(1.02);
     }
-
-    .project h3 {
-      margin-top: 0;
-      color: var(--main-color);
-    }
-
-    .project p {
-      margin-bottom: 10px;
-    }
-
     .project a {
-      color: var(--main-color);
-      font-weight: bold;
+      color: #007acc;
     }
-
     .tech-stack {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #555;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: center;
-      margin-top: 15px;
     }
-
     .tech-stack img {
-      width: 100px;
-      height: 30px;
-      object-fit: contain;
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 4px 8px;
-      border-radius: 6px;
+      vertical-align: middle;
+      margin-right: 5px;
     }
-
     footer {
       text-align: center;
       padding: 20px;
       background: #e2e6f0;
-      font-size: 0.9em;
+      color: #555;
     }
+    .contact-icons a {
+      margin: 0 10px;
+      color: #007acc;
+      font-size: 1.5rem;
+      transition: 0.3s;
+    }
+    .contact-icons a:hover {
+      color: #005a99;
+    }
+    .lang-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+    .lang-toggle button {
+      padding: 6px 12px;
+      font-family: 'Fira Code', monospace;
+      background: #007acc;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Mobiloptimalisering og generell polish */
+body {
+  font-family: 'Fira Code', monospace;
+  background-color: #f8f9fb;
+  color: #2c2f36;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background: #e2e6f0;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2em;
+  color: #007acc;
+  word-wrap: break-word;
+}
+
+header p {
+  color: #4d4d4d;
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+.lang-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.lang-toggle button {
+  font-size: 0.9em;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* Navigasjon */
+nav {
+  background-color: #dce3ec;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 5px;
+}
+
+nav a {
+  color: #007acc;
+  text-decoration: none;
+  padding: 8px 10px;
+  font-size: 1em;
+}
+
+section {
+  padding: 30px 15px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.project {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #d2d9e3;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Responsiv tilpasning */
+@media (min-width: 700px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  header h1 {
+    font-size: 2.8em;
+  }
+
+  nav a {
+    font-size: 1.1em;
+  }
+
+  .lang-toggle {
+    top: 20px;
+    right: 20px;
+  }
+}
   </style>
 </head>
 <body>
   <div class="lang-toggle">
     <button onclick="toggleLanguage()">🌐 Bytt til engelsk</button>
   </div>
-
+  <a href="#om" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Hopp til hovedinnhold</a>
   <header>
     <h1>Nithusan Krishnasamymudali</h1>
-    <p>BSc. Informatikk: Programmering og systemarkitektur</p>
+    <p data-lang="degree">BSc. Informatikk: Programmering og systemarkitektur</p>
   </header>
-
   <nav>
-    <a href="#om">Om meg</a>
-    <a href="#prosjekter">Prosjekter</a>
-    <a href="#cv">CV</a>
-    <a href="#kontakt">Kontakt</a>
+    <a href="#om" data-lang="nav-about">Om meg</a>
+    <a href="#prosjekter" data-lang="nav-projects">Prosjekter</a>
+    <a href="#cv" data-lang="nav-cv">CV</a>
+    <a href="#kontakt" data-lang="nav-contact">Kontakt</a>
   </nav>
 
   <section id="om">
-    <h2>Om meg</h2>
-    <p>Jeg er en informatikkstudent ved Universitetet i Oslo med interesse for backend-utvikling og systemarkitektur. I fritiden liker jeg å trene styrke, reise og lese. Jeg liker å jobbe med konkrete problemer og skape løsninger som kan brukes i praksis.</p>
+    <h2 data-lang="about-title">Om meg</h2>
+    <p data-lang="about-text">
+      Jeg er en informatikkstudent ved Universitetet i Oslo med interesse for backend-utvikling og systemarkitektur. 
+    I fritiden liker jeg å trene styrke, reise og lese. Jeg liker å jobbe med konkrete problemer og skape løsninger som kan brukes i praksis.
+    </p>
   </section>
 
   <section id="prosjekter">
-    <h2>Prosjekter</h2>
+    <h2 data-lang="projects-title">Prosjekter</h2>
+    <h3 data-lang="projects-mobile">📱 Mobilutvikling</h3>
     <div class="projects-grid">
       <div class="project">
-        <h3>IN2000 Værvarsel-prosjekt</h3>
-        <p>App utviklet i faget IN2000. Kotlin, Jetpack Compose, MET API. Bruker Room, Ktor, ViewModel og Google Maps.</p>
-        <a href="https://github.com/Nithusan2002/IN2000-prosjekt" target="_blank">Se prosjektet</a>
+        <h3 data-lang="project-in2000-title">IN2000 Værvarsel-prosjekt</h3>
+        <p data-lang="project-in2000-desc">App utviklet i faget IN2000. Applikasjonen er laget i Kotlin med Jetpack Compose og henter værdata via MET API. Bruker moderne mobilbiblioteker som Room, Ktor, Retrofit og ViewModel. Applikasjonen støtter asynkron databehandling og kartvisning med Google Maps.</p>
+        <div class="tech-stack">
+          <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white" alt="Kotlin">
+          <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=flat&logo=android-studio&logoColor=white" alt="Android Studio">
+        </div>
+        <a href="https://github.com/Nithusan2002/IN2000-prosjekt" target="_blank">🔗 Se prosjektet på GitHub</a>
       </div>
+    </div>
+    <h3 data-lang="projects-backend">☁️ Backend og sky</h3>
+    <div class="projects-grid">
       <div class="project">
-        <h3>Workout Tracker Java</h3>
-        <p>Java-prosjekt som lagrer treningsdata i Azure SQL. Bruker JDBC, OOP og skybasert lagring.</p>
-        <a href="https://github.com/Nithusan2002/workout-tracker-java" target="_blank">Se prosjektet</a>
+        <h3 data-lang="project-workout-title">Workout Tracker Java</h3>
+        <p data-lang="project-workout-desc">Et backend-prosjekt i Java som lagrer treningsøkter i en Azure SQL Database. Bruker JDBC, objektorientert design og skybasert datalagring.</p>
+        <div class="tech-stack">
+          <img src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=java&logoColor=white" alt="Java">
+          <img src="https://img.shields.io/badge/Azure-0078D4?style=flat&logo=microsoftazure&logoColor=white" alt="Azure">
+        </div>
+        <a href="https://github.com/Nithusan2002/workout-tracker-java" target="_blank">🔗 Se prosjektet på GitHub</a>
       </div>
     </div>
   </section>
 
   <section id="cv">
-    <h2>CV</h2>
-    <p><a href="cv.pdf" download>⬇️ Last ned CV (PDF)</a></p>
+    <h2 data-lang="cv-title">CV</h2>
+    <p><a href="cv.pdf" download data-lang="cv-download">⬇️ Last ned CV (PDF)</a></p>
   </section>
 
   <section>
-    <h2>Tech-stack</h2>
+    <h2 data-lang="tech-title">Tech-stack</h2>
     <div class="tech-stack">
       <img src="https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white" alt="Java">
       <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
@@ -210,8 +308,8 @@
   </section>
 
   <section id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Send meg gjerne en e-post: <a href="mailto:nithusank.2002@gmail.com">nithusank.2002@gmail.com</a></p>
+    <h2 data-lang="contact-title">Kontakt</h2>
+    <p data-lang="contact-text">Send meg gjerne en e-post: <a href="mailto:nithusank.2002@gmail.com">nithusank.2002@gmail.com</a></p>
     <div class="contact-icons">
       <a href="https://github.com/nithusan2002" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/nithusan-k" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -221,5 +319,60 @@
   <footer>
     <p>&copy; 2025 Nithusan</p>
   </footer>
+
+  <script>
+    const translations = {
+      'no': {
+        'degree': 'BSc. Informatikk: Programmering og systemarkitektur',
+        'nav-about': 'Om meg', 'nav-projects': 'Prosjekter', 'nav-cv': 'CV', 'nav-contact': 'Kontakt',
+        'about-title': 'Om meg',
+        'about-text': 'Jeg er en informatikkstudent ved Universitetet i Oslo med interesse for backend-utvikling og systemarkitektur. I fritiden liker jeg å trene styrke, reise og lese. Jeg liker å jobbe med konkrete problemer og skape løsninger som kan brukes i praksis.',
+        'projects-title': 'Prosjekter',
+        'projects-mobile': '📱 Mobilutvikling',
+        'project-in2000-title': 'IN2000 Værvarsel-prosjekt',
+        'project-in2000-desc': 'App utviklet i faget IN2000. Applikasjonen er laget i Kotlin med Jetpack Compose og henter værdata via MET API. Bruker moderne mobilbiblioteker som Room, Ktor, Retrofit og ViewModel. Applikasjonen støtter asynkron databehandling og kartvisning med Google Maps.',
+        'projects-backend': '☁️ Backend og sky',
+        'project-workout-title': 'Workout Tracker Java',
+        'project-workout-desc': 'Et backend-prosjekt i Java som lagrer treningsøkter i en Azure SQL Database. Bruker JDBC, objektorientert design og skybasert datalagring.',
+        'cv-title': 'CV',
+        'cv-download': '⬇️ Last ned CV (PDF)',
+        'tech-title': 'Tech-stack',
+        'contact-title': 'Kontakt',
+        'contact-text': 'Send meg gjerne en e-post: <a href="mailto:nithusank.2002@gmail.com">nithusank.2002@gmail.com</a>'
+      },
+      'en': {
+        'degree': 'BSc. Computer Science: Programming and System Architecture',
+        'nav-about': 'About Me', 'nav-projects': 'Projects', 'nav-cv': 'Resume', 'nav-contact': 'Contact',
+        'about-title': 'About Me',
+        'about-text': "I'm an informatics student at the University of Oslo with an interest in backend development and system architecture. In my free time, I enjoy strength training, traveling, and reading. I like working on concrete problems and creating solutions that can be used in practice.",
+        'projects-title': 'Projects',
+        'projects-mobile': '📱 Mobile Development',
+        'project-in2000-title': 'IN2000 Weather App Project',
+        'project-in2000-desc': 'An app developed in the IN2000 course. Built with Kotlin and Jetpack Compose, fetching weather data from the MET API. Uses libraries like Room, Ktor, Retrofit and ViewModel. Supports asynchronous data and map display with Google Maps.',
+        'projects-backend': '☁️ Backend & Cloud',
+        'project-workout-title': 'Workout Tracker Java',
+        'project-workout-desc': 'A backend Java project that stores workouts in an Azure SQL Database. Utilizes JDBC, object-oriented design, and cloud storage.',
+        'cv-title': 'Resume',
+        'cv-download': '⬇️ Download Resume (PDF)',
+        'tech-title': 'Tech-stack',
+        'contact-title': 'Contact',
+        'contact-text': 'Feel free to send me an email: <a href="mailto:nithusank.2002@gmail.com">nithusank.2002@gmail.com</a> '
+      }
+    };
+
+    let currentLang = 'no';
+
+    function toggleLanguage() {
+  currentLang = currentLang === 'no' ? 'en' : 'no';
+  document.querySelector('.lang-toggle button').innerText = currentLang === 'no' ? '🌐 Bytt til engelsk' : '🌐 Switch to Norwegian';
+
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    const key = el.getAttribute('data-lang');
+    if (translations[currentLang][key]) {
+      el.innerHTML = translations[currentLang][key]; // Endret fra textContent
+    }
+  });
+}
+  </script>
 </body>
 </html>
