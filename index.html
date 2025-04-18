@@ -234,9 +234,14 @@
   </section>
 
   <section id="cv">
-    <h2 data-lang="cv-title">CV</h2>
-    <p><a href="cv.pdf" download data-lang="cv-download">⬇️ Last ned CV (PDF)</a></p>
-  </section>
+  <h2 data-lang="cv-title">CV</h2>
+  <div style="text-align: center;">
+    <img id="cv-img" src="cv-norsk.png" alt="CV" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+    <p>
+      <a id="cv-download-link" href="cv.pdf" download data-lang="cv-download">⬇️ Last ned CV (PDF)</a>
+    </p>
+  </div>
+</section>
 
   <section>
     <h2 data-lang="tech-title">Tech-stack</h2>
@@ -307,16 +312,28 @@
     let currentLang = 'no';
 
     function toggleLanguage() {
-  currentLang = currentLang === 'no' ? 'en' : 'no';
-  document.querySelector('.lang-toggle button').innerText = currentLang === 'no' ? '🌐 Bytt til engelsk' : '🌐 Switch to Norwegian';
+    currentLang = currentLang === 'no' ? 'en' : 'no';
+    document.querySelector('.lang-toggle button').innerText = currentLang === 'no' ? '🌐 Bytt til engelsk' : '🌐 Switch to Norwegian';
+  
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      const key = el.getAttribute('data-lang');
+      if (translations[currentLang][key]) {
+        el.innerHTML = translations[currentLang][key]; // Endret fra textContent
+      }
+    });
 
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    const key = el.getAttribute('data-lang');
-    if (translations[currentLang][key]) {
-      el.innerHTML = translations[currentLang][key]; // Endret fra textContent
-    }
-  });
-}
+    // Bytt CV-bilde og PDF-lenke basert på språk
+  const cvImg = document.getElementById('cv-img');
+  const cvLink = document.getElementById('cv-download-link');
+  
+  if (currentLang === 'en') {
+    cvImg.src = 'cv-english.png';
+    cvLink.href = 'cv-en.pdf';
+  } else {
+    cvImg.src = 'cv-norsk.png';
+    cvLink.href = 'cv.pdf';
+  }
+  }
   </script>
 </body>
 </html>
