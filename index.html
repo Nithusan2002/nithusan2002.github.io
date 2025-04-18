@@ -179,6 +179,23 @@
         align-items: center;
       }
     }
+    .cv-download-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 122, 204, 0.2);
+    }
+    .cv-download-button:hover {
+      background: #005fa3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 122, 204, 0.3);
+    }
 </style>
 </head>
 <body>
@@ -236,13 +253,15 @@
   <section id="cv">
   <h2 data-lang="cv-title">CV</h2>
   <div style="text-align: center;">
-    <img id="cv-img" src="cv-norsk.png" alt="CV" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 1rem;">
-    <p>
-      <a id="cv-download-link" href="cv.pdf" download data-lang="cv-download">⬇️ Last ned CV (PDF)</a>
-    </p>
+    <img 
+      id="cv-img" 
+      src="cv-norsk.png" 
+      alt="CV" 
+      style="max-width: 100%; width: 100%; max-height: 700px; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+    
+    <a id="cv-download-link" href="cv.pdf" download class="cv-download-button" data-lang="cv-download">⬇️ Last ned CV (PDF)</a>
   </div>
-</section>
-
+  </section>
   <section>
     <h2 data-lang="tech-title">Tech-stack</h2>
     <div class="tech-stack">
