@@ -1,358 +1,271 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nithusan | Portefølje</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    :root {
-      --primary-color: #007acc;
-      --secondary-color: #e2e6f0;
-      --text-color: #2c2f36;
-      --bg-gradient: linear-gradient(120deg, #f8f9fb, #e2e6f0);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Fira Code', monospace;
-      margin: 0;
-      padding: 0;
-      background: var(--bg-gradient);
-      color: var(--text-color);
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 30%, rgba(0, 122, 204, 0.1) 0%, transparent 70%),
-                  radial-gradient(circle at 80% 70%, rgba(0, 122, 204, 0.08) 0%, transparent 70%);
-      z-index: -1;
-    }
-
-    header {
-      background: var(--secondary-color);
-      padding: 3rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: var(--primary-color);
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      background-color: #dce3ec;
-      padding: 0.8rem;
-    }
-
-    nav a {
-      color: var(--primary-color);
-      text-decoration: none;
-      padding: 0.5rem 0.75rem;
-      transition: all 0.3s;
-    }
-
-    nav a:hover {
-      background-color: rgba(0,122,204,0.1);
-      border-radius: 5px;
-    }
-
-    section {
-      padding: 2.5rem 1rem;
-      max-width: 1000px;
-      margin: auto;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    h2 {
-      border-left: 4px solid var(--primary-color);
-      padding-left: 0.6rem;
-      color: #1c1e22;
-      margin-bottom: 1rem;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project {
-      background: white;
-      padding: 1.2rem;
-      border-radius: 10px;
-      border: 1px solid #d2d9e3;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-    }
-
-    .project a {
-      color: var(--primary-color);
-      text-decoration: none;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.8rem;
-      font-size: 0.9rem;
-    }
-
-    .tech-stack img {
-      height: 24px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: var(--secondary-color);
-      font-size: 0.9rem;
-    }
-
-    .contact-icons a {
-      margin: 0 0.6rem;
-      font-size: 1.6rem;
-      color: var(--primary-color);
-      transition: transform 0.2s ease;
-    }
-
-    .contact-icons a:hover {
-      transform: scale(1.2);
-    }
-
-    .lang-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      z-index: 100;
-    }
-
-    .lang-toggle button {
-      padding: 0.4rem 0.8rem;
-      background-color: var(--primary-color);
-      border: none;
-      color: white;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: 'Fira Code', monospace;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @media screen and (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-    .cv-download-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background: var(--primary-color);
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-family: 'Fira Code', monospace;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 122, 204, 0.2);
-    }
-    .cv-download-button:hover {
-      background: #005fa3;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 122, 204, 0.3);
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nithusan.java</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="lang-toggle">
-    <button onclick="toggleLanguage()">🌐 Bytt til engelsk</button>
-  </div>
-  <a href="#om" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Hopp til hovedinnhold</a>
-  <header>
-    <h1>Nithusan Krishnasamymudali</h1>
-    <p data-lang="degree">BSc. Informatikk: Programmering og systemarkitektur</p>
-  </header>
-  <nav>
-    <a href="#om" data-lang="nav-about">Om meg</a>
-    <a href="#prosjekter" data-lang="nav-projects">Prosjekter</a>
-    <a href="#cv" data-lang="nav-cv">CV</a>
-    <a href="#kontakt" data-lang="nav-contact">Kontakt</a>
-  </nav>
-
-  <section id="om">
-    <h2 data-lang="about-title">Om meg</h2>
-    <p data-lang="about-text">
-      Jeg er en informatikkstudent ved Universitetet i Oslo med interesse for backend-utvikling og systemarkitektur. 
-    I fritiden liker jeg å trene styrke, reise og lese. Jeg liker å jobbe med konkrete problemer og skape løsninger som kan brukes i praksis.
-    </p>
-  </section>
-
-  <section id="prosjekter">
-    <h2 data-lang="projects-title">Prosjekter</h2>
-    <h3 data-lang="projects-mobile">📱 Mobilutvikling</h3>
-    <div class="projects-grid">
-      <div class="project">
-        <h3 data-lang="project-in2000-title">IN2000 Værvarsel-prosjekt</h3>
-        <p data-lang="project-in2000-desc">App utviklet i faget IN2000. Applikasjonen er laget i Kotlin med Jetpack Compose og henter værdata via MET API. Bruker moderne mobilbiblioteker som Room, Ktor, Retrofit og ViewModel. Applikasjonen støtter asynkron databehandling og kartvisning med Google Maps.</p>
-        <div class="tech-stack">
-          <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white" alt="Kotlin">
-          <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=flat&logo=android-studio&logoColor=white" alt="Android Studio">
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold text-gray-800">nithusan.java</div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#hjem" class="text-gray-600 hover:text-blue-600 transition duration-300" data-no="Hjem" data-en="Home">Hjem</a>
+                    <a href="#om" class="text-gray-600 hover:text-blue-600 transition duration-300" data-no="Om meg" data-en="About">Om meg</a>
+                    <a href="#prosjekter" class="text-gray-600 hover:text-blue-600 transition duration-300" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+                    <a href="#ferdigheter" class="text-gray-600 hover:text-blue-600 transition duration-300" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
+                    <a href="#kontakt" class="text-gray-600 hover:text-blue-600 transition duration-300" data-no="Kontakt" data-en="Contact">Kontakt</a>
+                    <button id="language-toggle" class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm hover:bg-blue-700 transition duration-300">EN</button>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#hjem" class="block py-2 text-gray-600 hover:text-blue-600" data-no="Hjem" data-en="Home">Hjem</a>
+                <a href="#om" class="block py-2 text-gray-600 hover:text-blue-600" data-no="Om meg" data-en="About">Om meg</a>
+                <a href="#prosjekter" class="block py-2 text-gray-600 hover:text-blue-600" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+                <a href="#ferdigheter" class="block py-2 text-gray-600 hover:text-blue-600" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
+                <a href="#kontakt" class="block py-2 text-gray-600 hover:text-blue-600" data-no="Kontakt" data-en="Contact">Kontakt</a>
+                <button id="mobile-language-toggle" class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm hover:bg-blue-700 transition duration-300 mt-2">EN</button>
+            </div>
         </div>
-        <a href="https://github.com/Nithusan2002/IN2000-prosjekt" target="_blank">🔗 Se prosjektet på GitHub</a>
-      </div>
-    </div>
-    <h3 data-lang="projects-backend">☁️ Backend og sky</h3>
-    <div class="projects-grid">
-      <div class="project">
-        <h3 data-lang="project-workout-title">Workout Tracker Java</h3>
-        <p data-lang="project-workout-desc">Et backend-prosjekt i Java som lagrer treningsøkter i en Azure SQL Database. Bruker JDBC, objektorientert design og skybasert datalagring.</p>
-        <div class="tech-stack">
-          <img src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=java&logoColor=white" alt="Java">
-          <img src="https://img.shields.io/badge/Azure-0078D4?style=flat&logo=microsoftazure&logoColor=white" alt="Azure">
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hjem" class="gradient-bg min-h-screen flex items-center justify-center text-white pt-16">
+        <div class="text-center px-4">
+            <div class="w-32 h-32 bg-white rounded-full mx-auto mb-8 flex items-center justify-center text-6xl overflow-hidden relative group cursor-pointer" id="profile-image-container">
+                <img id="profile-image" class="w-full h-full object-cover rounded-full hidden" alt="Profilbilde">
+                <div id="profile-placeholder" class="text-6xl">👨‍💻</div>
+                <div class="absolute inset-0 bg-black bg-opacity-50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span class="text-white text-sm font-semibold" data-no="Klikk for å laste opp" data-en="Click to upload">Klikk for å laste opp</span>
+                </div>
+                <input type="file" id="image-upload" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-4" data-no="Ditt Navn" data-en="Your Name">Nithusan Krishnasamymudali</h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90" data-no="Informatikkstudent & Utvikler" data-en="Computer Science Student & Developer">Informatikkstudent & fremtidig utvikler</p>
+            <div class="space-x-4">
+                <a href="#prosjekter" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300" data-no="Se mine prosjekter" data-en="View my projects">Se mine prosjekter</a>
+                <a href="#kontakt" class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</a>
+            </div>
         </div>
-        <a href="https://github.com/Nithusan2002/workout-tracker-java" target="_blank">🔗 Se prosjektet på GitHub</a>
-      </div>
+    </section>
+
+    <!-- Om meg Section -->
+
+    <section id="om" class="py-20 bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800" data-no="Om meg" data-en="About me">Om meg</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800" data-no="Hei! Jeg er en lidenskapelig informatikkstudent" data-en="Hi! I'm a passionate computer science student">Hei! Jeg er en lidenskapelig informatikkstudent</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-no="Jeg studerer informatikk og brenner for teknologi og problemløsning. Gjennom studiene mine har jeg utviklet sterke ferdigheter innen programmering, systemutvikling og dataanalyse." data-en="I study computer science and have a passion for technology and problem-solving. Through my studies, I have developed strong skills in programming, system development, and data analysis.">
+                        Jeg studerer informatikk og brenner for teknologi og problemløsning. Gjennom studiene mine har jeg utviklet sterke ferdigheter innen programmering, systemutvikling og dataanalyse.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-no="Jeg elsker å lære nye teknologier og arbeide med utfordrende prosjekter som kan gjøre en forskjell. Målet mitt er å bli en dyktig utvikler som kan bidra til innovative løsninger." data-en="I love learning new technologies and working on challenging projects that can make a difference. My goal is to become a skilled developer who can contribute to innovative solutions.">
+                        Jeg elsker å lære nye teknologier og arbeide med utfordrende prosjekter som kan gjøre en forskjell. Målet mitt er å bli en dyktig utvikler som kan bidra til innovative løsninger.
+                    </p>
+                    <div class="flex space-x-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm" data-no="Problemløsning" data-en="Problem-solving">Problemløsning</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm" data-no="Teamarbeid" data-en="Teamwork">Teamarbeid</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm" data-no="Lærevillig" data-en="Eager to learn">Lærevillig</span>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg p-8">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-800" data-no="Utdanning" data-en="Education">Utdanning</h4>
+                    <div class="mb-6">
+                        <h5 class="font-semibold text-gray-800" data-no="BSc. Informatikk: Programmering og systemarkitektur" data-en="BSc. Computer Science: Programming and System Architecture">BSc. Informatikk: Programmering og systemarkitektur</h5>
+                        <p class="text-gray-600" data-no="Universitetet i Oslo • 2021-2026" data-en="University of Oslo • 2021-2026">Universitetet i Oslo • 2021-2026</p>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4 text-gray-800" data-no="Interesser" data-en="Interests">Interesser</h4>
+                    <ul class="text-gray-600 space-y-2">
+                        <li data-no="• Webutvikling" data-en="• Web development">• Webutvikling</li>
+                        <li data-no="• Kunstig intelligens" data-en="• Artificial intelligence">• Kunstig intelligens</li>
+                        <li data-no="• Mobilutvikling" data-en="• Mobile development">• Mobilutvikling</li>
+                        <li data-no="• Open source prosjekter" data-en="• Open source projects">• Open source prosjekter</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Prosjekter Section -->
+    <section id="prosjekter" class="py-20 bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800" data-no="Mine prosjekter" data-en="My projects">Mine prosjekter</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Prosjekt 1 -->
+                <div class="bg-gradient-to-br from-slate-50 to-blue-100 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <div class="text-white text-6xl">🚀</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="Webapplikasjon" data-en="Web Application">LiftOff</h3>
+                        <p class="text-gray-600 mb-4" data-no="LiftOff er en Android-app, laget for kurset IN2000, som gir en fullstendig oversikt over værforholdene på et bestemt sted og tidspunkt, og hjelper brukerne med å avgjøre om en rakettoppskytning er trygg ved å kombinere et moderne grensesnitt med værdata i sanntid." data-en="LiftOff is an Android app, created for the course IN2000, that provides a complete overview of weather conditions at a specific location and time, helping users decide if a rocket launch is safe by combining a modern interface with real-time weather data.">LiftOff er en Android-app, laget for kurset IN2000, som gir en fullstendig oversikt over værforholdene på et bestemt sted og tidspunkt, og hjelper brukerne med å avgjøre om en rakettoppskytning er trygg ved å kombinere et moderne grensesnitt med værdata i sanntid.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Kotlin</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Android Studio</span>
+                        </div>
+                        <button onclick="openProjectModal('webapp')" class="text-blue-600 hover:text-blue-800 font-semibold" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                    </div>
+                </div>
+                
+                <!-- Prosjekt 2 -->
+                <!--
+                <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                        <div class="text-white text-6xl">📱</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="Mobilapp" data-en="Mobile App">Mobilapp</h3>
+                        <p class="text-gray-600 mb-4" data-no="En intuitiv mobilapplikasjon som hjelper brukere med daglige oppgaver og produktivitet." data-en="An intuitive mobile application that helps users with daily tasks and productivity.">En intuitiv mobilapplikasjon som hjelper brukere med daglige oppgaver og produktivitet.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Flutter</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">Dart</span>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">Firebase</span>
+                        </div>
+                        <button onclick="openProjectModal('mobileapp')" class="text-blue-600 hover:text-blue-800 font-semibold" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                    </div>
+                </div>
+                -->
+                <!-- Prosjekt 3 -->
+                <!--
+                <div class="bg-gradient-to-br from-purple-50 to-violet-100 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                        <div class="text-white text-6xl">🤖</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="AI-prosjekt" data-en="AI Project">AI-prosjekt</h3>
+                        <p class="text-gray-600 mb-4" data-no="Et maskinlæringsprosjekt som analyserer data og gir intelligente anbefalinger." data-en="A machine learning project that analyzes data and provides intelligent recommendations.">Et maskinlæringsprosjekt som analyserer data og gir intelligente anbefalinger.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">Python</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">TensorFlow</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Pandas</span>
+                        </div>
+                        <button onclick="openProjectModal('aiproject')" class="text-blue-600 hover:text-blue-800 font-semibold" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Ferdigheter Section -->
+    <section id="ferdigheter" class="py-20 bg-gradient-to-br from-rose-50 via-amber-50 to-lime-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800" data-no="Mine ferdigheter" data-en="My skills">Mine ferdigheter</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">💻</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Frontend</h3>
+                    <p class="text-gray-600 text-sm">HTML, CSS, JavaScript</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">⚙️</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Backend</h3>
+                    <p class="text-gray-600 text-sm">Python, Java, SQL</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">📱</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Mobil" data-en="Mobile">Mobil</h3>
+                    <p class="text-gray-600 text-sm">Kotlin, Android</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">🛠️</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Verktøy" data-en="Tools">Verktøy</h3>
+                    <p class="text-gray-600 text-sm">Git, VS Code</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt" class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</h2>
+            <p class="text-xl text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-no="Jeg er alltid interessert i nye muligheter og spennende prosjekter. Ta gjerne kontakt hvis du vil diskutere samarbeid eller bare vil si hei!" data-en="I'm always interested in new opportunities and exciting projects. Feel free to contact me if you want to discuss collaboration or just say hello!">
+                Jeg er alltid interessert i nye muligheter og spennende prosjekter. Ta gjerne kontakt hvis du vil diskutere samarbeid eller bare vil si hei!
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- E-post -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-xl shadow-lg p-8 text-center card-hover">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">📧</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">E-post</h3>
+                    <p class="text-gray-600 mb-4">nithusank.2002@gmail.com</p>
+                    <a href="mailto:nithusank.2002@gmail.com" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition duration-300" data-no="Send e-post" data-en="Send email">Send e-post</a>
+                </div>
+
+                <!-- LinkedIn -->
+                <div class="bg-gradient-to-br from-green-50 to-lime-100 rounded-xl shadow-lg p-8 text-center card-hover">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">💼</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">LinkedIn</h3>
+                    <p class="text-gray-600 mb-4">linkedin.com/in/nithusan-k</p>
+                    <a href="https://linkedin.com/in/nithusan-k" target="_blank" class="inline-block bg-green-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300" data-no="Besøk profil" data-en="Visit profile">Besøk profil</a>
+                </div>
+
+                <!-- GitHub -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl shadow-lg p-8 text-center card-hover">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">🐙</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">GitHub</h3>
+                    <p class="text-gray-600 mb-4">github.com/nithusan2002</p>
+                    <a href="https://github.com/nithusan2002" target="_blank" class="inline-block bg-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-purple-700 transition duration-300" data-no="Se kode" data-en="View code">Se kode</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 id="modal-title" class="text-3xl font-bold text-gray-800">Prosjekt Detaljer</h2>
+                    <button onclick="closeProjectModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                </div>
+                
+                <div id="modal-content" class="space-y-6">
+                    <!-- Content will be dynamically inserted here -->
+                </div>
+                
+                <div class="flex justify-end mt-8 space-x-4">
+                    <button onclick="closeProjectModal()" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition duration-300" data-no="Lukk" data-en="Close">Lukk</button>
+                    <a id="modal-demo-link" href="#" target="_blank" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300" data-no="Se Demo" data-en="View Demo">Se Demo</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section id="cv">
-  <h2 data-lang="cv-title">CV</h2>
-  <div style="text-align: center;">
-    <img 
-      id="cv-img" 
-      src="cv-norsk.png" 
-      alt="CV" 
-      style="max-width: 100%; width: 100%; max-height: 700px; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 1rem;">
-    
-    <a id="cv-download-link" href="cv.pdf" download class="cv-download-button" data-lang="cv-download">⬇️ Last ned CV (PDF)</a>
-  </div>
-  </section>
-  <section>
-    <h2 data-lang="tech-title">Tech-stack</h2>
-    <div class="tech-stack">
-      <img src="https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white" alt="Java">
-      <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
-      <img src="https://img.shields.io/badge/SQL-CC2927?style=flat&logo=sqlite&logoColor=white" alt="SQL">
-      <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white" alt="Kotlin">
-      <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=flat&logo=android-studio&logoColor=white" alt="Android Studio">
-      <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git">
-      <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub">
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p data-no="&copy; 2025 Nithusan Krishnasamymudali. Alle rettigheter reservert." data-en="&copy; 2025 Nithusan Krishnasamymudali. All rights reserved.">&copy; 2025 Nithusan Krishnasamymudali. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
 
-  <section id="kontakt">
-    <h2 data-lang="contact-title">Kontakt</h2>
-    <p data-lang="contact-text">Send meg gjerne en e-post: <a href="mailto:nithusank.2002@gmail.com">nithusank.2002@gmail.com</a></p>
-    <div class="contact-icons">
-      <a href="https://github.com/nithusan2002" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/nithusan-k" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Nithusan</p>
-  </footer>
-
-  <script>
-    const translations = {
-      'no': {
-        'degree': 'BSc. Informatikk: Programmering og systemarkitektur',
-        'nav-about': 'Om meg', 'nav-projects': 'Prosjekter', 'nav-cv': 'CV', 'nav-contact': 'Kontakt',
-        'about-title': 'Om meg',
-        'about-text': 'Jeg er en informatikkstudent ved Universitetet i Oslo med interesse for backend-utvikling og systemarkitektur. I fritiden liker jeg å trene styrke, reise og lese. Jeg liker å jobbe med konkrete problemer og skape løsninger som kan brukes i praksis.',
-        'projects-title': 'Prosjekter',
-        'projects-mobile': '📱 Mobilutvikling',
-        'project-in2000-title': 'IN2000 Værvarsel-prosjekt',
-        'project-in2000-desc': 'App utviklet i faget IN2000. Applikasjonen er laget i Kotlin med Jetpack Compose og henter værdata via MET API. Bruker moderne mobilbiblioteker som Room, Ktor, Retrofit og ViewModel. Applikasjonen støtter asynkron databehandling og kartvisning med Google Maps.',
-        'projects-backend': '☁️ Backend og sky',
-        'project-workout-title': 'Workout Tracker Java',
-        'project-workout-desc': 'Et backend-prosjekt i Java som lagrer treningsøkter i en Azure SQL Database. Bruker JDBC, objektorientert design og skybasert datalagring.',
-        'cv-title': 'CV',
-        'cv-download': '⬇️ Last ned CV (PDF)',
-        'tech-title': 'Tech-stack',
-        'contact-title': 'Kontakt',
-        'contact-text': 'Send meg gjerne en e-post: <a href="mailto:nithusank.2002@gmail.com">nithusank.2002@gmail.com</a>'
-      },
-      'en': {
-        'degree': 'BSc. Computer Science: Programming and System Architecture',
-        'nav-about': 'About Me', 'nav-projects': 'Projects', 'nav-cv': 'Resume', 'nav-contact': 'Contact',
-        'about-title': 'About Me',
-        'about-text': "I'm an informatics student at the University of Oslo with an interest in backend development and system architecture. In my free time, I enjoy strength training, traveling, and reading. I like working on concrete problems and creating solutions that can be used in practice.",
-        'projects-title': 'Projects',
-        'projects-mobile': '📱 Mobile Development',
-        'project-in2000-title': 'IN2000 Weather App Project',
-        'project-in2000-desc': 'An app developed in the IN2000 course. Built with Kotlin and Jetpack Compose, fetching weather data from the MET API. Uses libraries like Room, Ktor, Retrofit and ViewModel. Supports asynchronous data and map display with Google Maps.',
-        'projects-backend': '☁️ Backend & Cloud',
-        'project-workout-title': 'Workout Tracker Java',
-        'project-workout-desc': 'A backend Java project that stores workouts in an Azure SQL Database. Utilizes JDBC, object-oriented design, and cloud storage.',
-        'cv-title': 'Resume',
-        'cv-download': '⬇️ Download Resume (PDF)',
-        'tech-title': 'Tech-stack',
-        'contact-title': 'Contact',
-        'contact-text': 'Feel free to send me an email: <a href="mailto:nithusank.2002@gmail.com">nithusank.2002@gmail.com</a> '
-      }
-    };
-
-    let currentLang = 'no';
-
-    function toggleLanguage() {
-    currentLang = currentLang === 'no' ? 'en' : 'no';
-    document.querySelector('.lang-toggle button').innerText = currentLang === 'no' ? '🌐 Bytt til engelsk' : '🌐 Switch to Norwegian';
-  
-    document.querySelectorAll('[data-lang]').forEach(el => {
-      const key = el.getAttribute('data-lang');
-      if (translations[currentLang][key]) {
-        el.innerHTML = translations[currentLang][key]; // Endret fra textContent
-      }
-    });
-
-    // Bytt CV-bilde og PDF-lenke basert på språk
-  const cvImg = document.getElementById('cv-img');
-  const cvLink = document.getElementById('cv-download-link');
-  
-  if (currentLang === 'en') {
-    cvImg.src = 'cv-english.png';
-    cvLink.href = 'cv-en.pdf';
-  } else {
-    cvImg.src = 'cv-norsk.png';
-    cvLink.href = 'cv.pdf';
-  }
-  }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
