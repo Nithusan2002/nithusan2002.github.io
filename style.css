@@ -1,54 +1,18 @@
-/* Importer font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Grunnleggende styling */
 body {
     font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 1rem;
-    background-color: #f5f5f5;
 }
 
-/* Gradient bakgrunn */
 .gradient-bg {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
 }
 
-/* Kort-effekt */
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: white;
-    border-radius: 10px;
-    padding: 1rem;
-    margin: 1rem 0;
 }
 
 .card-hover:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-/* Bildeoptimalisering */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Mobiltilpasning */
-@media (max-width: 600px) {
-    body {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    .card-hover {
-        transform: none; /* unngå hover-effekt på touch */
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-    }
-
-    .gradient-bg {
-        text-align: center;
-    }
 }
