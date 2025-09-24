@@ -7,6 +7,7 @@ mobileMenuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
 });
 
+/*
 // Profile image upload functionality
 document.getElementById('image-upload').addEventListener('change', function(e) {
     const file = e.target.files[0];
@@ -23,6 +24,7 @@ document.getElementById('image-upload').addEventListener('change', function(e) {
         reader.readAsDataURL(file);
     }
 });
+*/
 
 // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
