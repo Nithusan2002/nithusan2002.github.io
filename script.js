@@ -7,25 +7,6 @@ mobileMenuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
 });
 
-/*
-// Profile image upload functionality
-document.getElementById('image-upload').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const profileImage = document.getElementById('profile-image');
-            const placeholder = document.getElementById('profile-placeholder');
-            
-            profileImage.src = e.target.result;
-            profileImage.classList.remove('hidden');
-            placeholder.style.display = 'none';
-        };
-        reader.readAsDataURL(file);
-    }
-});
-*/
-
 // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
