@@ -24,9 +24,10 @@ Velkommen til koden bak min personlige porteføljeside 👉 [www.nithusan.no](ht
 - **Google Fonts – Inter**  
 
 ---
-
+```
 ## 📂 Struktur
-├── index.html       # Hovedsiden
-├── style.css        # Styling
-├── script.js        # JavaScript-funksjoner
-└── assets/          # Bilder, ikoner, etc.
+├── index.html       - Hovedsiden  
+├── style.css        - Styling  
+├── script.js        - JavaScript-funksjoner  
+└── assets/          - Bilder, ikoner, etc.
+```
