@@ -11,9 +11,6 @@ Koden bak min personlige portefølje: [www.nithusan.no](https://www.nithusan.no)
 - Responsivt design for desktop og mobil
 - Kontaktseksjon med e-post, LinkedIn og GitHub
 
-## 📸 Demo
-![Skjermbilde av nettsiden](./assets/screenshot.png)
-
 ## ⚙️ Teknologi
 - HTML5
 - CSS3
