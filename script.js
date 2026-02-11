@@ -151,6 +151,12 @@ const projectData = {
             no: "Prosjektet ble utviklet som en del av IN2000 ved Universitetet i Oslo og viser ferdigheter innen Android-utvikling, Kotlin og moderne UI/UX-design.",
             en: "The project was developed as part of the IN2000 course at the University of Oslo and showcases skills in Android development, Kotlin, and modern UI/UX design."
         },
+        screenshots: [
+            "https://github.com/user-attachments/assets/864711eb-cbfa-4327-8d8a-afa1d5d5826e",
+            "https://github.com/user-attachments/assets/f2fef5fd-eedc-4f5d-ab9f-6c435594c6f2",
+            "https://github.com/user-attachments/assets/2b26d59e-0799-4f75-9ace-fd299893682b",
+            "https://github.com/user-attachments/assets/ea63cb52-ce46-4c97-a6f5-98cd1dbb7529"
+        ],
         demoUrl: "https://github.com/Nithusan2002/LiftOff"
     },
             mobileapp: {
@@ -243,12 +249,29 @@ const projectData = {
             modalTitle.textContent = project.title[currentLang];
             demoLink.href = project.demoUrl;
             
-            const featuresTitle = currentLang === 'no' ? 'Hovedfunksjoner:' : 'Key Features:';
-            const techTitle = currentLang === 'no' ? 'Teknologier:' : 'Technologies:';
-            const challengesTitle = currentLang === 'no' ? 'Utfordringer:' : 'Challenges:';
-            const outcomeTitle = currentLang === 'no' ? 'Resultat:' : 'Outcome:';
-            
-            modalContent.innerHTML = `
+        const featuresTitle = currentLang === 'no' ? 'Hovedfunksjoner:' : 'Key Features:';
+        const techTitle = currentLang === 'no' ? 'Teknologier:' : 'Technologies:';
+        const challengesTitle = currentLang === 'no' ? 'Utfordringer:' : 'Challenges:';
+        const outcomeTitle = currentLang === 'no' ? 'Resultat:' : 'Outcome:';
+        const screenshotsTitle = currentLang === 'no' ? 'Skjermbilder:' : 'Screenshots:';
+        const screenshotsSection = project.screenshots?.length ? `
+                <div class="bg-gradient-to-br from-slate-50 to-blue-100 rounded-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">${screenshotsTitle}</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        ${project.screenshots.map((imageUrl, index) => `
+                            <img
+                                src="${imageUrl}"
+                                alt="${project.title[currentLang]} screenshot ${index + 1}"
+                                class="w-full h-44 object-cover rounded-lg border border-slate-200"
+                                loading="lazy"
+                            >
+                        `).join('')}
+                    </div>
+                </div>
+            ` : '';
+        
+        modalContent.innerHTML = `
+                ${screenshotsSection}
                 <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">${currentLang === 'no' ? 'Prosjektbeskrivelse:' : 'Project Description:'}</h3>
                     <p class="text-gray-600 leading-relaxed">${project.description[currentLang]}</p>
