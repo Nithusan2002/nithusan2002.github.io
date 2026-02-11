@@ -1,33 +1,38 @@
-# 🌐 Nithusan.no – Porteføljeside  
+# 🌐 Nithusan.no – Porteføljeside
 
-Velkommen til koden bak min personlige porteføljeside 👉 [www.nithusan.no](https://www.nithusan.no)  
-
----
+Koden bak min personlige portefølje: [www.nithusan.no](https://www.nithusan.no)
 
 ## 🚀 Funksjoner
-- **Profilseksjon** – kort intro om meg  
-- **Prosjekter** – oversikt over relevante prosjekter  
-- **CV-seksjon** – erfaring, utdanning og ferdigheter  
-- **Kontaktseksjon** – enkel måte å ta kontakt med meg
-  
----
+- Personlig forside (hero) med tydelige CTA-knapper
+- `Om meg`-seksjon med oppdatert profiltekst og bilde
+- Prosjektseksjon med LiftOff-kort og detaljert prosjektmodal
+- LiftOff-modal med lokale app-skjermbilder
+- Tospåklig støtte (norsk/engelsk) via språkknapp
+- Responsivt design for desktop og mobil
+- Kontaktseksjon med e-post, LinkedIn og GitHub
 
 ## 📸 Demo
-![Skjermbilde av nettsiden](./assets/screenshot.png)  
+![Skjermbilde av nettsiden](./assets/screenshot.png)
 
----
+## ⚙️ Teknologi
+- HTML5
+- CSS3
+- JavaScript (vanilla)
+- Tailwind CSS (CDN)
+- Google Fonts (`Inter`, `Space Grotesk`)
 
-## ⚙️ Teknologi brukt
-- **HTML5**  
-- **CSS3** (Flexbox, Media Queries, responsivt design)  
-- **JavaScript** (bl.a. FileReader API for bildeopplasting)  
-- **Google Fonts – Inter**  
-
----
-```
 ## 📂 Struktur
-├── index.html       - Hovedsiden  
-├── style.css        - Styling  
-├── script.js        - JavaScript-funksjoner  
-└── assets/          - Bilder, ikoner, etc.
+```text
+.
+├── index.html
+├── style.css
+├── script.js
+├── CNAME
+└── assets/
+    ├── profile.jpg
+    ├── screenshot.png
+    ├── RakettApp_SearchScreen.png
+    ├── RakettApp_Resultscreen.png
+    ├── RakettApp_Map.png
+    └── RakettApp_LaunchWindows.png
 ```
