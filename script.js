@@ -5,110 +5,154 @@ const mobileMenu = document.getElementById('mobile-menu');
 
 mobileMenuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
+    const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+    mobileMenuBtn.setAttribute('aria-expanded', String(!expanded));
 });
 
 // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
 
-        // Language switching functionality
-        let currentLanguage = 'no';
-        
-        function switchLanguage() {
-            currentLanguage = currentLanguage === 'no' ? 'en' : 'no';
-            
-            // Update all elements with language data
-            document.querySelectorAll('[data-no][data-en]').forEach(element => {
-                const text = element.getAttribute(`data-${currentLanguage}`);
-                if (text) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = text;
-                    } else {
-                        element.textContent = text;
-                    }
-                }
+        if (target) {
+            const navHeight = document.querySelector('nav').offsetHeight;
+            const topPosition = target.offsetTop - navHeight + 10;
+
+            window.scrollTo({
+                top: topPosition,
+                behavior: 'smooth'
             });
-            
-            // Update language toggle buttons
-            const toggleButtons = document.querySelectorAll('#language-toggle, #mobile-language-toggle');
-            toggleButtons.forEach(button => {
-                button.textContent = currentLanguage === 'no' ? 'EN' : 'NO';
-            });
-            
-            // Update document language
-            document.documentElement.lang = currentLanguage;
+
+            // Close mobile menu if open
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
         }
-        
-        // Add event listeners to language toggle buttons
-        document.getElementById('language-toggle').addEventListener('click', switchLanguage);
-        document.getElementById('mobile-language-toggle').addEventListener('click', switchLanguage);
+    });
+});
 
+// Language switching functionality
+let currentLanguage = 'no';
 
+function switchLanguage() {
+    currentLanguage = currentLanguage === 'no' ? 'en' : 'no';
 
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.classList.add('shadow-xl');
+    // Update all elements with language data
+    document.querySelectorAll('[data-no][data-en]').forEach(element => {
+        const text = element.getAttribute(`data-${currentLanguage}`);
+        if (text) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = text;
             } else {
-                nav.classList.remove('shadow-xl');
+                element.textContent = text;
             }
-        });
+        }
+    });
 
-        // Project modal functionality
-        const projectData = {
-            webapp: {
-                title: {
-                    no: "LiftOff",
-                    en: "LiftOff"
-                },
-                description: {
-                    no: "LiftOff er en Android-applikasjon som gir full oversikt over værforhold på valgt sted og tidspunkt. Appen hjelper brukere med å avgjøre om det er trygt å gjennomføre en rakettoppskytning ved å kombinere sanntids værdata med et moderne, brukervennlig grensesnitt.",
-                    en: "LiftOff is an Android application that provides a complete overview of weather conditions at a user-specified location and time. The app helps users determine whether it is safe to conduct a rocket launch by combining real-time weather data with a modern, user-friendly interface."
-                },
-                features: {
-                    no: [
-                        "Visualiserer værdata relevant for rakettoppskytninger",
-                        "Sømløs navigasjon mellom søk, resultater, kartvisning, oppskytningsvinduer og favoritter",
-                        "Lagre favorittsteder og oppskytningsvinduer",
-                        "Moderne, responsivt og tilgjengelig grensesnitt",
-                        "Perfekt prosjekt for å vise Android-utvikling og moderne Kotlin-ferdigheter"
-                    ],
-                    en: [
-                        "Visualizes weather data relevant for rocket launches",
-                        "Seamless navigation between search, results, map view, launch windows, and favorites",
-                        "Save favorite locations and launch windows",
-                        "Modern, responsive, and accessible interface",
-                        "Perfect project to showcase Android development and modern Kotlin skills"
-                    ]
-                },
-                technologies: [
-                    "Kotlin", "Jetpack Compose", "Navigation Compose", "Coil", "Room", "Ktor", "Retrofit",
-                    "Google Play Services Maps", "Coroutines", "Jetpack ViewModel", "Mockito",
-                    "Kotlin Serialization", "Material Design 3"
-                ],
-                challenges: {
-                    no: "Utfordringen var å integrere sanntids værdata og samtidig sikre en brukervennlig og moderne opplevelse. Dette ble løst med Kotlin, Jetpack Compose og effektive API-integrasjoner.",
-                    en: "The challenge was to integrate real-time weather data while ensuring a user-friendly and modern experience. This was solved using Kotlin, Jetpack Compose, and efficient API integrations."
-                },
-                outcome: {
-                    no: "Prosjektet ble utviklet som en del av IN2000 ved Universitetet i Oslo og viser ferdigheter innen Android-utvikling, Kotlin og moderne UI/UX-design.",
-                    en: "The project was developed as part of the IN2000 course at the University of Oslo and showcases skills in Android development, Kotlin, and modern UI/UX design."
-                },
-                demoUrl: "https://github.com/Nithusan2002/LiftOff"
-            },
+    // Update language toggle buttons
+    const toggleButtons = document.querySelectorAll('#language-toggle, #mobile-language-toggle');
+    toggleButtons.forEach(button => {
+        button.textContent = currentLanguage === 'no' ? 'EN' : 'NO';
+    });
+
+    // Update document language
+    document.documentElement.lang = currentLanguage;
+}
+
+// Add event listeners to language toggle buttons
+document.getElementById('language-toggle').addEventListener('click', switchLanguage);
+document.getElementById('mobile-language-toggle').addEventListener('click', switchLanguage);
+
+// Add scroll effect to navigation
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 40) {
+        nav.classList.add('shadow-xl');
+    } else {
+        nav.classList.remove('shadow-xl');
+    }
+});
+
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.nav-link');
+    const scrollPosition = window.scrollY + 120;
+
+    let current = 'hjem';
+    sections.forEach(section => {
+        if (scrollPosition >= section.offsetTop) {
+            current = section.id;
+        }
+    });
+
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${current}`) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNavLink);
+window.addEventListener('load', updateActiveNavLink);
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(element => {
+    revealObserver.observe(element);
+});
+
+// Project modal functionality
+const projectData = {
+    webapp: {
+        title: {
+            no: "LiftOff",
+            en: "LiftOff"
+        },
+        description: {
+            no: "LiftOff er en Android-applikasjon som gir full oversikt over værforhold på valgt sted og tidspunkt. Appen hjelper brukere med å avgjøre om det er trygt å gjennomføre en rakettoppskytning ved å kombinere sanntids værdata med et moderne, brukervennlig grensesnitt.",
+            en: "LiftOff is an Android application that provides a complete overview of weather conditions at a user-specified location and time. The app helps users determine whether it is safe to conduct a rocket launch by combining real-time weather data with a modern, user-friendly interface."
+        },
+        features: {
+            no: [
+                "Visualiserer værdata relevant for rakettoppskytninger",
+                "Sømløs navigasjon mellom søk, resultater, kartvisning, oppskytningsvinduer og favoritter",
+                "Lagre favorittsteder og oppskytningsvinduer",
+                "Moderne, responsivt og tilgjengelig grensesnitt",
+                "Perfekt prosjekt for å vise Android-utvikling og moderne Kotlin-ferdigheter"
+            ],
+            en: [
+                "Visualizes weather data relevant for rocket launches",
+                "Seamless navigation between search, results, map view, launch windows, and favorites",
+                "Save favorite locations and launch windows",
+                "Modern, responsive, and accessible interface",
+                "Perfect project to showcase Android development and modern Kotlin skills"
+            ]
+        },
+        technologies: [
+            "Kotlin", "Jetpack Compose", "Navigation Compose", "Coil", "Room", "Ktor", "Retrofit",
+            "Google Play Services Maps", "Coroutines", "Jetpack ViewModel", "Mockito",
+            "Kotlin Serialization", "Material Design 3"
+        ],
+        challenges: {
+            no: "Utfordringen var å integrere sanntids værdata og samtidig sikre en brukervennlig og moderne opplevelse. Dette ble løst med Kotlin, Jetpack Compose og effektive API-integrasjoner.",
+            en: "The challenge was to integrate real-time weather data while ensuring a user-friendly and modern experience. This was solved using Kotlin, Jetpack Compose, and efficient API integrations."
+        },
+        outcome: {
+            no: "Prosjektet ble utviklet som en del av IN2000 ved Universitetet i Oslo og viser ferdigheter innen Android-utvikling, Kotlin og moderne UI/UX-design.",
+            en: "The project was developed as part of the IN2000 course at the University of Oslo and showcases skills in Android development, Kotlin, and modern UI/UX design."
+        },
+        demoUrl: "https://github.com/Nithusan2002/LiftOff"
+    },
             mobileapp: {
                 title: {
                     no: "Mobilapp - FitnessTracker",
@@ -258,4 +302,3 @@ mobileMenuBtn.addEventListener('click', () => {
                 closeProjectModal();
             }
         });
-
