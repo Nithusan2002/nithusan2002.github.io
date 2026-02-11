@@ -7,64 +7,73 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50">
+<body class="site-bg">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+    <nav class="glass-nav fixed w-full top-0 z-50 transition-shadow duration-300">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <div class="text-xl font-bold text-gray-800">Nithusan Krishnasamymudali</div>
+                <div class="text-2xl font-bold text-slate-900">Nithusan Krishnasamymudali</div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#hjem" class="text-gray-600 hover:text-blue-600 transition duration-300" data-no="Hjem" data-en="Home">Hjem</a>
-                    <a href="#om" class="text-gray-600 hover:text-blue-600 transition duration-300" data-no="Om meg" data-en="About">Om meg</a>
-                    <a href="#prosjekter" class="text-gray-600 hover:text-blue-600 transition duration-300" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
-                    <a href="#ferdigheter" class="text-gray-600 hover:text-blue-600 transition duration-300" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
-                    <a href="#kontakt" class="text-gray-600 hover:text-blue-600 transition duration-300" data-no="Kontakt" data-en="Contact">Kontakt</a>
-                    <button id="language-toggle" class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm hover:bg-blue-700 transition duration-300">EN</button>
+                    <a href="#hjem" class="nav-link text-gray-600 transition duration-300" data-no="Hjem" data-en="Home">Hjem</a>
+                    <a href="#om" class="nav-link text-gray-600 transition duration-300" data-no="Om meg" data-en="About">Om meg</a>
+                    <a href="#prosjekter" class="nav-link text-gray-600 transition duration-300" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+                    <a href="#ferdigheter" class="nav-link text-gray-600 transition duration-300" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
+                    <a href="#kontakt" class="nav-link text-gray-600 transition duration-300" data-no="Kontakt" data-en="Contact">Kontakt</a>
+                    <button id="language-toggle" class="language-pill px-3 py-1 rounded-full text-sm hover:opacity-90 transition duration-300">EN</button>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
             <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <a href="#hjem" class="block py-2 text-gray-600 hover:text-blue-600" data-no="Hjem" data-en="Home">Hjem</a>
-                <a href="#om" class="block py-2 text-gray-600 hover:text-blue-600" data-no="Om meg" data-en="About">Om meg</a>
-                <a href="#prosjekter" class="block py-2 text-gray-600 hover:text-blue-600" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
-                <a href="#ferdigheter" class="block py-2 text-gray-600 hover:text-blue-600" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
-                <a href="#kontakt" class="block py-2 text-gray-600 hover:text-blue-600" data-no="Kontakt" data-en="Contact">Kontakt</a>
-                <button id="mobile-language-toggle" class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm hover:bg-blue-700 transition duration-300 mt-2">EN</button>
+                <a href="#hjem" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Hjem" data-en="Home">Hjem</a>
+                <a href="#om" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Om meg" data-en="About">Om meg</a>
+                <a href="#prosjekter" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+                <a href="#ferdigheter" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
+                <a href="#kontakt" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Kontakt" data-en="Contact">Kontakt</a>
+                <button id="mobile-language-toggle" class="language-pill px-3 py-1 rounded-full text-sm hover:opacity-90 transition duration-300 mt-2">EN</button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hjem" class="gradient-bg min-h-screen flex items-center justify-center text-white pt-16">
-        <div class="text-center px-4">
-            <!--
-                <div class="w-32 h-32 bg-white rounded-full mx-auto mb-8 flex items-center justify-center text-6xl overflow-hidden relative group cursor-pointer" id="profile-image-container">
-                    <img id="profile-image" class="w-full h-full object-cover rounded-full hidden" alt="Profilbilde">
-                    <div id="profile-placeholder" class="text-6xl">👨‍💻</div>
-                    <div class="absolute inset-0 bg-black bg-opacity-50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white text-sm font-semibold" data-no="Klikk for å laste opp" data-en="Click to upload">Klikk for å laste opp</span>
+    <section id="hjem" class="hero flex items-center text-white pt-20 reveal">
+        <div class="hero-inner max-w-6xl mx-auto px-4 w-full">
+            <div class="hero-grid">
+                <div>
+                    <span class="hero-kicker" data-no="Portefølje 2026" data-en="Portfolio 2026">Portefølje 2026</span>
+                    <h1 class="hero-title font-bold" data-no="Nithusan Krishnasamymudali" data-en="Nithusan Krishnasamymudali">Nithusan Krishnasamymudali</h1>
+                    <p class="hero-subtitle" data-no="Informatikkstudent som bygger moderne, brukervennlige løsninger med fokus på kvalitet, ytelse og design." data-en="Computer science student building modern, user-friendly solutions with focus on quality, performance, and design.">Informatikkstudent som bygger moderne, brukervennlige løsninger med fokus på kvalitet, ytelse og design.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#prosjekter" class="cta-primary" data-no="Se mine prosjekter" data-en="View my projects">Se mine prosjekter</a>
+                        <a href="#kontakt" class="cta-secondary" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</a>
                     </div>
-                    <input type="file" id="image-upload" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
                 </div>
-            -->
-            <h1 class="text-5xl md:text-6xl font-bold mb-4" data-no="Nithusan Krishnasamymudali" data-en="Nithusan Krishnasamymudali">Nithusan Krishnasamymudali</h1>
-            <p class="text-xl md:text-2xl mb-8 opacity-90" data-no="Informatikkstudent & Utvikler" data-en="Computer Science Student & Developer">Informatikkstudent & Utvikler</p>
-            <div class="space-x-4">
-                <a href="#prosjekter" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300" data-no="Se mine prosjekter" data-en="View my projects">Se mine prosjekter</a>
-                <a href="#kontakt" class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</a>
+                <div class="hero-panel reveal">
+                    <div class="hero-panel-card mb-4">
+                        <p class="text-sm uppercase tracking-wider text-cyan-100 mb-2" data-no="Fremhevet prosjekt" data-en="Featured project">Fremhevet prosjekt</p>
+                        <h3 class="text-2xl font-bold mb-2">LiftOff</h3>
+                        <p class="text-blue-50 text-sm leading-relaxed" data-no="Android-app for trygg rakettoppskytning basert på sanntids værdata, kart og favorittsteder." data-en="Android app for safe rocket launch decisions using real-time weather data, maps, and saved locations.">Android-app for trygg rakettoppskytning basert på sanntids værdata, kart og favorittsteder.</p>
+                    </div>
+                    <div class="hero-tech-list">
+                        <span>Kotlin</span>
+                        <span>Jetpack Compose</span>
+                        <span>Room</span>
+                        <span>Retrofit</span>
+                        <span>Material 3</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Om meg Section -->
 
-    <section id="om" class="py-20 bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
+    <section id="om" class="py-20 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 reveal">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800" data-no="Om meg" data-en="About me">Om meg</h2>
+            <h2 class="section-title font-bold text-center text-gray-800" data-no="Om meg" data-en="About me">Om meg</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h3 class="text-2xl font-semibold mb-6 text-gray-800" data-no="Hei! Jeg er en lidenskapelig informatikkstudent" data-en="Hi! I'm a passionate computer science student">Hei! Jeg er en lidenskapelig informatikkstudent</h3>
@@ -80,7 +89,7 @@
                         <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm" data-no="Lærevillig" data-en="Eager to learn">Lærevillig</span>
                     </div>
                 </div>
-                <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg p-8">
+                <div class="section-surface p-8">
                     <h4 class="text-xl font-semibold mb-4 text-gray-800" data-no="Utdanning" data-en="Education">Utdanning</h4>
                     <div class="mb-6">
                         <h5 class="font-semibold text-gray-800" data-no="BSc. Informatikk: Programmering og systemarkitektur" data-en="BSc. Computer Science: Programming and System Architecture">BSc. Informatikk: Programmering og systemarkitektur</h5>
@@ -101,12 +110,12 @@
 
 
     <!-- Prosjekter Section -->
-    <section id="prosjekter" class="py-20 bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50">
+    <section id="prosjekter" class="py-20 bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 reveal">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800" data-no="Mine prosjekter" data-en="My projects">Mine prosjekter</h2>
+            <h2 class="section-title font-bold text-center text-gray-800" data-no="Mine prosjekter" data-en="My projects">Mine prosjekter</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Prosjekt 1 -->
-                <div class="bg-gradient-to-br from-slate-50 to-blue-100 rounded-lg shadow-lg overflow-hidden card-hover">
+                <div class="section-surface overflow-hidden card-hover reveal">
                     <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
                         <div class="text-white text-6xl">🚀</div>
                     </div>
@@ -162,32 +171,32 @@
     </section>
 
     <!-- Ferdigheter Section -->
-    <section id="ferdigheter" class="py-20 bg-gradient-to-br from-rose-50 via-amber-50 to-lime-50">
+    <section id="ferdigheter" class="py-20 bg-gradient-to-br from-rose-50 via-amber-50 to-lime-50 reveal">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800" data-no="Mine ferdigheter" data-en="My skills">Mine ferdigheter</h2>
+            <h2 class="section-title font-bold text-center text-gray-800" data-no="Mine ferdigheter" data-en="My skills">Mine ferdigheter</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
+                <div class="section-surface text-center p-6 reveal">
                     <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-3xl">💻</span>
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800">Frontend</h3>
                     <p class="text-gray-600 text-sm">HTML, CSS, JavaScript</p>
                 </div>
-                <div class="text-center">
+                <div class="section-surface text-center p-6 reveal">
                     <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-3xl">⚙️</span>
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800">Backend</h3>
                     <p class="text-gray-600 text-sm">Python, Java, SQL</p>
                 </div>
-                <div class="text-center">
+                <div class="section-surface text-center p-6 reveal">
                     <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-3xl">📱</span>
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Mobil" data-en="Mobile">Mobil</h3>
                     <p class="text-gray-600 text-sm">Kotlin, Android</p>
                 </div>
-                <div class="text-center">
+                <div class="section-surface text-center p-6 reveal">
                     <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-3xl">🛠️</span>
                     </div>
@@ -199,16 +208,16 @@
     </section>
 
     <!-- Kontakt Section -->
-    <section id="kontakt" class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+    <section id="kontakt" class="py-20 bg-gradient-to-br from-blue-50 to-purple-50 reveal">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</h2>
+            <h2 class="section-title font-bold text-center mb-8 text-gray-800" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</h2>
             <p class="text-xl text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-no="Jeg er alltid interessert i nye muligheter og spennende prosjekter. Ta gjerne kontakt hvis du vil diskutere samarbeid eller bare vil si hei!" data-en="I'm always interested in new opportunities and exciting projects. Feel free to contact me if you want to discuss collaboration or just say hello!">
                 Jeg er alltid interessert i nye muligheter og spennende prosjekter. Ta gjerne kontakt hvis du vil diskutere samarbeid eller bare vil si hei!
             </p>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- E-post -->
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-xl shadow-lg p-8 text-center card-hover">
+                <div class="section-surface p-8 text-center card-hover reveal">
                     <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <span class="text-3xl">📧</span>
                     </div>
@@ -218,7 +227,7 @@
                 </div>
 
                 <!-- LinkedIn -->
-                <div class="bg-gradient-to-br from-green-50 to-lime-100 rounded-xl shadow-lg p-8 text-center card-hover">
+                <div class="section-surface p-8 text-center card-hover reveal">
                     <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <span class="text-3xl">💼</span>
                     </div>
@@ -228,7 +237,7 @@
                 </div>
 
                 <!-- GitHub -->
-                <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl shadow-lg p-8 text-center card-hover">
+                <div class="section-surface p-8 text-center card-hover reveal">
                     <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <span class="text-3xl">🐙</span>
                     </div>
