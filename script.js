@@ -152,10 +152,10 @@ const projectData = {
             en: "The project was developed as part of the IN2000 course at the University of Oslo and showcases skills in Android development, Kotlin, and modern UI/UX design."
         },
         screenshots: [
-            "https://github.com/user-attachments/assets/864711eb-cbfa-4327-8d8a-afa1d5d5826e",
-            "https://github.com/user-attachments/assets/f2fef5fd-eedc-4f5d-ab9f-6c435594c6f2",
-            "https://github.com/user-attachments/assets/2b26d59e-0799-4f75-9ace-fd299893682b",
-            "https://github.com/user-attachments/assets/ea63cb52-ce46-4c97-a6f5-98cd1dbb7529"
+            "assets/RakettApp_SearchScreen.png",
+            "assets/RakettApp_Resultscreen.png",
+            "assets/RakettApp_Map.png",
+            "assets/RakettApp_LaunchWindows.png"
         ],
         demoUrl: "https://github.com/Nithusan2002/LiftOff"
     },
@@ -257,14 +257,16 @@ const projectData = {
         const screenshotsSection = project.screenshots?.length ? `
                 <div class="bg-gradient-to-br from-slate-50 to-blue-100 rounded-lg p-6">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">${screenshotsTitle}</h3>
-                    <div class="grid grid-cols-2 gap-3">
+                    <div class="modal-shot-grid">
                         ${project.screenshots.map((imageUrl, index) => `
-                            <img
-                                src="${imageUrl}"
-                                alt="${project.title[currentLang]} screenshot ${index + 1}"
-                                class="w-full h-44 object-cover rounded-lg border border-slate-200"
-                                loading="lazy"
-                            >
+                            <figure class="modal-shot-card">
+                                <img
+                                    src="${imageUrl}"
+                                    alt="${project.title[currentLang]} screenshot ${index + 1}"
+                                    class="modal-shot-image"
+                                    loading="lazy"
+                                >
+                            </figure>
                         `).join('')}
                     </div>
                 </div>
