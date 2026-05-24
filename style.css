@@ -292,6 +292,13 @@ h5 {
     padding: 0.75rem;
 }
 
+.project-thumb-icon {
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    object-fit: contain;
+}
+
 .project-thumb-mark {
     width: 6.75rem;
     height: 6.75rem;
