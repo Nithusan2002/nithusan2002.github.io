@@ -31,6 +31,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Hero project rotation
+const heroProjects = [
+    {
+        title: { no: 'LiftOff', en: 'LiftOff' },
+        desc: { no: 'Android-app for trygg rakettoppskytning basert på sanntids værdata, kart og favorittsteder.', en: 'Android app for safe rocket launch decisions using real-time weather data, maps, and saved locations.' },
+        techs: ['Kotlin', 'Jetpack Compose', 'Room', 'Retrofit', 'Material 3']
+    },
+    {
+        title: { no: 'Spor økonomi', en: 'Spor økonomi' },
+        desc: { no: 'iOS-app for personlig økonomioppfølging med budsjett, faste poster og investeringsoversikt.', en: 'iOS app for personal finance tracking with budgets, recurring expenses, and investment overview.' },
+        techs: ['Swift', 'SwiftUI', 'SwiftData', 'Supabase']
+    }
+];
+let heroProjectIndex = 0;
+
+function setHeroProject(index) {
+    heroProjectIndex = index;
+    const p = heroProjects[index];
+    const lang = currentLanguage;
+    document.getElementById('hero-project-title').textContent = p.title[lang];
+    document.getElementById('hero-project-desc').textContent = p.desc[lang];
+    const techList = document.getElementById('hero-tech-list');
+    techList.innerHTML = p.techs.map(t => `<span>${t}</span>`).join('');
+    document.querySelectorAll('.hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+setInterval(() => setHeroProject((heroProjectIndex + 1) % heroProjects.length), 4000);
+
 // Language switching functionality
 let currentLanguage = 'no';
 
@@ -52,8 +82,11 @@ function switchLanguage() {
     // Update language toggle buttons
     const toggleButtons = document.querySelectorAll('#language-toggle, #mobile-language-toggle');
     toggleButtons.forEach(button => {
-        button.textContent = currentLanguage === 'no' ? 'EN' : 'NO';
+        button.textContent = currentLanguage === 'no' ? 'EN' : 'Norsk';
     });
+
+    // Refresh hero panel text
+    setHeroProject(heroProjectIndex);
 
     // Update document language
     document.documentElement.lang = currentLanguage;
