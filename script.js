@@ -159,7 +159,43 @@ const projectData = {
         ],
         demoUrl: "https://github.com/Nithusan2002/LiftOff"
     },
-            mobileapp: {
+            sporOkonomi: {
+            title: {
+                no: "Spor økonomi",
+                en: "Track Economy"
+            },
+            description: {
+                no: "En iOS-app for personlig økonomioppfølging, designet for brukere som vil vite hva de har igjen av måneden – uten komplisert oppsett. Appen bygger på et offline-first prinsipp med lokal lagring som standard.",
+                en: "An iOS app for personal finance tracking, designed for users who want to know what they have left this month – without complicated setup. The app follows an offline-first principle with local storage as default."
+            },
+            features: {
+                no: [
+                    "Budsjettplanlegging med inntekter og utgifter",
+                    "Automatisk månedlig oppretting av faste poster",
+                    "Investeringsoversikt med snapshots",
+                    "Import og eksport av data",
+                    "Enkel, rask og intuitiv å bruke"
+                ],
+                en: [
+                    "Budget planning with income and expenses",
+                    "Automatic monthly creation of recurring expenses",
+                    "Investment overview with snapshots",
+                    "Import and export of data",
+                    "Simple, fast, and intuitive to use"
+                ]
+            },
+            technologies: ["Swift", "SwiftUI", "SwiftData", "Supabase", "iOS"],
+            challenges: {
+                no: "Utfordringen var å lage en app som er offline-first og rask uten å gå på kompromiss med funksjonalitet. Lokal datalagring via SwiftData sikrer at appen fungerer uten internettilkobling, mens Supabase håndterer valgfri autentisering.",
+                en: "The challenge was building an offline-first app that is fast without compromising functionality. Local data storage via SwiftData ensures the app works without internet, while Supabase handles optional authentication."
+            },
+            outcome: {
+                no: "Prosjektet er aktivt under utvikling med over 385 commits. Juridiske dokumenter er på plass for fremtidig App Store-publisering.",
+                en: "The project is actively under development with over 385 commits. Legal documents are in place for future App Store publication."
+            },
+            demoUrl: "https://github.com/Nithusan2002/spor-okonomi"
+        },
+        mobileapp: {
                 title: {
                     no: "Mobilapp - FitnessTracker",
                     en: "Mobile App - FitnessTracker"
