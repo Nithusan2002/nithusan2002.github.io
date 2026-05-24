@@ -43,8 +43,10 @@
         <div class="hero-inner max-w-6xl mx-auto px-4 w-full">
             <div class="hero-grid">
                 <div class="hero-copy">
+                    <span class="hero-kicker" data-no="🔍 Åpen for internship & trainee-stillinger" data-en="🔍 Open to internship & trainee positions">🔍 Åpen for internship & trainee-stillinger</span>
                     <h1 class="hero-title font-bold" data-no="Nithusan Krishnasamymudali" data-en="Nithusan Krishnasamymudali">Nithusan Krishnasamymudali</h1>
-                    <p class="hero-subtitle" data-no="Informatikkstudent som bygger moderne, brukervennlige løsninger med fokus på kvalitet, ytelse og design." data-en="Computer science student building modern, user-friendly solutions with focus on quality, performance, and design.">Informatikkstudent som bygger moderne, brukervennlige løsninger med fokus på kvalitet, ytelse og design.</p>
+                    <p class="hero-role" data-no="Informatikkstudent · iOS & Backend" data-en="Computer Science Student · iOS & Backend">Informatikkstudent · iOS & Backend</p>
+                    <p class="hero-subtitle" data-no="Studerer Informatikk ved UiO og jobber som IT Manager i Radio Nova." data-en="Studying Computer Science at UiO, working as IT Manager at Radio Nova.">Studerer Informatikk ved UiO og jobber som IT Manager i Radio Nova.</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#prosjekter" class="cta-primary" data-no="Se mine prosjekter" data-en="View my projects">Se mine prosjekter</a>
                         <a href="#kontakt" class="cta-secondary" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</a>
@@ -53,15 +55,19 @@
                 <div class="hero-panel reveal">
                     <div class="hero-panel-card mb-4">
                         <p class="text-sm uppercase tracking-wider text-cyan-100 mb-2" data-no="Fremhevet prosjekt" data-en="Featured project">Fremhevet prosjekt</p>
-                        <h3 class="text-2xl font-bold mb-2">LiftOff</h3>
-                        <p class="text-blue-50 text-sm leading-relaxed" data-no="Android-app for trygg rakettoppskytning basert på sanntids værdata, kart og favorittsteder." data-en="Android app for safe rocket launch decisions using real-time weather data, maps, and saved locations.">Android-app for trygg rakettoppskytning basert på sanntids værdata, kart og favorittsteder.</p>
+                        <h3 id="hero-project-title" class="text-2xl font-bold mb-2">LiftOff</h3>
+                        <p id="hero-project-desc" class="text-blue-50 text-sm leading-relaxed">Android-app for trygg rakettoppskytning basert på sanntids værdata, kart og favorittsteder.</p>
                     </div>
-                    <div class="hero-tech-list">
+                    <div id="hero-tech-list" class="hero-tech-list">
                         <span>Kotlin</span>
                         <span>Jetpack Compose</span>
                         <span>Room</span>
                         <span>Retrofit</span>
                         <span>Material 3</span>
+                    </div>
+                    <div class="flex justify-center gap-2 mt-3">
+                        <button onclick="setHeroProject(0)" id="hero-dot-0" class="hero-dot active" aria-label="LiftOff"></button>
+                        <button onclick="setHeroProject(1)" id="hero-dot-1" class="hero-dot" aria-label="Spor økonomi"></button>
                     </div>
                 </div>
             </div>
@@ -119,7 +125,7 @@
                 <!-- Prosjekt 1 -->
                 <div class="section-surface overflow-hidden card-hover reveal">
                     <div class="project-thumb h-56 bg-gradient-to-br from-slate-700 to-slate-900">
-                        <div class="project-thumb-mark" aria-hidden="true">🚀</div>
+                        <img src="assets/LiftOffIcon" alt="LiftOff ikon" class="project-thumb-logo">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="LiftOff" data-en="LiftOff">LiftOff</h3>
@@ -134,11 +140,11 @@
                 
                 <!-- Prosjekt 2: Spor økonomi -->
                 <div class="section-surface overflow-hidden card-hover reveal">
-                    <div class="project-thumb h-56 bg-gradient-to-br from-emerald-600 to-teal-800">
-                        <div class="project-thumb-mark" aria-hidden="true">💰</div>
+                    <div class="project-thumb h-56 bg-gradient-to-br from-[#2d6a4f] to-[#1b4332]">
+                        <img src="assets/icon-sage.svg" alt="Spor økonomi ikon" class="project-thumb-icon">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="Spor økonomi" data-en="Track Economy">Spor økonomi</h3>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="Spor økonomi" data-en="Spor økonomi">Spor økonomi</h3>
                         <p class="text-gray-600 mb-4" data-no="iOS-app for personlig økonomioppfølging. Gir deg enkel oversikt over hva du har igjen av måneden, med budsjettplanlegging, faste poster og investeringsoversikt – uten komplisert oppsett." data-en="iOS app for personal finance tracking. Gives you a clear picture of what you have left this month, with budget planning, recurring expenses, and investment snapshots – no complicated setup.">iOS-app for personlig økonomioppfølging. Gir deg enkel oversikt over hva du har igjen av måneden, med budsjettplanlegging, faste poster og investeringsoversikt – uten komplisert oppsett.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Swift</span>
@@ -146,6 +152,7 @@
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">iOS</span>
                         </div>
                         <button onclick="openProjectModal('sporOkonomi')" class="text-blue-600 hover:text-blue-800 font-semibold" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                        <a href="https://nithusan.no/spor-okonomi/" target="_blank" rel="noopener noreferrer" class="block mt-2 text-sm text-gray-500 hover:text-gray-700 transition duration-300" data-no="Se prosjektets hjemmeside →" data-en="View project website →">Se prosjektets hjemmeside →</a>
                     </div>
                 </div>
 
@@ -283,7 +290,7 @@
                 
                 <div class="flex justify-end mt-8 space-x-4">
                     <button onclick="closeProjectModal()" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition duration-300" data-no="Lukk" data-en="Close">Lukk</button>
-                    <a id="modal-demo-link" href="https://github.com/Nithusan2002/LiftOff" target="_blank" rel="noopener noreferrer" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300" data-no="Se demo" data-en="See demo">Se demo</a>
+                    <a id="modal-demo-link" href="https://github.com/Nithusan2002/LiftOff" target="_blank" rel="noopener noreferrer" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300" data-no="Github repo" data-en="Github repo">Github repo</a>
                 </div>
             </div>
         </div>
