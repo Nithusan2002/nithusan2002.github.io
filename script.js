@@ -162,7 +162,7 @@ const projectData = {
             sporOkonomi: {
             title: {
                 no: "Spor økonomi",
-                en: "Spor Økonomi"
+                en: "Spor økonomi"
             },
             description: {
                 no: "En iOS-app for personlig økonomioppfølging, designet for brukere som vil vite hva de har igjen av måneden – uten komplisert oppsett. Appen bygger på et offline-first prinsipp med lokal lagring som standard.",
