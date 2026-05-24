@@ -88,9 +88,9 @@ h5 {
     position: relative;
     overflow: hidden;
     background:
-        radial-gradient(circle at 12% 22%, rgba(14, 165, 120, 0.3), transparent 32%),
-        radial-gradient(circle at 86% 86%, rgba(11, 87, 208, 0.4), transparent 36%),
-        linear-gradient(120deg, #1a56c4 0%, #0f4aa7 45%, #1b6b50 100%);
+        radial-gradient(circle at 12% 22%, rgba(14, 165, 168, 0.35), transparent 32%),
+        radial-gradient(circle at 86% 86%, rgba(11, 87, 208, 0.45), transparent 36%),
+        linear-gradient(120deg, #184fb7 0%, #0f4aa7 40%, #157e8b 100%);
 }
 
 .hero::before,
@@ -108,7 +108,7 @@ h5 {
 .hero::before {
     right: 14%;
     top: 12%;
-    background: #37d4a0;
+    background: #37b6ff;
     opacity: 0.14;
 }
 
