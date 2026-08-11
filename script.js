@@ -34,14 +34,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Hero project rotation
 const heroProjects = [
     {
-        title: { no: 'LiftOff', en: 'LiftOff' },
-        desc: { no: 'Android-app for trygg rakettoppskytning basert på sanntids værdata, kart og favorittsteder.', en: 'Android app for safe rocket launch decisions using real-time weather data, maps, and saved locations.' },
-        techs: ['Kotlin', 'Jetpack Compose', 'Room', 'Retrofit', 'Material 3']
+        title: { no: 'JobTracker', en: 'JobTracker' },
+        desc: { no: 'Backend/API-prosjekt med Kotlin, Spring Boot, PostgreSQL, validering og deploy-klargjort oppsett.', en: 'Backend/API project with Kotlin, Spring Boot, PostgreSQL, validation, and deployment-ready setup.' },
+        techs: ['Kotlin', 'Spring Boot', 'PostgreSQL', 'Docker', 'REST API']
     },
     {
         title: { no: 'Spor økonomi', en: 'Spor økonomi' },
         desc: { no: 'iOS-app for personlig økonomioppfølging med budsjett, faste poster og investeringsoversikt.', en: 'iOS app for personal finance tracking with budgets, recurring expenses, and investment overview.' },
         techs: ['Swift', 'SwiftUI', 'SwiftData', 'Supabase']
+    },
+    {
+        title: { no: 'LiftOff', en: 'LiftOff' },
+        desc: { no: 'Android-app for trygg rakettoppskytning basert på sanntids værdata, kart og favorittsteder.', en: 'Android app for safe rocket launch decisions using real-time weather data, maps, and saved locations.' },
+        techs: ['Kotlin', 'Jetpack Compose', 'Room', 'Retrofit', 'Material 3']
     }
 ];
 let heroProjectIndex = 0;

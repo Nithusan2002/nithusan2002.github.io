@@ -330,6 +330,31 @@ h5 {
     line-height: 1.25;
 }
 
+.project-featured-badge {
+    display: inline-flex;
+    margin-bottom: 0.75rem;
+    border-radius: 999px;
+    padding: 0.3rem 0.65rem;
+    background: #dbeafe;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    font-size: 0.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.focus-chip {
+    display: flex;
+    align-items: center;
+    min-height: 3rem;
+    border-radius: 0.85rem;
+    padding: 0.85rem 1rem;
+    background: #f8fafc;
+    border: 1px solid #dbe7ff;
+    color: #334155;
+    font-weight: 700;
+}
+
 .project-thumb-mark {
     width: 6.75rem;
     height: 6.75rem;
