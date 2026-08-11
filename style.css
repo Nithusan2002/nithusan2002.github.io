@@ -355,6 +355,103 @@ h5 {
     font-weight: 700;
 }
 
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.contact-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    min-height: 8rem;
+}
+
+.contact-icon {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 1rem;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+.contact-icon-blue {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.contact-icon-cyan {
+    background: #cffafe;
+    color: #0e7490;
+}
+
+.contact-icon-green {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.contact-icon-purple {
+    background: #f3e8ff;
+    color: #7e22ce;
+}
+
+.contact-title {
+    margin: 0 0 0.3rem;
+    color: #1f2937;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.contact-value {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 7.25rem;
+    min-height: 2.5rem;
+    border-radius: 999px;
+    padding: 0.65rem 1rem;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-align: center;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.contact-button:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+}
+
+.contact-button-blue {
+    background: #2563eb;
+}
+
+.contact-button-cyan {
+    background: #0e7490;
+}
+
+.contact-button-green {
+    background: #16a34a;
+}
+
+.contact-button-purple {
+    background: #9333ea;
+}
+
 .project-thumb-mark {
     width: 6.75rem;
     height: 6.75rem;
@@ -450,5 +547,20 @@ h5 {
 
     .modal-shot-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .contact-button {
+        grid-column: 1 / -1;
+        width: 100%;
     }
 }
