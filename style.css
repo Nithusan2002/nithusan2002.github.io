@@ -307,6 +307,16 @@ h5 {
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
+.project-thumb-screen {
+    width: 92%;
+    max-height: 78%;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    object-position: top left;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.36);
+}
+
 .project-thumb-mark {
     width: 6.75rem;
     height: 6.75rem;
@@ -326,6 +336,10 @@ h5 {
     gap: 0.9rem;
 }
 
+.modal-shot-grid.wide {
+    grid-template-columns: 1fr;
+}
+
 .modal-shot-card {
     margin: 0;
     border-radius: 0.9rem;
@@ -342,6 +356,18 @@ h5 {
     display: block;
     border-radius: 0.65rem;
     background: #0b1220;
+}
+
+.modal-shot-grid.wide .modal-shot-card {
+    background: linear-gradient(180deg, #ecfeff, #dbeafe);
+    border-color: #bfdbfe;
+}
+
+.modal-shot-grid.wide .modal-shot-image {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top left;
+    background: #f8fafc;
 }
 
 .card-hover {
