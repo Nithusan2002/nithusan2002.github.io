@@ -357,17 +357,19 @@ h5 {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    max-width: 48rem;
+    margin: 0 auto;
 }
 
 .contact-card {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
-    gap: 1rem;
-    padding: 1.25rem;
-    min-height: 8rem;
+    gap: 1.1rem;
+    padding: 1rem 1.1rem;
+    min-height: 5.5rem;
 }
 
 .contact-icon {
@@ -402,7 +404,7 @@ h5 {
 }
 
 .contact-title {
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.15rem;
     color: #1f2937;
     font-size: 1.15rem;
     font-weight: 800;
@@ -421,7 +423,7 @@ h5 {
     align-items: center;
     justify-content: center;
     min-width: 7.25rem;
-    min-height: 2.5rem;
+    min-height: 2.35rem;
     border-radius: 999px;
     padding: 0.65rem 1rem;
     color: #fff;
@@ -551,10 +553,6 @@ h5 {
 }
 
 @media (max-width: 760px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
     .contact-card {
         grid-template-columns: auto minmax(0, 1fr);
     }
