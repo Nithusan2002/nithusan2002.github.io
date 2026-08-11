@@ -234,8 +234,8 @@ const projectData = {
                 en: "JobTracker"
             },
             description: {
-                no: "JobTracker er en fullstack webapp for å holde oversikt over jobbsøknader. Prosjektet har et Kotlin/Spring Boot REST-API, PostgreSQL-database og et lett webgrensesnitt for å registrere, filtrere, redigere og slette søknader.",
-                en: "JobTracker is a full-stack web app for tracking job applications. It includes a Kotlin/Spring Boot REST API, a PostgreSQL database, and a lightweight web interface for creating, filtering, editing, and deleting applications."
+                no: "JobTracker er et backend/API-prosjekt med et enkelt webgrensesnitt for å holde oversikt over jobbsøknader. Prosjektet har Kotlin/Spring Boot REST-API, PostgreSQL-database og støtte for registrering, filtrering, redigering og sletting av søknader.",
+                en: "JobTracker is a backend/API project with a simple web interface for tracking job applications. It includes a Kotlin/Spring Boot REST API, a PostgreSQL database, and support for creating, filtering, editing, and deleting applications."
             },
             features: {
                 no: [
@@ -243,14 +243,16 @@ const projectData = {
                     "Søk og filtrering på status",
                     "Redigering og sletting fra webgrensesnittet",
                     "REST-API med validering og tydelige 400/404-feilsvar",
-                    "Docker- og Render-klargjort deploy-oppsett"
+                    "Docker- og Render-klargjort deploy-oppsett",
+                    "Ikke hostet live ennå; repoet viser kode, arkitektur og lokal kjøring"
                 ],
                 en: [
                     "Register applications with company, role, date, status, link, and notes",
                     "Search and status filtering",
                     "Edit and delete applications from the web interface",
                     "REST API with validation and clear 400/404 error responses",
-                    "Docker and Render-ready deployment setup"
+                    "Docker and Render-ready deployment setup",
+                    "Not hosted live yet; the repository showcases code, architecture, and local setup"
                 ]
             },
             technologies: ["Kotlin", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Gradle", "Docker", "HTML", "CSS", "JavaScript"],
