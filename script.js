@@ -228,6 +228,44 @@ const projectData = {
             },
             demoUrl: "https://github.com/Nithusan2002/spor-okonomi"
         },
+        jobTracker: {
+            title: {
+                no: "JobTracker",
+                en: "JobTracker"
+            },
+            description: {
+                no: "JobTracker er en fullstack webapp for å holde oversikt over jobbsøknader. Prosjektet har et Kotlin/Spring Boot REST-API, PostgreSQL-database og et lett webgrensesnitt for å registrere, filtrere, redigere og slette søknader.",
+                en: "JobTracker is a full-stack web app for tracking job applications. It includes a Kotlin/Spring Boot REST API, a PostgreSQL database, and a lightweight web interface for creating, filtering, editing, and deleting applications."
+            },
+            features: {
+                no: [
+                    "Registrering av jobbsøknader med bedrift, stilling, dato, status, lenke og notater",
+                    "Søk og filtrering på status",
+                    "Redigering og sletting fra webgrensesnittet",
+                    "REST-API med validering og tydelige 400/404-feilsvar",
+                    "Docker- og Render-klargjort deploy-oppsett"
+                ],
+                en: [
+                    "Register applications with company, role, date, status, link, and notes",
+                    "Search and status filtering",
+                    "Edit and delete applications from the web interface",
+                    "REST API with validation and clear 400/404 error responses",
+                    "Docker and Render-ready deployment setup"
+                ]
+            },
+            technologies: ["Kotlin", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Gradle", "Docker", "HTML", "CSS", "JavaScript"],
+            challenges: {
+                no: "Hovedutfordringen var å bygge et lite, komplett prosjekt som viser backend-ferdigheter uten å bli unødvendig komplisert. Løsningen ble et tydelig CRUD-API med validering, PostgreSQL og en enkel frontend som bruker samme API.",
+                en: "The main challenge was building a small but complete project that demonstrates backend skills without unnecessary complexity. The result is a focused CRUD API with validation, PostgreSQL, and a simple frontend using the same API."
+            },
+            outcome: {
+                no: "Prosjektet viser praktisk erfaring med Kotlin/Spring Boot, databaseintegrasjon, REST-design, frontend-integrasjon, README-dokumentasjon, MIT-lisens og deploy-klargjøring.",
+                en: "The project demonstrates practical experience with Kotlin/Spring Boot, database integration, REST design, frontend integration, README documentation, MIT licensing, and deployment preparation."
+            },
+            screenshots: ["assets/jobtracker-screenshot.png"],
+            screenshotLayout: "wide",
+            demoUrl: "https://github.com/Nithusan2002/jobtracker-api"
+        },
         mobileapp: {
                 title: {
                     no: "Mobilapp - FitnessTracker",
@@ -326,7 +364,7 @@ const projectData = {
         const screenshotsSection = project.screenshots?.length ? `
                 <div class="bg-gradient-to-br from-slate-50 to-blue-100 rounded-lg p-6">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">${screenshotsTitle}</h3>
-                    <div class="modal-shot-grid">
+                    <div class="modal-shot-grid ${project.screenshotLayout === 'wide' ? 'wide' : ''}">
                         ${project.screenshots.map((imageUrl, index) => `
                             <figure class="modal-shot-card">
                                 <img
