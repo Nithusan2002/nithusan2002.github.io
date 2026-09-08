@@ -40,7 +40,7 @@ const heroProjects = [
     },
     {
         title: { no: 'Spor økonomi', en: 'Spor økonomi' },
-        desc: { no: 'Offline-first iOS-app utviklet gjennom over 490 commits og støttet av mer enn 140 automatiserte tester.', en: 'Offline-first iOS app developed across 490+ commits and backed by more than 140 automated tests.' },
+        desc: { no: 'En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned.', en: 'An iOS app I am building to make it easy to see how much money you have left each month.' },
         techs: ['Swift', 'SwiftUI', 'SwiftData', 'Supabase']
     },
     {
@@ -203,8 +203,8 @@ const projectData = {
                 en: "Spor økonomi"
             },
             description: {
-                no: "En iOS-app for personlig økonomioppfølging, designet for brukere som vil vite hva de har igjen av måneden – uten komplisert oppsett. Appen bygger på et offline-first prinsipp med lokal lagring som standard.",
-                en: "An iOS app for personal finance tracking, designed for users who want to know what they have left this month – without complicated setup. The app follows an offline-first principle with local storage as default."
+                no: "Spor økonomi er en iOS-app jeg lager for å gjøre personlig økonomi enklere å følge. Målet er at du raskt skal kunne se hva du har igjen denne måneden, uten å måtte sette opp et komplisert budsjettsystem.",
+                en: "Spor økonomi is an iOS app I am building to make personal finances easier to follow. The goal is to show you what you have left this month without making you set up a complicated budgeting system."
             },
             features: {
                 no: [
