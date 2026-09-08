@@ -35,7 +35,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const heroProjects = [
     {
         title: { no: 'JobTracker', en: 'JobTracker' },
-        desc: { no: 'Komplett CRUD-løsning med fem REST-endepunkter, PostgreSQL, validering og Docker-basert deploy-oppsett.', en: 'Complete CRUD solution with five REST endpoints, PostgreSQL, validation and a Docker-based deployment setup.' },
+        desc: { no: 'En webapp jeg laget for å holde oversikt over jobbsøknader. Backend er bygget med Kotlin, Spring Boot og PostgreSQL.', en: 'A web app I built to keep track of job applications. The backend uses Kotlin, Spring Boot and PostgreSQL.' },
         techs: ['Kotlin', 'Spring Boot', 'PostgreSQL', 'Docker', 'REST API']
     },
     {
@@ -45,7 +45,7 @@ const heroProjects = [
     },
     {
         title: { no: 'LiftOff', en: 'LiftOff' },
-        desc: { no: 'IN2000-prosjekt med sanntids værdata, kart, favorittsteder og lokal lagring i Room.', en: 'IN2000 project with real-time weather data, maps, saved locations and local Room storage.' },
+        desc: { no: 'I IN2000 laget gruppen min en Android-app som samler værdata for rakettoppskytninger.', en: 'For the IN2000 course, my group built an Android app that gathers weather data for rocket launches.' },
         techs: ['Kotlin', 'Jetpack Compose', 'Room', 'Retrofit', 'Material 3']
     }
 ];
@@ -157,23 +157,23 @@ const projectData = {
             en: "LiftOff"
         },
         description: {
-            no: "LiftOff er en Android-applikasjon som gir full oversikt over værforhold på valgt sted og tidspunkt. Appen hjelper brukere med å avgjøre om det er trygt å gjennomføre en rakettoppskytning ved å kombinere sanntids værdata med et moderne, brukervennlig grensesnitt.",
-            en: "LiftOff is an Android application that provides a complete overview of weather conditions at a user-specified location and time. The app helps users determine whether it is safe to conduct a rocket launch by combining real-time weather data with a modern, user-friendly interface."
+            no: "I IN2000 laget gruppen min LiftOff, en Android-app for å sjekke værforhold før en rakettoppskytning. Du velger sted og tidspunkt, og appen henter værdataene som er relevante for oppskytningen.",
+            en: "For the IN2000 course, my group built LiftOff, an Android app for checking weather conditions before a rocket launch. You choose a place and time, and the app retrieves the weather data relevant to the launch."
         },
         features: {
             no: [
                 "Visualiserer værdata relevant for rakettoppskytninger",
-                "Sømløs navigasjon mellom søk, resultater, kartvisning, oppskytningsvinduer og favoritter",
+                "Søk, resultater, kart, oppskytningsvinduer og favoritter",
                 "Lagre favorittsteder og oppskytningsvinduer",
-                "Moderne, responsivt og tilgjengelig grensesnitt",
-                "Perfekt prosjekt for å vise Android-utvikling og moderne Kotlin-ferdigheter"
+                "Bygget med Jetpack Compose og Material 3",
+                "Lokal lagring med Room"
             ],
             en: [
                 "Visualizes weather data relevant for rocket launches",
-                "Seamless navigation between search, results, map view, launch windows, and favorites",
+                "Search, results, maps, launch windows and saved locations",
                 "Save favorite locations and launch windows",
-                "Modern, responsive, and accessible interface",
-                "Perfect project to showcase Android development and modern Kotlin skills"
+                "Built with Jetpack Compose and Material 3",
+                "Local storage with Room"
             ]
         },
         technologies: [
@@ -182,12 +182,12 @@ const projectData = {
             "Kotlin Serialization", "Material Design 3"
         ],
         challenges: {
-            no: "Utfordringen var å integrere sanntids værdata og samtidig sikre en brukervennlig og moderne opplevelse. Dette ble løst med Kotlin, Jetpack Compose og effektive API-integrasjoner.",
-            en: "The challenge was to integrate real-time weather data while ensuring a user-friendly and modern experience. This was solved using Kotlin, Jetpack Compose, and efficient API integrations."
+            no: "Den vanskeligste delen var å hente værdata fra flere kilder og presentere dem på en måte som er lett å forstå. Vi bygget appen i Kotlin og brukte Jetpack Compose til grensesnittet.",
+            en: "The hardest part was retrieving weather data from several sources and presenting it in a way that is easy to understand. We built the app in Kotlin and used Jetpack Compose for the interface."
         },
         outcome: {
-            no: "Prosjektet ble utviklet som en del av IN2000 ved Universitetet i Oslo og viser ferdigheter innen Android-utvikling, Kotlin og moderne UI/UX-design.",
-            en: "The project was developed as part of the IN2000 course at the University of Oslo and showcases skills in Android development, Kotlin, and modern UI/UX design."
+            no: "Prosjektet ga meg erfaring med å utvikle en Android-app i gruppe, koble til eksterne API-er og lagre data lokalt.",
+            en: "The project gave me experience developing an Android app in a team, connecting to external APIs and storing data locally."
         },
         screenshots: [
             "assets/RakettApp_SearchScreen.webp",
@@ -212,24 +212,24 @@ const projectData = {
                     "Automatisk månedlig oppretting av faste poster",
                     "Investeringsoversikt med snapshots",
                     "Import og eksport av data",
-                    "Enkel, rask og intuitiv å bruke"
+                    "Kan brukes lokalt uten konto"
                 ],
                 en: [
                     "Budget planning with income and expenses",
                     "Automatic monthly creation of recurring expenses",
                     "Investment overview with snapshots",
                     "Import and export of data",
-                    "Simple, fast, and intuitive to use"
+                    "Can be used locally without an account"
                 ]
             },
             technologies: ["Swift", "SwiftUI", "SwiftData", "Supabase", "iOS"],
             challenges: {
-                no: "Utfordringen var å lage en app som er offline-first og rask uten å gå på kompromiss med funksjonalitet. Lokal datalagring via SwiftData sikrer at appen fungerer uten internettilkobling, mens Supabase håndterer valgfri autentisering.",
-                en: "The challenge was building an offline-first app that is fast without compromising functionality. Local data storage via SwiftData ensures the app works without internet, while Supabase handles optional authentication."
+                no: "Jeg ville at appen skulle fungere uten konto og internett. Derfor lagres data på telefonen med SwiftData, mens Supabase bare brukes av dem som velger å opprette konto.",
+                en: "I wanted the app to work without an account or internet connection. Data is therefore stored on the phone with SwiftData, while Supabase is only used by people who choose to create an account."
             },
             outcome: {
-                no: "Prosjektet er aktivt under utvikling med over 490 commits og mer enn 140 automatiserte enhets- og UI-tester. Juridiske dokumenter er på plass for fremtidig App Store-publisering.",
-                en: "The project is actively under development with 490+ commits and more than 140 automated unit and UI tests. Legal documents are in place for future App Store publication."
+                no: "Jeg jobber fortsatt med appen. Repoet har over 490 commits og mer enn 140 enhets- og UI-tester. Personvernside og vilkår er klare før publisering i App Store.",
+                en: "I am still working on the app. The repository has 490+ commits and more than 140 unit and UI tests. The privacy policy and terms are ready ahead of an App Store release."
             },
             demoUrl: "https://github.com/Nithusan2002/spor-okonomi"
         },
@@ -239,8 +239,8 @@ const projectData = {
                 en: "JobTracker"
             },
             description: {
-                no: "JobTracker er et backend/API-prosjekt med et enkelt webgrensesnitt for å holde oversikt over jobbsøknader. Prosjektet har Kotlin/Spring Boot REST-API, PostgreSQL-database og støtte for registrering, filtrering, redigering og sletting av søknader.",
-                en: "JobTracker is a backend/API project with a simple web interface for tracking job applications. It includes a Kotlin/Spring Boot REST API, a PostgreSQL database, and support for creating, filtering, editing, and deleting applications."
+                no: "Jeg laget JobTracker fordi jeg ville ha ett sted å holde oversikt over jobbsøknadene mine. Samtidig fikk jeg øvd på å bygge en backend med Kotlin, Spring Boot og PostgreSQL.",
+                en: "I built JobTracker because I wanted one place to keep track of my job applications. It also gave me a chance to practise building a backend with Kotlin, Spring Boot and PostgreSQL."
             },
             features: {
                 no: [
@@ -248,26 +248,24 @@ const projectData = {
                     "Søk og filtrering på status",
                     "Redigering og sletting fra webgrensesnittet",
                     "REST-API med validering og tydelige 400/404-feilsvar",
-                    "Docker- og Render-klargjort deploy-oppsett",
-                    "Ikke hostet live ennå; repoet viser kode, arkitektur og lokal kjøring"
+                    "Dockerfile og Render-oppsett følger med i repoet"
                 ],
                 en: [
                     "Register applications with company, role, date, status, link, and notes",
                     "Search and status filtering",
                     "Edit and delete applications from the web interface",
                     "REST API with validation and clear 400/404 error responses",
-                    "Docker and Render-ready deployment setup",
-                    "Not hosted live yet; the repository showcases code, architecture, and local setup"
+                    "The repository includes a Dockerfile and Render setup"
                 ]
             },
             technologies: ["Kotlin", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Gradle", "Docker", "HTML", "CSS", "JavaScript"],
             challenges: {
-                no: "Hovedutfordringen var å bygge et lite, komplett prosjekt som viser backend-ferdigheter uten å bli unødvendig komplisert. Løsningen ble et tydelig CRUD-API med validering, PostgreSQL og en enkel frontend som bruker samme API.",
-                en: "The main challenge was building a small but complete project that demonstrates backend skills without unnecessary complexity. The result is a focused CRUD API with validation, PostgreSQL, and a simple frontend using the same API."
+                no: "Jeg holdt prosjektet bevisst lite nok til at jeg kunne jobbe med hele flyten selv. Frontend sender forespørsler til REST-API-et, som validerer dataene og lagrer dem i PostgreSQL.",
+                en: "I deliberately kept the project small enough to work on the entire flow myself. The frontend sends requests to the REST API, which validates the data and stores it in PostgreSQL."
             },
             outcome: {
-                no: "Prosjektet demonstrerer en komplett CRUD-flyt gjennom fem REST-endepunkter, med databaseintegrasjon, validering, frontend-integrasjon, dokumentasjon og deploy-klargjøring.",
-                en: "The project demonstrates a complete CRUD flow across five REST endpoints, with database integration, validation, frontend integration, documentation and deployment preparation."
+                no: "Resultatet er en fungerende webapp med fem REST-endepunkter for å opprette, hente, endre og slette jobbsøknader. Koden og oppsettet ligger på GitHub.",
+                en: "The result is a working web app with five REST endpoints for creating, retrieving, editing and deleting job applications. The code and setup are available on GitHub."
             },
             screenshots: ["assets/jobtracker-screenshot.webp"],
             screenshotLayout: "wide",
