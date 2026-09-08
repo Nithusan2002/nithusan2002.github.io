@@ -160,7 +160,11 @@
                 <!-- Prosjekt 1 -->
                 <article class="project-card section-surface overflow-hidden card-hover reveal order-3">
                     <div class="project-thumb project-thumb--liftoff h-56">
-                        <img src="assets/RakettApp_Resultscreen.webp" alt="Resultatskjerm i LiftOff-appen" class="project-thumb-phone" width="1179" height="2556" loading="lazy" decoding="async">
+                        <div class="phone-pair" aria-label="Skjermbilder fra LiftOff-appen">
+                            <img src="assets/RakettApp_SearchScreen.webp" alt="Søkeskjerm i LiftOff" class="phone-shot phone-shot--back" width="1179" height="2556" loading="lazy" decoding="async">
+                            <img src="assets/RakettApp_Map.webp" alt="Kartskjerm i LiftOff" class="phone-shot phone-shot--front" width="1179" height="2556" loading="lazy" decoding="async">
+                        </div>
+                        <span class="cover-label">Android · værdata</span>
                     </div>
                     <div class="project-card-body p-6">
                         <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="LiftOff" data-en="LiftOff">LiftOff</h3>
@@ -176,7 +180,14 @@
                 <!-- Prosjekt 2: Spor økonomi -->
                 <article class="project-card section-surface overflow-hidden card-hover reveal order-2">
                     <div class="project-thumb project-thumb--spor h-56">
-                        <img src="assets/icon-sage.svg" alt="Spor økonomi ikon" class="project-thumb-icon" width="140" height="140" loading="lazy" decoding="async">
+                        <div class="app-identity">
+                            <img src="assets/icon-sage.svg" alt="Spor økonomi ikon" class="project-thumb-icon" width="140" height="140" loading="lazy" decoding="async">
+                            <div>
+                                <strong>Spor økonomi</strong>
+                                <span data-no="Budsjett uten styr" data-en="Budgeting made simple">Budsjett uten styr</span>
+                            </div>
+                        </div>
+                        <span class="cover-label">iOS · SwiftUI</span>
                     </div>
                     <div class="project-card-body p-6">
                         <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="Spor økonomi" data-en="Spor økonomi">Spor økonomi</h3>
@@ -194,7 +205,11 @@
                 <!-- Prosjekt 3: JobTracker -->
                 <article class="project-card section-surface overflow-hidden card-hover reveal order-1">
                     <div class="project-thumb project-thumb--jobtracker h-56">
-                        <img src="assets/jobtracker-screenshot.webp" alt="JobTracker webapp skjermbilde" class="project-thumb-screen" width="800" height="556" loading="lazy" decoding="async">
+                        <div class="browser-frame">
+                            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+                            <img src="assets/jobtracker-screenshot.webp" alt="JobTracker webapp skjermbilde" class="project-thumb-screen" width="800" height="556" loading="lazy" decoding="async">
+                        </div>
+                        <span class="cover-label">Web · REST API</span>
                     </div>
                     <div class="project-card-body p-6">
                         <span class="project-featured-badge" data-no="Fremhevet backend-prosjekt" data-en="Featured backend project">Fremhevet backend-prosjekt</span>
