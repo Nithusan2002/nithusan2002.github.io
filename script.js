@@ -35,17 +35,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const heroProjects = [
     {
         title: { no: 'JobTracker', en: 'JobTracker' },
-        desc: { no: 'Backend/API-prosjekt med Kotlin, Spring Boot, PostgreSQL, validering og deploy-klargjort oppsett.', en: 'Backend/API project with Kotlin, Spring Boot, PostgreSQL, validation, and deployment-ready setup.' },
+        desc: { no: 'Komplett CRUD-løsning med fem REST-endepunkter, PostgreSQL, validering og Docker-basert deploy-oppsett.', en: 'Complete CRUD solution with five REST endpoints, PostgreSQL, validation and a Docker-based deployment setup.' },
         techs: ['Kotlin', 'Spring Boot', 'PostgreSQL', 'Docker', 'REST API']
     },
     {
         title: { no: 'Spor økonomi', en: 'Spor økonomi' },
-        desc: { no: 'iOS-app for personlig økonomioppfølging med budsjett, faste poster og investeringsoversikt.', en: 'iOS app for personal finance tracking with budgets, recurring expenses, and investment overview.' },
+        desc: { no: 'Offline-first iOS-app utviklet gjennom over 490 commits og støttet av mer enn 140 automatiserte tester.', en: 'Offline-first iOS app developed across 490+ commits and backed by more than 140 automated tests.' },
         techs: ['Swift', 'SwiftUI', 'SwiftData', 'Supabase']
     },
     {
         title: { no: 'LiftOff', en: 'LiftOff' },
-        desc: { no: 'Android-app for trygg rakettoppskytning basert på sanntids værdata, kart og favorittsteder.', en: 'Android app for safe rocket launch decisions using real-time weather data, maps, and saved locations.' },
+        desc: { no: 'IN2000-prosjekt med sanntids værdata, kart, favorittsteder og lokal lagring i Room.', en: 'IN2000 project with real-time weather data, maps, saved locations and local Room storage.' },
         techs: ['Kotlin', 'Jetpack Compose', 'Room', 'Retrofit', 'Material 3']
     }
 ];
@@ -190,10 +190,10 @@ const projectData = {
             en: "The project was developed as part of the IN2000 course at the University of Oslo and showcases skills in Android development, Kotlin, and modern UI/UX design."
         },
         screenshots: [
-            "assets/RakettApp_SearchScreen.png",
-            "assets/RakettApp_Resultscreen.png",
-            "assets/RakettApp_Map.png",
-            "assets/RakettApp_LaunchWindows.png"
+            "assets/RakettApp_SearchScreen.webp",
+            "assets/RakettApp_Resultscreen.webp",
+            "assets/RakettApp_Map.webp",
+            "assets/RakettApp_LaunchWindows.webp"
         ],
         demoUrl: "https://github.com/Nithusan2002/LiftOff"
     },
@@ -228,8 +228,8 @@ const projectData = {
                 en: "The challenge was building an offline-first app that is fast without compromising functionality. Local data storage via SwiftData ensures the app works without internet, while Supabase handles optional authentication."
             },
             outcome: {
-                no: "Prosjektet er aktivt under utvikling med over 385 commits. Juridiske dokumenter er på plass for fremtidig App Store-publisering.",
-                en: "The project is actively under development with over 385 commits. Legal documents are in place for future App Store publication."
+                no: "Prosjektet er aktivt under utvikling med over 490 commits og mer enn 140 automatiserte enhets- og UI-tester. Juridiske dokumenter er på plass for fremtidig App Store-publisering.",
+                en: "The project is actively under development with 490+ commits and more than 140 automated unit and UI tests. Legal documents are in place for future App Store publication."
             },
             demoUrl: "https://github.com/Nithusan2002/spor-okonomi"
         },
@@ -266,10 +266,10 @@ const projectData = {
                 en: "The main challenge was building a small but complete project that demonstrates backend skills without unnecessary complexity. The result is a focused CRUD API with validation, PostgreSQL, and a simple frontend using the same API."
             },
             outcome: {
-                no: "Prosjektet viser praktisk erfaring med Kotlin/Spring Boot, databaseintegrasjon, REST-design, frontend-integrasjon, README-dokumentasjon, MIT-lisens og deploy-klargjøring.",
-                en: "The project demonstrates practical experience with Kotlin/Spring Boot, database integration, REST design, frontend integration, README documentation, MIT licensing, and deployment preparation."
+                no: "Prosjektet demonstrerer en komplett CRUD-flyt gjennom fem REST-endepunkter, med databaseintegrasjon, validering, frontend-integrasjon, dokumentasjon og deploy-klargjøring.",
+                en: "The project demonstrates a complete CRUD flow across five REST endpoints, with database integration, validation, frontend integration, documentation and deployment preparation."
             },
-            screenshots: ["assets/jobtracker-screenshot.png"],
+            screenshots: ["assets/jobtracker-screenshot.webp"],
             screenshotLayout: "wide",
             demoUrl: "https://github.com/Nithusan2002/jobtracker-api"
         },
