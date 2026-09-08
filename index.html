@@ -71,8 +71,8 @@
                 <div class="hero-panel reveal">
                     <div class="hero-panel-card mb-4">
                         <p class="text-sm uppercase tracking-wider text-cyan-100 mb-2" data-no="Fremhevet prosjekt" data-en="Featured project">Fremhevet prosjekt</p>
-                        <h3 id="hero-project-title" class="text-2xl font-bold mb-2">JobTracker</h3>
-                        <p id="hero-project-desc" class="text-blue-50 text-sm leading-relaxed">En webapp jeg laget for å holde oversikt over jobbsøknader. Backend er bygget med Kotlin, Spring Boot og PostgreSQL.</p>
+                        <h3 class="text-2xl font-bold mb-2">JobTracker</h3>
+                        <p class="text-blue-50 text-sm leading-relaxed" data-no="En webapp jeg laget for å holde oversikt over jobbsøknader. Backend er bygget med Kotlin, Spring Boot og PostgreSQL." data-en="A web app I built to keep track of job applications. The backend uses Kotlin, Spring Boot and PostgreSQL.">En webapp jeg laget for å holde oversikt over jobbsøknader. Backend er bygget med Kotlin, Spring Boot og PostgreSQL.</p>
                     </div>
                     <div id="hero-tech-list" class="hero-tech-list">
                         <span>Kotlin</span>
@@ -81,11 +81,6 @@
                         <span>Docker</span>
                         <span>REST API</span>
                     </div>
-                    <div class="flex justify-center gap-2 mt-3">
-                        <button type="button" onclick="setHeroProject(0)" id="hero-dot-0" class="hero-dot active" aria-label="JobTracker"></button>
-                        <button type="button" onclick="setHeroProject(1)" id="hero-dot-1" class="hero-dot" aria-label="Spor økonomi"></button>
-                        <button type="button" onclick="setHeroProject(2)" id="hero-dot-2" class="hero-dot" aria-label="LiftOff"></button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -93,7 +88,7 @@
 
     <!-- Om meg Section -->
 
-    <section id="om" class="pt-14 pb-20 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 reveal">
+    <section id="om" class="pt-14 pb-20 section-white reveal">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title font-bold text-center text-gray-800" data-no="Om meg" data-en="About me">Om meg</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -102,8 +97,8 @@
                     <p class="text-gray-600 mb-6 leading-relaxed" data-no="Jeg fullførte bachelor i Informatikk: Programmering og systemarkitektur ved UiO våren 2026. Der jobbet jeg blant annet med Java, Python, databaser, Git, systemdesign og datasikkerhet." data-en="I completed a BSc in Computer Science: Programming and System Architecture at the University of Oslo in spring 2026. My studies included Java, Python, databases, Git, system design and security.">
                         Jeg fullførte bachelor i Informatikk: Programmering og systemarkitektur ved UiO våren 2026. Der jobbet jeg blant annet med Java, Python, databaser, Git, systemdesign og datasikkerhet.
                     </p>
-                    <p class="text-gray-600 mb-6 leading-relaxed" data-no="I Radio Nova har jeg ansvar for IT-drift, infrastruktur og verktøyene redaksjonen bruker. Fra Avarn Security og Forsvaret er jeg vant til å ta ansvar, jobbe strukturert og holde hodet kaldt når det haster. Nå ser jeg etter min første faste backendstilling, et internship eller et traineeprogram." data-en="At Radio Nova, I am responsible for IT operations, infrastructure and the tools used by the editorial team. My experience at Avarn Security and the Norwegian Armed Forces taught me to take responsibility, work methodically and stay calm under pressure. I am now looking for my first full-time backend role, an internship or a graduate programme.">
-                        I Radio Nova har jeg ansvar for IT-drift, infrastruktur og verktøyene redaksjonen bruker. Fra Avarn Security og Forsvaret er jeg vant til å ta ansvar, jobbe strukturert og holde hodet kaldt når det haster. Nå ser jeg etter min første faste backendstilling, et internship eller et traineeprogram.
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-no="I Radio Nova har jeg ansvar for IT-drift, infrastruktur og verktøyene redaksjonen bruker. Fra Avarn Security og Forsvaret er jeg vant til å ta ansvar, jobbe strukturert og holde hodet kaldt når det haster." data-en="At Radio Nova, I am responsible for IT operations, infrastructure and the tools used by the editorial team. My experience at Avarn Security and the Norwegian Armed Forces taught me to take responsibility, work methodically and stay calm under pressure.">
+                        I Radio Nova har jeg ansvar for IT-drift, infrastruktur og verktøyene redaksjonen bruker. Fra Avarn Security og Forsvaret er jeg vant til å ta ansvar, jobbe strukturert og holde hodet kaldt når det haster.
                     </p>
                     <div class="flex space-x-4">
                         <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm" data-no="Backend" data-en="Backend">Backend</span>
@@ -138,7 +133,7 @@
 
 
     <!-- Hva jeg ser etter Section -->
-    <section class="py-14 bg-white reveal">
+    <section class="current-focus py-14 section-muted reveal">
         <div class="max-w-6xl mx-auto px-4">
             <div class="section-surface p-8">
                 <div class="grid md:grid-cols-[1fr_1.4fr] gap-8 items-start">
@@ -158,32 +153,32 @@
     </section>
 
     <!-- Prosjekter Section -->
-    <section id="prosjekter" class="py-20 bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 reveal">
+    <section id="prosjekter" class="py-20 section-muted reveal">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title font-bold text-center text-gray-800" data-no="Mine prosjekter" data-en="My projects">Mine prosjekter</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Prosjekt 1 -->
-                <div class="section-surface overflow-hidden card-hover reveal order-3">
-                    <div class="project-thumb h-56 bg-gradient-to-br from-slate-700 to-slate-900">
-                        <img src="assets/LiftOffIcon.webp" alt="LiftOff ikon" class="project-thumb-logo" width="600" height="124" loading="lazy" decoding="async">
+                <article class="project-card section-surface overflow-hidden card-hover reveal order-3">
+                    <div class="project-thumb project-thumb--liftoff h-56">
+                        <img src="assets/RakettApp_Resultscreen.webp" alt="Resultatskjerm i LiftOff-appen" class="project-thumb-phone" width="1179" height="2556" loading="lazy" decoding="async">
                     </div>
-                    <div class="p-6">
+                    <div class="project-card-body p-6">
                         <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="LiftOff" data-en="LiftOff">LiftOff</h3>
                         <p class="text-gray-600 mb-4" data-no="I IN2000 laget gruppen min en Android-app som samler værdata for rakettoppskytninger. Appen har kart, favorittsteder og lokal lagring." data-en="For the IN2000 course, my group built an Android app that gathers weather data for rocket launches. It includes maps, saved locations and local storage.">I IN2000 laget gruppen min en Android-app som samler værdata for rakettoppskytninger. Appen har kart, favorittsteder og lokal lagring.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Kotlin</span>
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Android Studio</span>
                         </div>
-                        <button type="button" onclick="openProjectModal('webapp')" class="text-blue-600 hover:text-blue-800 font-semibold" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                        <div class="project-actions"><button type="button" onclick="openProjectModal('webapp')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button></div>
                     </div>
-                </div>
+                </article>
                 
                 <!-- Prosjekt 2: Spor økonomi -->
-                <div class="section-surface overflow-hidden card-hover reveal order-2">
-                    <div class="project-thumb h-56 bg-gradient-to-br from-[#2d6a4f] to-[#1b4332]">
+                <article class="project-card section-surface overflow-hidden card-hover reveal order-2">
+                    <div class="project-thumb project-thumb--spor h-56">
                         <img src="assets/icon-sage.svg" alt="Spor økonomi ikon" class="project-thumb-icon" width="140" height="140" loading="lazy" decoding="async">
                     </div>
-                    <div class="p-6">
+                    <div class="project-card-body p-6">
                         <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="Spor økonomi" data-en="Spor økonomi">Spor økonomi</h3>
                         <p class="text-gray-600 mb-4" data-no="En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned. Her kan du samle budsjett, faste utgifter, sparing og investeringer på ett sted." data-en="An iOS app I am building to make it easy to see how much money you have left each month. It brings budgets, recurring expenses, savings and investments together in one place.">En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned. Her kan du samle budsjett, faste utgifter, sparing og investeringer på ett sted.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
@@ -191,17 +186,17 @@
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">SwiftUI</span>
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">iOS</span>
                         </div>
-                        <button type="button" onclick="openProjectModal('sporOkonomi')" class="text-blue-600 hover:text-blue-800 font-semibold" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
-                        <a href="https://nithusan.no/spor-okonomi/" target="_blank" rel="noopener noreferrer" class="block mt-2 text-sm text-gray-500 hover:text-gray-700 transition duration-300" data-no="Se prosjektets hjemmeside →" data-en="View project website →">Se prosjektets hjemmeside →</a>
+                        <div class="project-actions"><button type="button" onclick="openProjectModal('sporOkonomi')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                        <a href="https://nithusan.no/spor-okonomi/" target="_blank" rel="noopener noreferrer" class="project-secondary-link" data-no="Hjemmeside →" data-en="Website →">Hjemmeside →</a></div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Prosjekt 3: JobTracker -->
-                <div class="section-surface overflow-hidden card-hover reveal order-1">
-                    <div class="project-thumb h-56 bg-gradient-to-br from-emerald-900 to-slate-900">
+                <article class="project-card section-surface overflow-hidden card-hover reveal order-1">
+                    <div class="project-thumb project-thumb--jobtracker h-56">
                         <img src="assets/jobtracker-screenshot.webp" alt="JobTracker webapp skjermbilde" class="project-thumb-screen" width="800" height="556" loading="lazy" decoding="async">
                     </div>
-                    <div class="p-6">
+                    <div class="project-card-body p-6">
                         <span class="project-featured-badge" data-no="Fremhevet backend-prosjekt" data-en="Featured backend project">Fremhevet backend-prosjekt</span>
                         <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="JobTracker" data-en="JobTracker">JobTracker</h3>
                         <p class="text-gray-600 mb-4" data-no="Jeg laget JobTracker for å holde orden på jobbsøknader og samtidig få mer erfaring med Kotlin og Spring Boot. Appen bruker PostgreSQL og har fem REST-endepunkter." data-en="I built JobTracker to keep track of job applications and get more experience with Kotlin and Spring Boot. The app uses PostgreSQL and has five REST endpoints.">Jeg laget JobTracker for å holde orden på jobbsøknader og samtidig få mer erfaring med Kotlin og Spring Boot. Appen bruker PostgreSQL og har fem REST-endepunkter.</p>
@@ -211,10 +206,10 @@
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">PostgreSQL</span>
                         </div>
                         <p class="project-status-note mb-4" data-no="Koden er klar for deploy, men appen ligger ikke ute ennå" data-en="The code is ready to deploy, but the app is not live yet">Koden er klar for deploy, men appen ligger ikke ute ennå</p>
-                        <button type="button" onclick="openProjectModal('jobTracker')" class="text-blue-600 hover:text-blue-800 font-semibold" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
-                        <a href="https://github.com/Nithusan2002/jobtracker-api" target="_blank" rel="noopener noreferrer" class="block mt-2 text-sm text-gray-500 hover:text-gray-700 transition duration-300" data-no="GitHub repo →" data-en="GitHub repository →">GitHub repo →</a>
+                        <div class="project-actions"><button type="button" onclick="openProjectModal('jobTracker')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                        <a href="https://github.com/Nithusan2002/jobtracker-api" target="_blank" rel="noopener noreferrer" class="project-secondary-link" data-no="GitHub →" data-en="GitHub →">GitHub →</a></div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Prosjekt 3 (skjult) -->
                 <!--
@@ -257,90 +252,47 @@
     </section>
 
     <!-- Ferdigheter Section -->
-    <section id="ferdigheter" class="py-20 bg-gradient-to-br from-rose-50 via-amber-50 to-lime-50 reveal">
+    <section id="ferdigheter" class="py-20 section-white reveal">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title font-bold text-center text-gray-800" data-no="Mine ferdigheter" data-en="My skills">Mine ferdigheter</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="section-surface text-center p-6 reveal">
-                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-3xl">💻</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Frontend</h3>
-                    <p class="text-gray-600 text-sm">HTML, CSS, JavaScript</p>
-                </div>
-                <div class="section-surface text-center p-6 reveal">
-                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-3xl">⚙️</span>
-                    </div>
+                <div class="skill-card reveal">
+                    <span class="skill-index">01</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800">Backend</h3>
-                    <p class="text-gray-600 text-sm">Java, Kotlin, Spring Boot, SQL</p>
+                    <p class="text-gray-600 text-sm">Kotlin, Java, Spring Boot, REST API</p>
                 </div>
-                <div class="section-surface text-center p-6 reveal">
-                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-3xl">📱</span>
-                    </div>
+                <div class="skill-card reveal">
+                    <span class="skill-index">02</span>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Databaser" data-en="Databases">Databaser</h3>
+                    <p class="text-gray-600 text-sm">PostgreSQL, SQL, Room, SwiftData</p>
+                </div>
+                <div class="skill-card reveal">
+                    <span class="skill-index">03</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Mobil" data-en="Mobile">Mobil</h3>
-                    <p class="text-gray-600 text-sm">Kotlin, Android</p>
+                    <p class="text-gray-600 text-sm">SwiftUI, Jetpack Compose, Android</p>
                 </div>
-                <div class="section-surface text-center p-6 reveal">
-                    <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-3xl">🛠️</span>
-                    </div>
+                <div class="skill-card reveal">
+                    <span class="skill-index">04</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Verktøy" data-en="Tools">Verktøy</h3>
-                    <p class="text-gray-600 text-sm">Git, VS Code</p>
+                    <p class="text-gray-600 text-sm">Git, Docker, GitHub, VS Code</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Kontakt Section -->
-    <section id="kontakt" class="py-20 bg-gradient-to-br from-blue-50 to-purple-50 reveal">
+    <section id="kontakt" class="py-20 section-muted reveal">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="section-title font-bold text-center mb-8 text-gray-800" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</h2>
-            <p class="text-xl text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-no="Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Send meg gjerne en e-post eller ta kontakt på LinkedIn." data-en="Do you have a backend role that might be a good fit, or would you like to know more about one of my projects? Send me an email or get in touch on LinkedIn.">
+            <p class="text-xl text-center text-gray-600 mb-10 max-w-2xl mx-auto" data-no="Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Send meg gjerne en e-post eller ta kontakt på LinkedIn." data-en="Do you have a backend role that might be a good fit, or would you like to know more about one of my projects? Send me an email or get in touch on LinkedIn.">
                 Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Send meg gjerne en e-post eller ta kontakt på LinkedIn.
             </p>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- E-post -->
-                <div class="section-surface p-8 text-center card-hover reveal">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-3xl">📧</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="E-post" data-en="Email">E-post</h3>
-                    <p class="text-gray-600 mb-4 break-words">nithusank.2002@gmail.com</p>
-                    <a href="mailto:nithusank.2002@gmail.com" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition duration-300" data-no="Send e-post" data-en="Send email">Send e-post</a>
-                </div>
-
-                <!-- CV -->
-                <div class="section-surface p-8 text-center card-hover reveal">
-                    <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-bold text-cyan-800">CV</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">CV</h3>
-                    <p class="text-gray-600 mb-4" data-no="Utdanning, erfaring og prosjekter" data-en="Education, experience, and projects">Utdanning, erfaring og prosjekter</p>
-                    <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer" class="inline-block bg-cyan-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-cyan-800 transition duration-300" data-no="Åpne CV" data-en="Open CV">Åpne CV</a>
-                </div>
-
-                <!-- LinkedIn -->
-                <div class="section-surface p-8 text-center card-hover reveal">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-3xl">💼</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">LinkedIn</h3>
-                    <p class="text-gray-600 mb-4 break-words">linkedin.com/in/nithusan-k</p>
-                    <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer" class="inline-block bg-green-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300" data-no="Besøk profil" data-en="Visit profile">Besøk profil</a>
-                </div>
-
-                <!-- GitHub -->
-                <div class="section-surface p-8 text-center card-hover reveal">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-3xl">🐙</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">GitHub</h3>
-                    <p class="text-gray-600 mb-4 break-words">github.com/nithusan2002</p>
-                    <a href="https://github.com/nithusan2002" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-purple-700 transition duration-300" data-no="Se kode" data-en="View code">Se kode</a>
-                </div>
+            <div class="contact-bar section-surface reveal">
+                <a href="mailto:nithusank.2002@gmail.com" data-no="E-post" data-en="Email">E-post</a>
+                <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+                <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/nithusan2002" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
         </div>
     </section>

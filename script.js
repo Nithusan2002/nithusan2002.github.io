@@ -31,40 +31,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Hero project rotation
-const heroProjects = [
-    {
-        title: { no: 'JobTracker', en: 'JobTracker' },
-        desc: { no: 'En webapp jeg laget for å holde oversikt over jobbsøknader. Backend er bygget med Kotlin, Spring Boot og PostgreSQL.', en: 'A web app I built to keep track of job applications. The backend uses Kotlin, Spring Boot and PostgreSQL.' },
-        techs: ['Kotlin', 'Spring Boot', 'PostgreSQL', 'Docker', 'REST API']
-    },
-    {
-        title: { no: 'Spor økonomi', en: 'Spor økonomi' },
-        desc: { no: 'En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned.', en: 'An iOS app I am building to make it easy to see how much money you have left each month.' },
-        techs: ['Swift', 'SwiftUI', 'SwiftData', 'Supabase']
-    },
-    {
-        title: { no: 'LiftOff', en: 'LiftOff' },
-        desc: { no: 'I IN2000 laget gruppen min en Android-app som samler værdata for rakettoppskytninger.', en: 'For the IN2000 course, my group built an Android app that gathers weather data for rocket launches.' },
-        techs: ['Kotlin', 'Jetpack Compose', 'Room', 'Retrofit', 'Material 3']
-    }
-];
-let heroProjectIndex = 0;
-
-function setHeroProject(index) {
-    heroProjectIndex = index;
-    const p = heroProjects[index];
-    const lang = currentLanguage;
-    document.getElementById('hero-project-title').textContent = p.title[lang];
-    document.getElementById('hero-project-desc').textContent = p.desc[lang];
-    const techList = document.getElementById('hero-tech-list');
-    techList.innerHTML = p.techs.map(t => `<span>${t}</span>`).join('');
-    document.querySelectorAll('.hero-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
-}
-
-setInterval(() => setHeroProject((heroProjectIndex + 1) % heroProjects.length), 4000);
+// Show projects immediately after the introduction, where recruiters can find them quickly.
+const heroSection = document.getElementById('hjem');
+const projectsSection = document.getElementById('prosjekter');
+heroSection.insertAdjacentElement('afterend', projectsSection);
 
 // Language switching functionality
 let currentLanguage = 'no';
@@ -89,9 +59,6 @@ function switchLanguage() {
     toggleButtons.forEach(button => {
         button.textContent = currentLanguage === 'no' ? 'EN' : 'Norsk';
     });
-
-    // Refresh hero panel text
-    setHeroProject(heroProjectIndex);
 
     // Update document language
     document.documentElement.lang = currentLanguage;
