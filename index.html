@@ -27,7 +27,7 @@
     <nav class="glass-nav fixed w-full top-0 z-50 transition-shadow duration-300">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <div class="text-2xl font-bold text-slate-900">Nithusan Krishnasamymudali</div>
+                <a href="#hjem" class="site-name text-2xl font-bold text-slate-900" aria-label="Nithusan Krishnasamymudali – hjem">Nithusan K.</a>
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#hjem" class="nav-link text-gray-600 transition duration-300" data-no="Hjem" data-en="Home">Hjem</a>
                     <a href="#om" class="nav-link text-gray-600 transition duration-300" data-no="Om meg" data-en="About me">Om meg</a>
@@ -36,7 +36,7 @@
                     <a href="#kontakt" class="nav-link text-gray-600 transition duration-300" data-no="Kontakt" data-en="Contact">Kontakt</a>
                     <button type="button" id="language-toggle" class="language-pill px-3 py-1 rounded-full text-sm hover:opacity-90 transition duration-300">EN</button>
                 </div>
-                <button type="button" id="mobile-menu-btn" class="md:hidden text-gray-600" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <button type="button" id="mobile-menu-btn" class="mobile-menu-button md:hidden text-gray-600" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -64,7 +64,7 @@
                     <p class="hero-subtitle" data-no="Jeg lager backend- og appprosjekter med Kotlin, Spring Boot, PostgreSQL og Swift. Jeg fullførte bachelor i informatikk ved UiO våren 2026 og jobber som IT Manager i Radio Nova." data-en="I build backend and app projects with Kotlin, Spring Boot, PostgreSQL and Swift. I completed my bachelor's degree in computer science at the University of Oslo in spring 2026 and work as IT Manager at Radio Nova.">Jeg lager backend- og appprosjekter med Kotlin, Spring Boot, PostgreSQL og Swift. Jeg fullførte bachelor i informatikk ved UiO våren 2026 og jobber som IT Manager i Radio Nova.</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#prosjekter" class="cta-primary" data-no="Se backend-prosjekter" data-en="View backend projects">Se backend-prosjekter</a>
-                        <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" download class="cta-secondary" data-no="Last ned CV" data-en="Download CV">Last ned CV</a>
+                        <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer" class="cta-secondary" data-no="Åpne CV" data-en="Open CV">Åpne CV</a>
                         <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer" class="hero-text-link" data-no="LinkedIn-profil →" data-en="LinkedIn profile →">LinkedIn-profil →</a>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
     <section id="om" class="pt-14 pb-20 section-white reveal">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title font-bold text-center text-gray-800" data-no="Om meg" data-en="About me">Om meg</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="about-grid">
                 <div>
                     <h3 class="text-2xl font-semibold mb-6 text-gray-800" data-no="Jeg liker best å jobbe med backend og systemarkitektur" data-en="I enjoy working with backend development and system architecture">Jeg liker best å jobbe med backend og systemarkitektur</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed" data-no="Jeg fullførte bachelor i Informatikk: Programmering og systemarkitektur ved UiO våren 2026. Der jobbet jeg blant annet med Java, Python, databaser, Git, systemdesign og datasikkerhet." data-en="I completed a BSc in Computer Science: Programming and System Architecture at the University of Oslo in spring 2026. My studies included Java, Python, databases, Git, system design and security.">
@@ -106,25 +106,25 @@
                         <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm" data-no="Problemløsning" data-en="Problem-solving">Problemløsning</span>
                     </div>
                 </div>
-                <div class="section-surface p-8">
-                    <div class="about-photo-wrap mb-6">
+                <div class="about-aside">
+                    <div class="about-photo-wrap">
                         <picture>
                             <source srcset="assets/profile-2026.webp" type="image/webp">
                             <img src="assets/profile-2026.jpg" alt="Portrett av Nithusan Krishnasamymudali" class="about-photo" width="800" height="1000" loading="lazy" decoding="async">
                         </picture>
                     </div>
-                    <h4 class="text-xl font-semibold mb-4 text-gray-800" data-no="Utdanning" data-en="Education">Utdanning</h4>
-                    <div class="mb-6">
-                        <h5 class="font-semibold text-gray-800" data-no="BSc. Informatikk: Programmering og systemarkitektur" data-en="BSc. Computer Science: Programming and System Architecture">BSc. Informatikk: Programmering og systemarkitektur</h5>
-                        <p class="text-gray-600" data-no="Universitetet i Oslo • 2021–2026 • Fullført våren 2026" data-en="University of Oslo • 2021–2026 • Completed spring 2026">Universitetet i Oslo • 2021–2026 • Fullført våren 2026</p>
+                    <div class="about-facts">
+                        <div>
+                            <span data-no="Utdanning" data-en="Education">Utdanning</span>
+                            <strong data-no="BSc. Informatikk" data-en="BSc. Computer Science">BSc. Informatikk</strong>
+                            <small data-no="UiO · fullført våren 2026" data-en="UiO · completed spring 2026">UiO · fullført våren 2026</small>
+                        </div>
+                        <div>
+                            <span data-no="Fokus" data-en="Focus">Fokus</span>
+                            <strong>Backend · systemarkitektur</strong>
+                            <small>Kotlin · Java · databaser</small>
+                        </div>
                     </div>
-                    <h4 class="text-xl font-semibold mb-4 text-gray-800" data-no="Interesser" data-en="Interests">Interesser</h4>
-                    <ul class="text-gray-600 space-y-2">
-                        <li data-no="• Webutvikling" data-en="• Web development">• Webutvikling</li>
-                        <li data-no="• Kunstig intelligens" data-en="• Artificial intelligence">• Kunstig intelligens</li>
-                        <li data-no="• Mobilutvikling" data-en="• Mobile development">• Mobilutvikling</li>
-                        <li data-no="• Open source prosjekter" data-en="• Open source projects">• Open source prosjekter</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -184,7 +184,8 @@
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Kotlin</span>
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Android Studio</span>
                         </div>
-                        <div class="project-actions"><button type="button" onclick="openProjectModal('webapp')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button></div>
+                        <div class="project-actions"><button type="button" onclick="openProjectModal('webapp')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                        <a href="https://github.com/Nithusan2002/LiftOff" target="_blank" rel="noopener noreferrer" class="project-secondary-link">GitHub →</a></div>
                     </div>
                 </article>
                 
@@ -324,12 +325,12 @@
     </section>
 
     <!-- Project Modal -->
-    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="project-dialog bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto" tabindex="-1">
             <div class="p-6">
                 <div class="flex justify-between items-center mb-6">
                     <h2 id="modal-title" class="text-3xl font-bold text-gray-800">Prosjekt Detaljer</h2>
-                    <button type="button" onclick="closeProjectModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                    <button type="button" onclick="closeProjectModal()" class="modal-close text-gray-500 hover:text-gray-700 text-2xl" aria-label="Lukk prosjektvindu">&times;</button>
                 </div>
                 
                 <div id="modal-content" class="space-y-6">
@@ -345,9 +346,14 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="max-w-6xl mx-auto px-4 text-center">
+    <footer class="site-footer bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 footer-inner">
             <p data-no="© 2026 Nithusan Krishnasamymudali. Alle rettigheter reservert." data-en="© 2026 Nithusan Krishnasamymudali. All rights reserved.">© 2026 Nithusan Krishnasamymudali. Alle rettigheter reservert.</p>
+            <div class="footer-links">
+                <a href="mailto:nithusank.2002@gmail.com" data-no="E-post" data-en="Email">E-post</a>
+                <a href="https://github.com/Nithusan2002" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
         </div>
     </footer>
 

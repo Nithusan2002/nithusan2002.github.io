@@ -9,6 +9,17 @@ mobileMenuBtn.addEventListener('click', () => {
     mobileMenuBtn.setAttribute('aria-expanded', String(!expanded));
 });
 
+function closeMobileMenu() {
+    mobileMenu.classList.add('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+}
+
+document.addEventListener('click', (event) => {
+    if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+        closeMobileMenu();
+    }
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -25,8 +36,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
 
             // Close mobile menu if open
-            mobileMenu.classList.add('hidden');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            closeMobileMenu();
         }
     });
 });
@@ -316,6 +326,8 @@ const projectData = {
             }
         };
 
+        let lastFocusedElement = null;
+
         function openProjectModal(projectId) {
             const project = projectData[projectId];
             const modal = document.getElementById('project-modal');
@@ -328,13 +340,12 @@ const projectData = {
             modalTitle.textContent = project.title[currentLang];
             demoLink.href = project.demoUrl;
             
-        const featuresTitle = currentLang === 'no' ? 'Hovedfunksjoner:' : 'Key Features:';
         const techTitle = currentLang === 'no' ? 'Teknologier:' : 'Technologies:';
-        const challengesTitle = currentLang === 'no' ? 'Utfordringer:' : 'Challenges:';
+        const challengesTitle = currentLang === 'no' ? 'Slik løste jeg det' : 'How I approached it';
         const outcomeTitle = currentLang === 'no' ? 'Resultat:' : 'Outcome:';
         const screenshotsTitle = currentLang === 'no' ? 'Skjermbilder:' : 'Screenshots:';
         const screenshotsSection = project.screenshots?.length ? `
-                <div class="bg-gradient-to-br from-slate-50 to-blue-100 rounded-lg p-6">
+                <div class="modal-section">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">${screenshotsTitle}</h3>
                     <div class="modal-shot-grid ${project.screenshotLayout === 'wide' ? 'wide' : ''}">
                         ${project.screenshots.map((imageUrl, index) => `
@@ -353,44 +364,42 @@ const projectData = {
         
         modalContent.innerHTML = `
                 ${screenshotsSection}
-                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800">${currentLang === 'no' ? 'Prosjektbeskrivelse:' : 'Project Description:'}</h3>
+                <div class="modal-section">
+                    <h3>${currentLang === 'no' ? 'Dette laget jeg' : 'What I built'}</h3>
                     <p class="text-gray-600 leading-relaxed">${project.description[currentLang]}</p>
                 </div>
                 
-                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800">${featuresTitle}</h3>
-                    <ul class="space-y-2">
-                        ${project.features[currentLang].map(feature => `<li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span class="text-gray-600">${feature}</span></li>`).join('')}
-                    </ul>
-                </div>
-                
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800">${techTitle}</h3>
+                <div class="modal-section">
+                    <h3>${techTitle}</h3>
                     <div class="flex flex-wrap gap-2">
                         ${project.technologies.map(tech => `<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">${tech}</span>`).join('')}
                     </div>
                 </div>
                 
-                <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800">${challengesTitle}</h3>
+                <div class="modal-section">
+                    <h3>${challengesTitle}</h3>
                     <p class="text-gray-600 leading-relaxed">${project.challenges[currentLang]}</p>
                 </div>
                 
-                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800">${outcomeTitle}</h3>
+                <div class="modal-section">
+                    <h3>${outcomeTitle}</h3>
                     <p class="text-gray-600 leading-relaxed">${project.outcome[currentLang]}</p>
                 </div>
             `;
             
+            lastFocusedElement = document.activeElement;
             modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+            modal.querySelector('.project-dialog').focus();
         }
 
         function closeProjectModal() {
             const modal = document.getElementById('project-modal');
             modal.classList.add('hidden');
+            modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
+            lastFocusedElement?.focus();
         }
 
         // Close modal when clicking outside
@@ -403,6 +412,22 @@ const projectData = {
         // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                closeProjectModal();
+                closeMobileMenu();
+                if (!document.getElementById('project-modal').classList.contains('hidden')) closeProjectModal();
+            }
+
+            if (e.key === 'Tab') {
+                const modal = document.getElementById('project-modal');
+                if (modal.classList.contains('hidden')) return;
+                const focusable = [...modal.querySelectorAll('button, a[href]')];
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
             }
         });
