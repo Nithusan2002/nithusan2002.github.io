@@ -807,10 +807,10 @@ h5 {
 .hobby-photo-placeholder:nth-child(3) { transform: rotate(-1deg) scale(0.985); }
 .hobby-photo-placeholder.is-active { z-index: 3; transform: none; background: linear-gradient(145deg, #edf4fc, #dce9f7); }
 .hobby-photo-placeholder span::before { display: block; margin: 0 auto 0.5rem; color: #8ca3bd; content: '＋'; font-size: 1.7rem; font-weight: 400; text-align: center; }
-.gallery-arrow { position: absolute; z-index: 5; top: 50%; display: grid; width: 2.25rem; height: 2.25rem; place-items: center; color: #fff; background: rgba(13, 35, 66, 0.78); border-radius: 50%; box-shadow: 0 5px 14px rgba(9, 24, 46, 0.2); transform: translateY(-50%); transition: background 0.2s ease, transform 0.2s ease; }
-.gallery-arrow:hover { background: #0b57d0; transform: translateY(-50%) scale(1.05); }
-.gallery-prev { left: 0.7rem; }
-.gallery-next { right: 0.7rem; }
+.gallery-hitarea { position: absolute; z-index: 5; inset-block: 0; width: 50%; cursor: pointer; background: transparent; border: 0; }
+.gallery-hitarea:focus-visible { outline: 3px solid #0b57d0; outline-offset: -4px; }
+.gallery-prev { left: 0; border-radius: 0.9rem 0 0 0.9rem; }
+.gallery-next { right: 0; border-radius: 0 0.9rem 0.9rem 0; }
 .gallery-meta { display: flex; align-items: center; justify-content: space-between; padding: 0.55rem 0.35rem 0; color: #64748b; font-size: 0.72rem; font-weight: 700; }
 .gallery-dots { display: flex; gap: 0.35rem; }
 .gallery-dots i { width: 0.4rem; height: 0.4rem; background: #c6d3e2; border-radius: 50%; }
