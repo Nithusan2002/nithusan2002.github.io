@@ -212,6 +212,11 @@
     <!-- Hva jeg ser etter Section -->
     <section id="mal" class="view-panel current-focus py-16 section-muted reveal" data-view="mal">
         <div class="max-w-6xl mx-auto px-4">
+            <div class="view-heading">
+                <p class="view-eyebrow" data-no="Neste steg" data-en="Next step">Neste steg</p>
+                <h2 data-no="Hva jeg ser etter nå" data-en="What I am looking for now">Hva jeg ser etter nå</h2>
+                <p data-no="En rolle der jeg får brukt det jeg kan, samtidig som jeg utvikler meg videre sammen med erfarne utviklere." data-en="A role where I can use what I know while continuing to grow alongside experienced developers.">En rolle der jeg får brukt det jeg kan, samtidig som jeg utvikler meg videre sammen med erfarne utviklere.</p>
+            </div>
             <div class="focus-panel">
                 <div class="focus-heading">
                     <div class="focus-status"><span aria-hidden="true"></span><span data-no="Tilgjengelig for nye muligheter" data-en="Available for new opportunities">Tilgjengelig for nye muligheter</span></div>
@@ -243,27 +248,35 @@
     <!-- Ferdigheter Section -->
     <section id="ferdigheter" class="view-panel py-20 section-white reveal" data-view="ferdigheter">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="section-title font-bold text-center text-gray-800" data-no="Mine ferdigheter" data-en="My skills">Mine ferdigheter</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="view-heading">
+                <p class="view-eyebrow" data-no="Verktøykassen min" data-en="My toolkit">Verktøykassen min</p>
+                <h2 data-no="Teknologi jeg har jobbet med" data-en="Technology I have worked with">Teknologi jeg har jobbet med</h2>
+                <p data-no="Jeg har mest erfaring med backend, men har også bygget apper for både iOS og Android." data-en="My main experience is in backend development, but I have also built apps for both iOS and Android.">Jeg har mest erfaring med backend, men har også bygget apper for både iOS og Android.</p>
+            </div>
+            <div class="skills-grid">
                 <div class="skill-card reveal">
                     <span class="skill-index">01</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800">Backend</h3>
                     <p class="text-gray-600 text-sm">Kotlin, Java, Spring Boot, REST API</p>
+                    <small data-no="Brukt i JobTracker og studieprosjekter" data-en="Used in JobTracker and university projects">Brukt i JobTracker og studieprosjekter</small>
                 </div>
                 <div class="skill-card reveal">
                     <span class="skill-index">02</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Databaser" data-en="Databases">Databaser</h3>
                     <p class="text-gray-600 text-sm">PostgreSQL, SQL, Room, SwiftData</p>
+                    <small data-no="Relasjonelle og lokale databaser" data-en="Relational and local databases">Relasjonelle og lokale databaser</small>
                 </div>
                 <div class="skill-card reveal">
                     <span class="skill-index">03</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Mobil" data-en="Mobile">Mobil</h3>
                     <p class="text-gray-600 text-sm">SwiftUI, Jetpack Compose, Android</p>
+                    <small data-no="Brukt i Spor økonomi og LiftOff" data-en="Used in Spor økonomi and LiftOff">Brukt i Spor økonomi og LiftOff</small>
                 </div>
                 <div class="skill-card reveal">
                     <span class="skill-index">04</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Verktøy" data-en="Tools">Verktøy</h3>
                     <p class="text-gray-600 text-sm">Git, Docker, GitHub, VS Code</p>
+                    <small data-no="En del av den daglige arbeidsflyten min" data-en="Part of my everyday workflow">En del av den daglige arbeidsflyten min</small>
                 </div>
             </div>
         </div>
@@ -271,17 +284,20 @@
 
     <!-- Kontakt Section -->
     <section id="kontakt" class="view-panel py-20 section-muted reveal" data-view="kontakt">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="section-title font-bold text-center mb-8 text-gray-800" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</h2>
-            <p class="text-xl text-center text-gray-600 mb-10 max-w-2xl mx-auto" data-no="Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Send meg gjerne en e-post eller ta kontakt på LinkedIn." data-en="Do you have a backend role that might be a good fit, or would you like to know more about one of my projects? Send me an email or get in touch on LinkedIn.">
-                Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Send meg gjerne en e-post eller ta kontakt på LinkedIn.
-            </p>
-            
-            <div class="contact-bar section-surface reveal">
-                <a href="mailto:nithusank.2002@gmail.com" data-no="E-post" data-en="Email">E-post</a>
-                <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-                <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com/nithusan2002" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="contact-layout">
+                <div class="contact-intro">
+                    <p class="view-eyebrow" data-no="La oss snakke" data-en="Let us talk">La oss snakke</p>
+                    <h2 data-no="Ta gjerne kontakt" data-en="Get in touch">Ta gjerne kontakt</h2>
+                    <p data-no="Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Jeg svarer gjerne på e-post eller LinkedIn." data-en="Do you have a backend role that might be a good fit, or would you like to know more about one of my projects? Feel free to contact me by email or LinkedIn.">Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Jeg svarer gjerne på e-post eller LinkedIn.</p>
+                    <a href="mailto:nithusank.2002@gmail.com" class="contact-cta" data-no="Send meg en e-post →" data-en="Send me an email →">Send meg en e-post →</a>
+                </div>
+                <div class="contact-links-grid reveal">
+                    <a href="mailto:nithusank.2002@gmail.com"><span data-no="E-post" data-en="Email">E-post</span><strong>nithusank.2002@gmail.com</strong><i aria-hidden="true">↗</i></a>
+                    <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong data-no="Profil og erfaring" data-en="Profile and experience">Profil og erfaring</strong><i aria-hidden="true">↗</i></a>
+                    <a href="https://github.com/nithusan2002" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong data-no="Kode og prosjekter" data-en="Code and projects">Kode og prosjekter</strong><i aria-hidden="true">↗</i></a>
+                    <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer"><span>CV</span><strong data-no="Åpne som PDF" data-en="Open as PDF">Åpne som PDF</strong><i aria-hidden="true">↗</i></a>
+                </div>
             </div>
         </div>
     </section>

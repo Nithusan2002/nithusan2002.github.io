@@ -913,6 +913,26 @@ h5 {
 .sidebar-layout.personal-page .personal-hero { padding-top: 6rem; }
 .sidebar-layout .hero-inner { padding-block: 4rem; }
 .sidebar-layout .section-title { text-align: left; }
+.view-heading { max-width: 48rem; margin-bottom: 2rem; }
+.view-eyebrow { margin-bottom: 0.55rem; color: #0b57d0; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+.view-heading h2,
+.contact-intro h2 { margin: 0 0 0.75rem; color: #0f172a; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.06; }
+.view-heading > p:last-child,
+.contact-intro > p { max-width: 43rem; color: #526174; font-size: 1.05rem; line-height: 1.65; }
+.skills-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.skills-grid .skill-card { display: flex; min-height: 15rem; flex-direction: column; border: 1px solid #dce5f1; border-top: 3px solid var(--primary); box-shadow: 0 10px 28px rgba(41, 65, 102, 0.06); }
+.skills-grid .skill-card small { display: block; margin-top: auto; padding-top: 1.25rem; color: #64748b; font-size: 0.76rem; line-height: 1.45; border-top: 1px solid #e2e8f0; }
+
+.contact-layout { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(28rem, 1.15fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; min-height: 30rem; }
+.contact-intro > p { margin-bottom: 1.75rem; }
+.contact-cta { display: inline-flex; padding: 0.9rem 1.2rem; color: #fff; font-weight: 750; background: var(--primary); border-radius: 0.75rem; box-shadow: 0 10px 22px rgba(11, 87, 208, 0.18); }
+.contact-cta:hover { background: #0847ad; }
+.contact-links-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.contact-links-grid a { position: relative; display: flex; min-height: 9rem; flex-direction: column; justify-content: flex-end; padding: 1.25rem; color: #0f172a; background: #fff; border: 1px solid #dce5f1; border-radius: 1rem; box-shadow: 0 10px 28px rgba(41, 65, 102, 0.07); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.contact-links-grid a:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(41, 65, 102, 0.12); }
+.contact-links-grid span { margin-bottom: 0.3rem; color: #0b57d0; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.contact-links-grid strong { padding-right: 1.5rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.92rem; }
+.contact-links-grid i { position: absolute; top: 1rem; right: 1rem; color: #0b57d0; font-style: normal; font-size: 1.1rem; }
 .sidebar-layout #prosjekter,
 .sidebar-layout #om,
 .sidebar-layout #mal,
@@ -982,6 +1002,13 @@ h5 {
     .sidebar-layout #mal,
     .sidebar-layout #ferdigheter,
     .sidebar-layout #kontakt { padding-top: 7rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .skills-grid .skill-card { min-height: 12rem; }
+    .contact-layout { grid-template-columns: 1fr; min-height: 0; }
+}
+
+@media (max-width: 560px) {
+    .contact-links-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
