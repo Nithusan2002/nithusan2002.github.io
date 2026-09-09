@@ -287,6 +287,16 @@ h5 {
 .about-facts strong { color: #1e293b; font-size: 0.92rem; }
 .about-facts small { margin-top: 0.2rem; color: #64748b; font-size: 0.76rem; line-height: 1.4; }
 
+.about-more-link {
+    display: inline-flex;
+    margin-top: 1.75rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-underline-offset: 0.25rem;
+}
+
+.about-more-link:hover { text-decoration: underline; }
+
 .about-photo {
     width: 100%;
     aspect-ratio: 4 / 5;
@@ -689,6 +699,93 @@ h5 {
 .footer-links a { color: #cbd5e1; font-weight: 600; }
 .footer-links a:hover { color: #fff; }
 
+/* Personal about page */
+.personal-page { background: #fff; }
+
+.personal-hero {
+    padding: 9.5rem 0 6rem;
+    color: #fff;
+    background: #102a4c;
+}
+
+.personal-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.75fr);
+    gap: clamp(2.5rem, 7vw, 6rem);
+    align-items: center;
+}
+
+.personal-back-link {
+    display: inline-flex;
+    margin-bottom: 3rem;
+    color: #bae6fd;
+    font-weight: 700;
+}
+
+.personal-back-link:hover { color: #fff; }
+
+.personal-eyebrow {
+    margin-bottom: 0.75rem;
+    color: #0b78b9;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.personal-hero .personal-eyebrow { color: #7dd3fc; }
+
+.personal-hero h1 {
+    max-width: 42rem;
+    margin: 0 0 1.4rem;
+    font-size: clamp(2.8rem, 7vw, 5.25rem);
+    line-height: 0.98;
+}
+
+.personal-hero-copy > p:last-child {
+    max-width: 38rem;
+    color: #cfdaea;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.65;
+}
+
+.personal-portrait {
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 1.25rem;
+    box-shadow: 0 28px 60px rgba(3, 12, 28, 0.32);
+}
+
+.personal-portrait img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.personal-section { padding: 6.5rem 0; }
+.personal-intro { max-width: 48rem; margin-bottom: 3rem; }
+.personal-intro h2,
+.personal-cta h2 { margin: 0 0 1rem; color: #0f172a; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+.personal-intro > p:last-child { color: #475569; font-size: 1.08rem; line-height: 1.7; }
+
+.interest-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.interest-card { padding: 1.75rem; background: #f8fafc; border: 1px solid #dce5f1; border-radius: 1rem; }
+.interest-card > span { color: #0b57d0; font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; }
+.interest-card h3 { margin: 2.4rem 0 0.75rem; color: #0f172a; font-size: 1.25rem; }
+.interest-card p { color: #526174; line-height: 1.65; }
+
+.personal-cta { padding: 6rem 0; color: #475569; background: #fff; }
+.personal-cta p { margin-bottom: 2rem; font-size: 1.05rem; }
+.personal-cta .cta-primary { color: #fff; }
+
+@media (max-width: 899px) {
+    .personal-hero-grid { grid-template-columns: 1fr; }
+    .personal-portrait { max-width: 30rem; }
+    .interest-grid { grid-template-columns: 1fr; }
+}
+
 .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -737,4 +834,15 @@ h5 {
     .about-facts { grid-template-columns: 1fr; }
     .about-facts > div + div { border-top: 1px solid #dce5f1; border-left: 0; }
     .footer-inner { flex-direction: column; text-align: center; }
+    .personal-hero { padding: 7.5rem 0 4rem; }
+    .personal-back-link { margin-bottom: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal,
+    .reveal.visible { opacity: 1; transform: none; transition: none; }
+    .card-hover,
+    .cta-primary,
+    .cta-secondary { transition: none; }
 }

@@ -41,11 +41,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Show projects immediately after the introduction, where recruiters can find them quickly.
-const heroSection = document.getElementById('hjem');
-const projectsSection = document.getElementById('prosjekter');
-heroSection.insertAdjacentElement('afterend', projectsSection);
-
 // Language switching functionality
 let currentLanguage = 'no';
 
@@ -248,82 +243,6 @@ const projectData = {
             screenshotLayout: "wide",
             demoUrl: "https://github.com/Nithusan2002/jobtracker-api"
         },
-        mobileapp: {
-                title: {
-                    no: "Mobilapp - FitnessTracker",
-                    en: "Mobile App - FitnessTracker"
-                },
-                description: {
-                    no: "En intuitiv mobilapplikasjon som hjelper brukere med å spore treningsaktiviteter, sette mål og følge fremgang. Appen integrerer med populære fitness-enheter og tilbyr personaliserte treningsplaner.",
-                    en: "An intuitive mobile application that helps users track workout activities, set goals, and monitor progress. The app integrates with popular fitness devices and offers personalized workout plans."
-                },
-                features: {
-                    no: [
-                        "Aktivitetssporing med GPS",
-                        "Personaliserte treningsplaner",
-                        "Integrasjon med wearables",
-                        "Sosiale funksjoner og utfordringer",
-                        "Detaljerte statistikker og rapporter",
-                        "Offline modus for treningsplaner"
-                    ],
-                    en: [
-                        "Activity tracking with GPS",
-                        "Personalized workout plans",
-                        "Wearables integration",
-                        "Social features and challenges",
-                        "Detailed statistics and reports",
-                        "Offline mode for workout plans"
-                    ]
-                },
-                technologies: ["Flutter", "Dart", "Firebase", "Google Maps API", "Health Connect", "SQLite"],
-                challenges: {
-                    no: "Hovedutfordringen var å optimalisere batterilevetiden mens appen sporet aktivitet i bakgrunnen. Dette ble løst gjennom smart bruk av sensorer og effektive algoritmer.",
-                    en: "The main challenge was optimizing battery life while the app tracked activity in the background. This was solved through smart sensor usage and efficient algorithms."
-                },
-                outcome: {
-                    no: "Appen har blitt lastet ned over 1000 ganger i testfasen og har en gjennomsnittlig vurdering på 4.7 stjerner. Brukere roser spesielt den intuitive designen og nøyaktige sporingen.",
-                    en: "The app has been downloaded over 1000 times in the test phase and has an average rating of 4.7 stars. Users especially praise the intuitive design and accurate tracking."
-                },
-                demoUrl: "#"
-            },
-            aiproject: {
-                title: {
-                    no: "AI-prosjekt - SmartRecommend",
-                    en: "AI Project - SmartRecommend"
-                },
-                description: {
-                    no: "Et maskinlæringsprosjekt som analyserer brukeratferd og preferanser for å gi personaliserte anbefalinger. Systemet bruker avanserte algoritmer for å forbedre nøyaktigheten over tid.",
-                    en: "A machine learning project that analyzes user behavior and preferences to provide personalized recommendations. The system uses advanced algorithms to improve accuracy over time."
-                },
-                features: {
-                    no: [
-                        "Personaliserte anbefalinger basert på brukeratferd",
-                        "Sanntids læring og tilpasning",
-                        "A/B testing for algoritmeoptimalisering",
-                        "Skalerbar arkitektur for store datasett",
-                        "Visualisering av anbefalingsmønstre",
-                        "API for integrasjon med andre systemer"
-                    ],
-                    en: [
-                        "Personalized recommendations based on user behavior",
-                        "Real-time learning and adaptation",
-                        "A/B testing for algorithm optimization",
-                        "Scalable architecture for large datasets",
-                        "Visualization of recommendation patterns",
-                        "API for integration with other systems"
-                    ]
-                },
-                technologies: ["Python", "TensorFlow", "Pandas", "NumPy", "Scikit-learn", "FastAPI", "PostgreSQL"],
-                challenges: {
-                    no: "Den største utfordringen var å håndtere store mengder data effektivt og sikre at anbefalingene forble relevante. Dette ble løst ved å implementere distribuert databehandling og kontinuerlig læring.",
-                    en: "The biggest challenge was handling large amounts of data efficiently and ensuring recommendations remained relevant. This was solved by implementing distributed data processing and continuous learning."
-                },
-                outcome: {
-                    no: "Prosjektet oppnådde 85% nøyaktighet i anbefalinger og reduserte behandlingstiden med 60%. Systemet håndterer nå over 10,000 anbefalinger per sekund.",
-                    en: "The project achieved 85% accuracy in recommendations and reduced processing time by 60%. The system now handles over 10,000 recommendations per second."
-                },
-                demoUrl: "#"
-            }
         };
 
         let lastFocusedElement = null;
