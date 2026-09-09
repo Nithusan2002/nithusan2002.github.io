@@ -22,39 +22,36 @@
     <link rel="stylesheet" href="tailwind.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="site-bg">
+<body class="site-bg sidebar-layout">
     <!-- Navigation -->
-    <nav class="glass-nav fixed w-full top-0 z-50 transition-shadow duration-300">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="#hjem" class="site-name text-2xl font-bold text-slate-900" aria-label="Nithusan Krishnasamymudali – hjem">Nithusan K.</a>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#hjem" class="nav-link text-gray-600 transition duration-300" data-no="Hjem" data-en="Home">Hjem</a>
-                    <a href="#prosjekter" class="nav-link text-gray-600 transition duration-300" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
-                    <a href="/om-meg/" class="nav-link text-gray-600 transition duration-300" data-no="Om meg" data-en="About me">Om meg</a>
-                    <a href="#ferdigheter" class="nav-link text-gray-600 transition duration-300" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
-                    <a href="#kontakt" class="nav-link text-gray-600 transition duration-300" data-no="Kontakt" data-en="Contact">Kontakt</a>
-                    <button type="button" id="language-toggle" class="language-pill px-3 py-1 rounded-full text-sm hover:opacity-90 transition duration-300">EN</button>
-                </div>
-                <button type="button" id="mobile-menu-btn" class="mobile-menu-button md:hidden text-gray-600" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobile-menu">
+    <nav class="side-nav" aria-label="Hovedmeny">
+        <div class="side-nav-header">
+            <a href="#hjem" class="site-name" data-view-link="hjem" aria-label="Nithusan Krishnasamymudali – hjem">Nithusan K.</a>
+            <button type="button" id="mobile-menu-btn" class="mobile-menu-button" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                </button>
+            </button>
+        </div>
+        <div id="mobile-menu" class="side-nav-content">
+            <div class="side-nav-links">
+                <a href="#hjem" class="nav-link" data-view-link="hjem" data-no="Hjem" data-en="Home">Hjem</a>
+                <a href="#prosjekter" class="nav-link" data-view-link="prosjekter" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+                <a href="#om" class="nav-link" data-view-link="om" data-no="Bakgrunn" data-en="Background">Bakgrunn</a>
+                <a href="#mal" class="nav-link" data-view-link="mal" data-no="Mål nå" data-en="Current focus">Mål nå</a>
+                <a href="#ferdigheter" class="nav-link" data-view-link="ferdigheter" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
+                <a href="#kontakt" class="nav-link" data-view-link="kontakt" data-no="Kontakt" data-en="Contact">Kontakt</a>
+                <a href="/om-meg/" class="nav-link nav-link-personal" data-no="Personlig om meg" data-en="Personal about me">Personlig om meg <span aria-hidden="true">↗</span></a>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <a href="#hjem" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Hjem" data-en="Home">Hjem</a>
-                <a href="#prosjekter" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
-                <a href="/om-meg/" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Om meg" data-en="About me">Om meg</a>
-                <a href="#ferdigheter" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
-                <a href="#kontakt" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Kontakt" data-en="Contact">Kontakt</a>
-                <button type="button" id="mobile-language-toggle" class="language-pill px-3 py-1 rounded-full text-sm hover:opacity-90 transition duration-300 mt-2">EN</button>
+            <div class="side-nav-footer">
+                <button type="button" id="language-toggle" class="language-pill">EN</button>
+                <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer" class="side-cv-link" data-no="Åpne CV ↗" data-en="Open CV ↗">Åpne CV ↗</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hjem" class="hero flex items-center text-white pt-20 reveal">
+    <section id="hjem" class="hero view-panel view-active flex items-center text-white reveal" data-view="hjem">
         <div class="hero-inner max-w-6xl mx-auto px-4 w-full">
             <div class="hero-grid">
                 <div class="hero-copy">
@@ -63,7 +60,7 @@
                     <p class="hero-role" data-no="Backendutvikler med bachelor i informatikk" data-en="Backend developer with a bachelor's degree in computer science">Backendutvikler med bachelor i informatikk</p>
                     <p class="hero-subtitle" data-no="Jeg lager backend- og appprosjekter med Kotlin, Spring Boot, PostgreSQL og Swift. Jeg fullførte bachelor i informatikk ved UiO våren 2026 og jobber som IT Manager i Radio Nova." data-en="I build backend and app projects with Kotlin, Spring Boot, PostgreSQL and Swift. I completed my bachelor's degree in computer science at the University of Oslo in spring 2026 and work as IT Manager at Radio Nova.">Jeg lager backend- og appprosjekter med Kotlin, Spring Boot, PostgreSQL og Swift. Jeg fullførte bachelor i informatikk ved UiO våren 2026 og jobber som IT Manager i Radio Nova.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#prosjekter" class="cta-primary" data-no="Se backend-prosjekter" data-en="View backend projects">Se backend-prosjekter</a>
+                        <a href="#prosjekter" class="cta-primary" data-view-link="prosjekter" data-no="Se backend-prosjekter" data-en="View backend projects">Se backend-prosjekter</a>
                         <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer" class="cta-secondary" data-no="Åpne CV" data-en="Open CV">Åpne CV</a>
                         <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer" class="hero-text-link" data-no="LinkedIn-profil →" data-en="LinkedIn profile →">LinkedIn-profil →</a>
                     </div>
@@ -87,7 +84,7 @@
     </section>
 
     <!-- Prosjekter Section -->
-    <section id="prosjekter" class="py-20 section-muted reveal">
+    <section id="prosjekter" class="view-panel py-20 section-muted reveal" data-view="prosjekter">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title font-bold text-center text-gray-800" data-no="Mine prosjekter" data-en="My projects">Mine prosjekter</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -167,7 +164,7 @@
 
     <!-- Om meg Section -->
 
-    <section id="om" class="pt-14 pb-20 section-white reveal">
+    <section id="om" class="view-panel pt-14 pb-20 section-white reveal" data-view="om">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title font-bold text-center text-gray-800" data-no="Kort om meg" data-en="A little about me">Kort om meg</h2>
             <div class="about-grid">
@@ -213,7 +210,7 @@
 
 
     <!-- Hva jeg ser etter Section -->
-    <section id="mal" class="current-focus py-16 section-muted reveal">
+    <section id="mal" class="view-panel current-focus py-16 section-muted reveal" data-view="mal">
         <div class="max-w-6xl mx-auto px-4">
             <div class="focus-panel">
                 <div class="focus-heading">
@@ -244,7 +241,7 @@
     </section>
 
     <!-- Ferdigheter Section -->
-    <section id="ferdigheter" class="py-20 section-white reveal">
+    <section id="ferdigheter" class="view-panel py-20 section-white reveal" data-view="ferdigheter">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title font-bold text-center text-gray-800" data-no="Mine ferdigheter" data-en="My skills">Mine ferdigheter</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -273,7 +270,7 @@
     </section>
 
     <!-- Kontakt Section -->
-    <section id="kontakt" class="py-20 section-muted reveal">
+    <section id="kontakt" class="view-panel py-20 section-muted reveal" data-view="kontakt">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="section-title font-bold text-center mb-8 text-gray-800" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</h2>
             <p class="text-xl text-center text-gray-600 mb-10 max-w-2xl mx-auto" data-no="Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Send meg gjerne en e-post eller ta kontakt på LinkedIn." data-en="Do you have a backend role that might be a good fit, or would you like to know more about one of my projects? Send me an email or get in touch on LinkedIn.">

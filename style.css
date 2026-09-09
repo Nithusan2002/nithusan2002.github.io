@@ -846,3 +846,112 @@ h5 {
     .cta-primary,
     .cta-secondary { transition: none; }
 }
+
+/* Sidebar portfolio navigation */
+.sidebar-layout { background: #eef3f9; }
+
+.side-nav {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 50;
+    display: flex;
+    width: 17rem;
+    flex-direction: column;
+    padding: 2.25rem 1.5rem;
+    color: #dbe8fb;
+    background: #0d2342;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.side-nav-header { display: flex; align-items: center; justify-content: space-between; }
+.side-nav .site-name { color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: 1.45rem; font-weight: 800; }
+.side-nav .mobile-menu-button { display: none; color: #fff; }
+.side-nav-content { display: flex; min-height: 0; flex: 1; flex-direction: column; justify-content: space-between; padding-top: 4rem; }
+.side-nav-links { display: grid; gap: 0.35rem; }
+
+.side-nav .nav-link {
+    position: relative;
+    display: flex;
+    min-height: 2.9rem;
+    align-items: center;
+    padding: 0.72rem 0.9rem 0.72rem 1.15rem;
+    color: #aebfd7;
+    font-weight: 650;
+    border-radius: 0.65rem;
+}
+
+.side-nav .nav-link::before {
+    position: absolute;
+    left: 0;
+    width: 3px;
+    height: 1.15rem;
+    content: '';
+    background: transparent;
+    border-radius: 99px;
+}
+
+.side-nav .nav-link::after { display: none; }
+
+.side-nav .nav-link:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
+.side-nav .nav-link.active { color: #fff; background: rgba(64, 145, 255, 0.16); }
+.side-nav .nav-link.active::before { background: #60a5fa; }
+.side-nav .nav-link.nav-link-personal { margin-top: 1.15rem; color: #8bdcff; border: 1px solid rgba(125, 211, 252, 0.24); }
+.side-nav-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 1.25rem 0.25rem 0; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.side-nav-footer .language-pill { color: #fff; background: #1763c6; }
+.side-nav-footer .side-cv-link { color: #bfd0e7; font-size: 0.85rem; font-weight: 700; }
+.side-nav-footer .side-cv-link:hover { color: #fff; }
+
+.sidebar-layout > section,
+.sidebar-layout > main,
+.sidebar-layout > footer,
+.sidebar-layout > .fixed { margin-left: 17rem; }
+
+.sidebar-layout .view-panel { min-height: 100vh; }
+.sidebar-layout .view-panel:not(.view-active) { display: none; }
+.sidebar-layout .view-active { animation: view-in 0.32s ease both; }
+.sidebar-layout .hero { padding-top: 0; }
+.sidebar-layout.personal-page .personal-hero { padding-top: 6rem; }
+.sidebar-layout .hero-inner { padding-block: 4rem; }
+.sidebar-layout .section-title { text-align: left; }
+.sidebar-layout #prosjekter,
+.sidebar-layout #om,
+.sidebar-layout #mal,
+.sidebar-layout #ferdigheter,
+.sidebar-layout #kontakt { padding-top: clamp(4rem, 8vh, 7rem); }
+
+@keyframes view-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 899px) {
+    .side-nav {
+        inset: 0 0 auto;
+        width: 100%;
+        padding: 0.95rem 1.25rem;
+        background: rgba(13, 35, 66, 0.97);
+        box-shadow: 0 8px 25px rgba(2, 12, 30, 0.18);
+        backdrop-filter: blur(14px);
+    }
+
+    .side-nav .mobile-menu-button { display: grid; min-width: 2.75rem; min-height: 2.75rem; place-items: center; }
+    .side-nav-content { display: none; padding-top: 1rem; }
+    .side-nav-content.mobile-open { display: flex; max-height: calc(100vh - 5rem); overflow-y: auto; }
+    .side-nav-links { gap: 0.15rem; }
+    .side-nav-footer { margin-top: 1rem; padding-bottom: 0.25rem; }
+    .sidebar-layout > section,
+    .sidebar-layout > main,
+    .sidebar-layout > footer,
+    .sidebar-layout > .fixed { margin-left: 0; }
+    .sidebar-layout .hero { padding-top: 4.75rem; }
+    .sidebar-layout.personal-page .personal-hero { padding-top: 7.5rem; }
+    .sidebar-layout #prosjekter,
+    .sidebar-layout #om,
+    .sidebar-layout #mal,
+    .sidebar-layout #ferdigheter,
+    .sidebar-layout #kontakt { padding-top: 7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sidebar-layout .view-active { animation: none; }
+}

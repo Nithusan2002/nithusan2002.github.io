@@ -3,17 +3,17 @@ const mobileMenu = document.getElementById('mobile-menu');
 let currentLanguage = 'no';
 
 function closeMobileMenu() {
-    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('mobile-open');
     mobileMenuBtn.setAttribute('aria-expanded', 'false');
 }
 
 mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    mobileMenuBtn.setAttribute('aria-expanded', String(!mobileMenu.classList.contains('hidden')));
+    mobileMenu.classList.toggle('mobile-open');
+    mobileMenuBtn.setAttribute('aria-expanded', String(mobileMenu.classList.contains('mobile-open')));
 });
 
 document.addEventListener('click', (event) => {
-    if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+    if (mobileMenu.classList.contains('mobile-open') && !mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
         closeMobileMenu();
     }
 });
@@ -23,14 +23,13 @@ function switchLanguage() {
     document.querySelectorAll('[data-no][data-en]').forEach((element) => {
         element.textContent = element.getAttribute(`data-${currentLanguage}`);
     });
-    document.querySelectorAll('#language-toggle, #mobile-language-toggle').forEach((button) => {
+    document.querySelectorAll('#language-toggle').forEach((button) => {
         button.textContent = currentLanguage === 'no' ? 'EN' : 'Norsk';
     });
     document.documentElement.lang = currentLanguage;
 }
 
 document.getElementById('language-toggle').addEventListener('click', switchLanguage);
-document.getElementById('mobile-language-toggle').addEventListener('click', switchLanguage);
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeMobileMenu();

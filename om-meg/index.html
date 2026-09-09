@@ -20,30 +20,29 @@
     <link rel="stylesheet" href="../tailwind.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
-<body class="site-bg personal-page">
-    <nav class="glass-nav fixed w-full top-0 z-50 transition-shadow duration-300">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="/" class="site-name text-2xl font-bold text-slate-900" aria-label="Nithusan Krishnasamymudali – hjem">Nithusan K.</a>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="/" class="nav-link" data-no="Hjem" data-en="Home">Hjem</a>
-                    <a href="/#prosjekter" class="nav-link" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
-                    <a href="/om-meg/" class="nav-link active" data-no="Om meg" data-en="About me">Om meg</a>
-                    <a href="/#kontakt" class="nav-link" data-no="Kontakt" data-en="Contact">Kontakt</a>
-                    <button type="button" id="language-toggle" class="language-pill px-3 py-1 rounded-full text-sm hover:opacity-90 transition duration-300">EN</button>
-                </div>
-                <button type="button" id="mobile-menu-btn" class="mobile-menu-button md:hidden text-gray-600" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobile-menu">
+<body class="site-bg personal-page sidebar-layout">
+    <nav class="side-nav" aria-label="Hovedmeny">
+        <div class="side-nav-header">
+            <a href="/" class="site-name" aria-label="Nithusan Krishnasamymudali – hjem">Nithusan K.</a>
+            <button type="button" id="mobile-menu-btn" class="mobile-menu-button" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                </button>
+            </button>
+        </div>
+        <div id="mobile-menu" class="side-nav-content">
+            <div class="side-nav-links">
+                <a href="/#hjem" class="nav-link" data-no="Hjem" data-en="Home">Hjem</a>
+                <a href="/#prosjekter" class="nav-link" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+                <a href="/#om" class="nav-link" data-no="Bakgrunn" data-en="Background">Bakgrunn</a>
+                <a href="/#mal" class="nav-link" data-no="Mål nå" data-en="Current focus">Mål nå</a>
+                <a href="/#ferdigheter" class="nav-link" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
+                <a href="/#kontakt" class="nav-link" data-no="Kontakt" data-en="Contact">Kontakt</a>
+                <a href="/om-meg/" class="nav-link nav-link-personal active" aria-current="page" data-no="Personlig om meg" data-en="Personal about me">Personlig om meg</a>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <a href="/" class="nav-link block py-2" data-no="Hjem" data-en="Home">Hjem</a>
-                <a href="/#prosjekter" class="nav-link block py-2" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
-                <a href="/om-meg/" class="nav-link active block py-2" data-no="Om meg" data-en="About me">Om meg</a>
-                <a href="/#kontakt" class="nav-link block py-2" data-no="Kontakt" data-en="Contact">Kontakt</a>
-                <button type="button" id="mobile-language-toggle" class="language-pill px-3 py-1 rounded-full text-sm mt-2">EN</button>
+            <div class="side-nav-footer">
+                <button type="button" id="language-toggle" class="language-pill">EN</button>
+                <a href="../assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer" class="side-cv-link" data-no="Åpne CV →" data-en="Open CV →">Åpne CV →</a>
             </div>
         </div>
     </nav>
