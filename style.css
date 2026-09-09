@@ -367,6 +367,7 @@ h5 {
 
 .cover-label {
     position: absolute;
+    z-index: 2;
     left: 1rem;
     bottom: 0.65rem;
     color: #475569;
@@ -375,6 +376,9 @@ h5 {
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
+
+.project-thumb--jobtracker { padding-bottom: 2.75rem; }
+.project-thumb--jobtracker .browser-frame { transform: translateY(-0.3rem); }
 
 .browser-frame {
     position: relative;
