@@ -97,6 +97,33 @@ document.querySelectorAll('.reveal').forEach(element => {
     revealObserver.observe(element);
 });
 
+// Hobby galleries on the About view. Clicking the left or right half of an
+// image moves through the stack without adding visible arrow controls.
+document.querySelectorAll('[data-gallery]').forEach(gallery => {
+    const slides = [...gallery.querySelectorAll('[data-slide]')];
+    const count = gallery.querySelector('[data-gallery-count]');
+    const dots = gallery.querySelector('.gallery-dots');
+    let activeIndex = 0;
+
+    slides.forEach(() => dots?.insertAdjacentHTML('beforeend', '<i></i>'));
+    const indicators = dots ? [...dots.children] : [];
+
+    function showSlide(index) {
+        activeIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+            const isActive = slideIndex === activeIndex;
+            slide.classList.toggle('is-active', isActive);
+            slide.setAttribute('aria-hidden', String(!isActive));
+        });
+        indicators.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === activeIndex));
+        if (count) count.textContent = `${activeIndex + 1} / ${slides.length}`;
+    }
+
+    gallery.querySelector('[data-gallery-prev]')?.addEventListener('click', () => showSlide(activeIndex - 1));
+    gallery.querySelector('[data-gallery-next]')?.addEventListener('click', () => showSlide(activeIndex + 1));
+    showSlide(0);
+});
+
 // Project modal functionality
 const projectData = {
     webapp: {
