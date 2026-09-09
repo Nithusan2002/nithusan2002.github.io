@@ -24,7 +24,7 @@ function switchLanguage() {
         element.textContent = element.getAttribute(`data-${currentLanguage}`);
     });
     document.querySelectorAll('#language-toggle').forEach((button) => {
-        button.textContent = currentLanguage === 'no' ? 'EN' : 'Norsk';
+        button.textContent = currentLanguage === 'no' ? 'English' : 'Norsk';
     });
     document.documentElement.lang = currentLanguage;
 }

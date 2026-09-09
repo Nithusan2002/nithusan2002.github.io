@@ -73,7 +73,7 @@ function switchLanguage() {
     // Update language toggle buttons
     const toggleButtons = document.querySelectorAll('#language-toggle');
     toggleButtons.forEach(button => {
-        button.textContent = currentLanguage === 'no' ? 'EN' : 'Norsk';
+        button.textContent = currentLanguage === 'no' ? 'English' : 'Norsk';
     });
 
     // Update document language
