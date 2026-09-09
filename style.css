@@ -764,6 +764,18 @@ h5 {
     object-fit: cover;
 }
 
+.personal-background { padding: 5.5rem 0; }
+.personal-background-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+.personal-background h2 { max-width: 30rem; margin: 0; color: #0f172a; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.12; }
+.personal-background-copy > p { margin-bottom: 1.25rem; color: #475569; line-height: 1.72; }
+.personal-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 2rem; overflow: hidden; background: #fff; border: 1px solid #dce5f1; border-radius: 1rem; }
+.personal-facts span { padding: 1rem; }
+.personal-facts span + span { border-left: 1px solid #dce5f1; }
+.personal-facts small,
+.personal-facts strong { display: block; }
+.personal-facts small { margin-bottom: 0.35rem; color: #0b57d0; font-size: 0.67rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.personal-facts strong { color: #1e293b; font-size: 0.82rem; line-height: 1.4; }
+
 .personal-section { padding: 6.5rem 0; }
 .personal-intro { max-width: 48rem; margin-bottom: 3rem; }
 .personal-intro h2,
@@ -783,6 +795,9 @@ h5 {
 @media (max-width: 899px) {
     .personal-hero-grid { grid-template-columns: 1fr; }
     .personal-portrait { max-width: 30rem; }
+    .personal-background-grid { grid-template-columns: 1fr; }
+    .personal-facts { grid-template-columns: 1fr; }
+    .personal-facts span + span { border-top: 1px solid #dce5f1; border-left: 0; }
     .interest-grid { grid-template-columns: 1fr; }
 }
 
