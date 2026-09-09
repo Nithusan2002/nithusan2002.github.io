@@ -22,39 +22,34 @@
     <link rel="stylesheet" href="tailwind.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="site-bg">
+<body class="site-bg sidebar-layout">
     <!-- Navigation -->
-    <nav class="glass-nav fixed w-full top-0 z-50 transition-shadow duration-300">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="#hjem" class="site-name text-2xl font-bold text-slate-900" aria-label="Nithusan Krishnasamymudali – hjem">Nithusan K.</a>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#hjem" class="nav-link text-gray-600 transition duration-300" data-no="Hjem" data-en="Home">Hjem</a>
-                    <a href="#prosjekter" class="nav-link text-gray-600 transition duration-300" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
-                    <a href="/om-meg/" class="nav-link text-gray-600 transition duration-300" data-no="Om meg" data-en="About me">Om meg</a>
-                    <a href="#ferdigheter" class="nav-link text-gray-600 transition duration-300" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
-                    <a href="#kontakt" class="nav-link text-gray-600 transition duration-300" data-no="Kontakt" data-en="Contact">Kontakt</a>
-                    <button type="button" id="language-toggle" class="language-pill px-3 py-1 rounded-full text-sm hover:opacity-90 transition duration-300">EN</button>
-                </div>
-                <button type="button" id="mobile-menu-btn" class="mobile-menu-button md:hidden text-gray-600" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobile-menu">
+    <nav class="side-nav" aria-label="Hovedmeny">
+        <div class="side-nav-header">
+            <a href="#hjem" class="site-name" data-view-link="hjem" aria-label="Nithusan Krishnasamymudali – hjem">Nithusan K.</a>
+            <button type="button" id="mobile-menu-btn" class="mobile-menu-button" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                </button>
+            </button>
+        </div>
+        <div id="mobile-menu" class="side-nav-content">
+            <div class="side-nav-links">
+                <a href="#hjem" class="nav-link" data-view-link="hjem" data-no="Hjem" data-en="Home">Hjem</a>
+                <a href="#om-meg" class="nav-link" data-view-link="om-meg" data-no="Om meg" data-en="About me">Om meg</a>
+                <a href="#prosjekter" class="nav-link" data-view-link="prosjekter" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
+                <a href="#ferdigheter" class="nav-link" data-view-link="ferdigheter" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
+                <a href="#kontakt" class="nav-link" data-view-link="kontakt" data-no="Kontakt" data-en="Contact">Kontakt</a>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <a href="#hjem" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Hjem" data-en="Home">Hjem</a>
-                <a href="#prosjekter" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Prosjekter" data-en="Projects">Prosjekter</a>
-                <a href="/om-meg/" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Om meg" data-en="About me">Om meg</a>
-                <a href="#ferdigheter" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Ferdigheter" data-en="Skills">Ferdigheter</a>
-                <a href="#kontakt" class="nav-link block py-2 text-gray-600 hover:text-blue-600" data-no="Kontakt" data-en="Contact">Kontakt</a>
-                <button type="button" id="mobile-language-toggle" class="language-pill px-3 py-1 rounded-full text-sm hover:opacity-90 transition duration-300 mt-2">EN</button>
+            <div class="side-nav-footer">
+                <button type="button" id="language-toggle" class="language-pill">English</button>
+                <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer" class="side-cv-link" data-no="Åpne CV ↗" data-en="Open CV ↗">Åpne CV ↗</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hjem" class="hero flex items-center text-white pt-20 reveal">
+    <section id="hjem" class="hero view-panel view-active flex items-center text-white reveal" data-view="hjem">
         <div class="hero-inner max-w-6xl mx-auto px-4 w-full">
             <div class="hero-grid">
                 <div class="hero-copy">
@@ -63,7 +58,7 @@
                     <p class="hero-role" data-no="Backendutvikler med bachelor i informatikk" data-en="Backend developer with a bachelor's degree in computer science">Backendutvikler med bachelor i informatikk</p>
                     <p class="hero-subtitle" data-no="Jeg lager backend- og appprosjekter med Kotlin, Spring Boot, PostgreSQL og Swift. Jeg fullførte bachelor i informatikk ved UiO våren 2026 og jobber som IT Manager i Radio Nova." data-en="I build backend and app projects with Kotlin, Spring Boot, PostgreSQL and Swift. I completed my bachelor's degree in computer science at the University of Oslo in spring 2026 and work as IT Manager at Radio Nova.">Jeg lager backend- og appprosjekter med Kotlin, Spring Boot, PostgreSQL og Swift. Jeg fullførte bachelor i informatikk ved UiO våren 2026 og jobber som IT Manager i Radio Nova.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#prosjekter" class="cta-primary" data-no="Se backend-prosjekter" data-en="View backend projects">Se backend-prosjekter</a>
+                        <a href="#prosjekter" class="cta-primary" data-view-link="prosjekter" data-no="Se backend-prosjekter" data-en="View backend projects">Se backend-prosjekter</a>
                         <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer" class="cta-secondary" data-no="Åpne CV" data-en="Open CV">Åpne CV</a>
                         <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer" class="hero-text-link" data-no="LinkedIn-profil →" data-en="LinkedIn profile →">LinkedIn-profil →</a>
                     </div>
@@ -71,23 +66,117 @@
                 <div class="hero-panel reveal">
                     <div class="hero-panel-card mb-4">
                         <p class="text-sm uppercase tracking-wider text-cyan-100 mb-2" data-no="Fremhevet prosjekt" data-en="Featured project">Fremhevet prosjekt</p>
-                        <h3 class="text-2xl font-bold mb-2">JobTracker</h3>
-                        <p class="text-blue-50 text-sm leading-relaxed" data-no="En webapp jeg laget for å holde oversikt over jobbsøknader. Backend er bygget med Kotlin, Spring Boot og PostgreSQL." data-en="A web app I built to keep track of job applications. The backend uses Kotlin, Spring Boot and PostgreSQL.">En webapp jeg laget for å holde oversikt over jobbsøknader. Backend er bygget med Kotlin, Spring Boot og PostgreSQL.</p>
+                        <h3 class="text-2xl font-bold mb-2">Spor økonomi</h3>
+                        <p class="text-blue-50 text-sm leading-relaxed" data-no="En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned. Budsjett, faste utgifter, sparing og investeringer samles på ett sted." data-en="An iOS app I am building to make it easy to see how much money you have left each month. Budgets, recurring expenses, savings and investments are brought together in one place.">En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned. Budsjett, faste utgifter, sparing og investeringer samles på ett sted.</p>
                     </div>
                     <div id="hero-tech-list" class="hero-tech-list">
-                        <span>Kotlin</span>
-                        <span>Spring Boot</span>
-                        <span>PostgreSQL</span>
-                        <span>Docker</span>
-                        <span>REST API</span>
+                        <span>Swift</span>
+                        <span>SwiftUI</span>
+                        <span>SwiftData</span>
+                        <span>Supabase</span>
+                        <span>iOS</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Om meg Section -->
+    <main id="om-meg" class="view-panel" data-view="om-meg">
+        <header class="personal-hero">
+            <div class="max-w-6xl mx-auto px-4 personal-hero-grid">
+                <div class="personal-hero-copy reveal">
+                    <p class="personal-eyebrow" data-no="Om meg" data-en="About me">Om meg</p>
+                    <h1 data-no="Litt mer enn bare kode" data-en="More than just code">Litt mer enn bare kode</h1>
+                    <p data-no="Her kan du bli bedre kjent med bakgrunnen min, interessene mine og det jeg bruker tid på utenfor jobb." data-en="Here you can learn more about my background, my interests and how I spend my time outside work.">Her kan du bli bedre kjent med bakgrunnen min, interessene mine og det jeg bruker tid på utenfor jobb.</p>
+                </div>
+                <figure class="personal-portrait reveal">
+                    <picture>
+                        <source srcset="assets/profile-2026.webp" type="image/webp">
+                        <img src="assets/profile-2026.jpg" alt="Portrett av Nithusan Krishnasamymudali" width="800" height="1000">
+                    </picture>
+                </figure>
+            </div>
+        </header>
+
+        <section class="personal-background section-muted">
+            <div class="max-w-6xl mx-auto px-4 personal-background-grid">
+                <div class="reveal">
+                    <p class="personal-eyebrow" data-no="Bakgrunn" data-en="Background">Bakgrunn</p>
+                    <h2 data-no="Backend, systemarkitektur og ansvar i praksis" data-en="Backend, system architecture and responsibility in practice">Backend, systemarkitektur og ansvar i praksis</h2>
+                </div>
+                <div class="personal-background-copy reveal">
+                    <p data-no="Jeg fullførte bachelor i Informatikk: Programmering og systemarkitektur ved UiO våren 2026. Der jobbet jeg blant annet med Java, Python, databaser, Git, systemdesign og datasikkerhet." data-en="I completed a BSc in Computer Science: Programming and System Architecture at the University of Oslo in spring 2026. My studies included Java, Python, databases, Git, system design and security.">Jeg fullførte bachelor i Informatikk: Programmering og systemarkitektur ved UiO våren 2026. Der jobbet jeg blant annet med Java, Python, databaser, Git, systemdesign og datasikkerhet.</p>
+                    <p data-no="I Radio Nova har jeg ansvar for IT-drift, infrastruktur og verktøyene redaksjonen bruker. Fra Avarn Security og Forsvaret er jeg vant til å ta ansvar, jobbe strukturert og holde hodet kaldt når det haster." data-en="At Radio Nova, I am responsible for IT operations, infrastructure and the tools used by the editorial team. My experience at Avarn Security and the Norwegian Armed Forces taught me to take responsibility, work methodically and stay calm under pressure.">I Radio Nova har jeg ansvar for IT-drift, infrastruktur og verktøyene redaksjonen bruker. Fra Avarn Security og Forsvaret er jeg vant til å ta ansvar, jobbe strukturert og holde hodet kaldt når det haster.</p>
+                    <div class="personal-facts">
+                        <span><small data-no="Utdanning" data-en="Education">Utdanning</small><strong data-no="BSc. Informatikk · UiO" data-en="BSc. Computer Science · UiO">BSc. Informatikk · UiO</strong></span>
+                        <span><small data-no="Fokus" data-en="Focus">Fokus</small><strong>Backend · systemarkitektur</strong></span>
+                        <span><small data-no="Ser etter" data-en="Looking for">Ser etter</small><strong data-no="Fast jobb · internship · trainee" data-en="Full-time · internship · graduate">Fast jobb · internship · trainee</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="personal-section section-white">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="personal-intro reveal">
+                    <p class="personal-eyebrow" data-no="Utenfor arbeid" data-en="Outside work">Utenfor arbeid</p>
+                    <h2 data-no="Det jeg liker å bruke tiden min på" data-en="How I like to spend my time">Det jeg liker å bruke tiden min på</h2>
+                    <p data-no="På fritiden liker jeg å trene, lage mat og jobbe med egne teknologiprosjekter. Det gir meg en god blanding av aktivitet, kreativitet og muligheten til å lære noe nytt." data-en="In my spare time, I enjoy training, cooking and working on personal technology projects. It gives me a good mix of activity, creativity and opportunities to learn something new.">På fritiden liker jeg å trene, lage mat og jobbe med egne teknologiprosjekter. Det gir meg en god blanding av aktivitet, kreativitet og muligheten til å lære noe nytt.</p>
+                </div>
+                <div class="interest-grid">
+                    <article class="interest-card reveal">
+                        <div class="hobby-gallery" data-gallery aria-label="Bilder fra trening">
+                            <div class="hobby-photo-stack">
+                                <div class="hobby-photo-placeholder is-active" data-slide><span data-no="Treningsbilde 1" data-en="Training photo 1">Treningsbilde 1</span></div>
+                                <div class="hobby-photo-placeholder" data-slide><span data-no="Treningsbilde 2" data-en="Training photo 2">Treningsbilde 2</span></div>
+                                <div class="hobby-photo-placeholder" data-slide><span data-no="Treningsbilde 3" data-en="Training photo 3">Treningsbilde 3</span></div>
+                                <button type="button" class="gallery-hitarea gallery-prev" data-gallery-prev aria-label="Forrige bilde"></button>
+                                <button type="button" class="gallery-hitarea gallery-next" data-gallery-next aria-label="Neste bilde"></button>
+                            </div>
+                            <div class="gallery-meta"><span data-gallery-count>1 / 3</span><div class="gallery-dots" aria-hidden="true"></div></div>
+                        </div>
+                        <span>01</span>
+                        <h3 data-no="Trening" data-en="Training">Trening</h3>
+                        <p data-no="Jeg har trent av og på siden slutten av 10. klasse, og det har alltid vært noe jeg har likt å holde på med. Nå har jeg klart å holde det gående i to år, og nei, jeg skipper ikke leg day 🦵" data-en="I have trained on and off since the end of 10th grade, and it has always been something I enjoy. I have now managed to keep it going for two years—and no, I do not skip leg day 🦵">Jeg har trent av og på siden slutten av 10. klasse, og det har alltid vært noe jeg har likt å holde på med. Nå har jeg klart å holde det gående i to år, og nei, jeg skipper ikke leg day 🦵</p>
+                    </article>
+                    <article class="interest-card reveal">
+                        <div class="hobby-gallery" data-gallery aria-label="Bilder fra matlaging">
+                            <div class="hobby-photo-stack">
+                                <img class="hobby-photo hobby-photo--cooking is-active" data-slide src="assets/hobby-cooking-1.jpg" alt="Ramen med kylling, egg og pak choi" width="900" height="1600" loading="lazy" decoding="async">
+                                <img class="hobby-photo hobby-photo--cooking" data-slide src="assets/hobby-cooking-2.jpg" alt="Fire poke bowls med laks og avokado" width="900" height="1600" loading="lazy" decoding="async">
+                                <img class="hobby-photo hobby-photo--cooking" data-slide src="assets/hobby-cooking-3.jpg" alt="Ramen med dumplings og egg" width="900" height="1600" loading="lazy" decoding="async">
+                                <button type="button" class="gallery-hitarea gallery-prev" data-gallery-prev aria-label="Forrige bilde"></button>
+                                <button type="button" class="gallery-hitarea gallery-next" data-gallery-next aria-label="Neste bilde"></button>
+                            </div>
+                            <div class="gallery-meta"><span data-gallery-count>1 / 3</span><div class="gallery-dots" aria-hidden="true"></div></div>
+                        </div>
+                        <span>02</span>
+                        <h3 data-no="Matlaging" data-en="Cooking">Matlaging</h3>
+                        <p data-no="Jeg elsker å lage mat, og ikke minst å prøve nye retter. For meg er matlaging en måte å koble av på, samtidig som jeg får teste meg fram, utfordre meg selv og lære noe nytt. Og én ting er sikkert: Jeg ELSKER sterk mat 🌶️" data-en="I love cooking, and especially trying new dishes. For me, cooking is a way to unwind while experimenting, challenging myself and learning something new. And one thing is certain: I LOVE spicy food 🌶️">Jeg elsker å lage mat, og ikke minst å prøve nye retter. For meg er matlaging en måte å koble av på, samtidig som jeg får teste meg fram, utfordre meg selv og lære noe nytt. Og én ting er sikkert: Jeg ELSKER sterk mat 🌶️</p>
+                    </article>
+                    <article class="interest-card reveal">
+                        <div class="hobby-gallery" data-gallery aria-label="Bilder fra egne prosjekter">
+                            <div class="hobby-photo-stack">
+                                <div class="hobby-photo-placeholder is-active" data-slide><span data-no="Prosjektbilde 1" data-en="Project photo 1">Prosjektbilde 1</span></div>
+                                <div class="hobby-photo-placeholder" data-slide><span data-no="Prosjektbilde 2" data-en="Project photo 2">Prosjektbilde 2</span></div>
+                                <div class="hobby-photo-placeholder" data-slide><span data-no="Prosjektbilde 3" data-en="Project photo 3">Prosjektbilde 3</span></div>
+                                <button type="button" class="gallery-hitarea gallery-prev" data-gallery-prev aria-label="Forrige bilde"></button>
+                                <button type="button" class="gallery-hitarea gallery-next" data-gallery-next aria-label="Neste bilde"></button>
+                            </div>
+                            <div class="gallery-meta"><span data-gallery-count>1 / 3</span><div class="gallery-dots" aria-hidden="true"></div></div>
+                        </div>
+                        <span>03</span>
+                        <h3 data-no="Egne prosjekter" data-en="Personal projects">Egne prosjekter</h3>
+                        <p data-no="Jeg bygger gjerne ting på fritiden når jeg har en idé jeg vil teste. Det er ofte slik jeg lærer nye teknologier og finner bedre måter å løse problemer på." data-en="I like building things in my spare time when I have an idea I want to test. It is often how I learn new technologies and find better ways to solve problems.">Jeg bygger gjerne ting på fritiden når jeg har en idé jeg vil teste. Det er ofte slik jeg lærer nye teknologier og finner bedre måter å løse problemer på.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <!-- Prosjekter Section -->
-    <section id="prosjekter" class="py-20 section-muted reveal">
+    <section id="prosjekter" class="view-panel py-20 section-muted reveal" data-view="prosjekter">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title font-bold text-center text-gray-800" data-no="Mine prosjekter" data-en="My projects">Mine prosjekter</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -113,7 +202,7 @@
                 </article>
                 
                 <!-- Prosjekt 2: Spor økonomi -->
-                <article class="project-card section-surface overflow-hidden card-hover reveal order-2">
+                <article class="project-card section-surface overflow-hidden card-hover reveal order-1">
                     <div class="project-thumb project-thumb--spor h-56">
                         <div class="app-identity">
                             <img src="assets/icon-sage.svg" alt="Spor økonomi ikon" class="project-thumb-icon" width="140" height="140" loading="lazy" decoding="async">
@@ -125,6 +214,7 @@
                         <span class="cover-label">iOS · SwiftUI</span>
                     </div>
                     <div class="project-card-body p-6">
+                        <span class="project-featured-badge" data-no="Fremhevet prosjekt" data-en="Featured project">Fremhevet prosjekt</span>
                         <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="Spor økonomi" data-en="Spor økonomi">Spor økonomi</h3>
                         <p class="text-gray-600 mb-4" data-no="En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned. Her kan du samle budsjett, faste utgifter, sparing og investeringer på ett sted." data-en="An iOS app I am building to make it easy to see how much money you have left each month. It brings budgets, recurring expenses, savings and investments together in one place.">En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned. Her kan du samle budsjett, faste utgifter, sparing og investeringer på ett sted.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
@@ -138,7 +228,7 @@
                 </article>
 
                 <!-- Prosjekt 3: JobTracker -->
-                <article class="project-card section-surface overflow-hidden card-hover reveal order-1">
+                <article class="project-card section-surface overflow-hidden card-hover reveal order-2">
                     <div class="project-thumb project-thumb--jobtracker h-56">
                         <div class="browser-frame">
                             <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -147,7 +237,6 @@
                         <span class="cover-label">Web · REST API</span>
                     </div>
                     <div class="project-card-body p-6">
-                        <span class="project-featured-badge" data-no="Fremhevet backend-prosjekt" data-en="Featured backend project">Fremhevet backend-prosjekt</span>
                         <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="JobTracker" data-en="JobTracker">JobTracker</h3>
                         <p class="text-gray-600 mb-4" data-no="Jeg laget JobTracker for å holde orden på jobbsøknader og samtidig få mer erfaring med Kotlin og Spring Boot. Appen bruker PostgreSQL og har fem REST-endepunkter." data-en="I built JobTracker to keep track of job applications and get more experience with Kotlin and Spring Boot. The app uses PostgreSQL and has five REST endpoints.">Jeg laget JobTracker for å holde orden på jobbsøknader og samtidig få mer erfaring med Kotlin og Spring Boot. Appen bruker PostgreSQL og har fem REST-endepunkter.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
@@ -165,126 +254,79 @@
         </div>
     </section>
 
-    <!-- Om meg Section -->
-
-    <section id="om" class="pt-14 pb-20 section-white reveal">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="section-title font-bold text-center text-gray-800" data-no="Kort om meg" data-en="A little about me">Kort om meg</h2>
-            <div class="about-grid">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800" data-no="Jeg liker best å jobbe med backend og systemarkitektur" data-en="I enjoy working with backend development and system architecture">Jeg liker best å jobbe med backend og systemarkitektur</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed" data-no="Jeg fullførte bachelor i Informatikk: Programmering og systemarkitektur ved UiO våren 2026. Der jobbet jeg blant annet med Java, Python, databaser, Git, systemdesign og datasikkerhet." data-en="I completed a BSc in Computer Science: Programming and System Architecture at the University of Oslo in spring 2026. My studies included Java, Python, databases, Git, system design and security.">
-                        Jeg fullførte bachelor i Informatikk: Programmering og systemarkitektur ved UiO våren 2026. Der jobbet jeg blant annet med Java, Python, databaser, Git, systemdesign og datasikkerhet.
-                    </p>
-                    <p class="text-gray-600 mb-6 leading-relaxed" data-no="I Radio Nova har jeg ansvar for IT-drift, infrastruktur og verktøyene redaksjonen bruker. Fra Avarn Security og Forsvaret er jeg vant til å ta ansvar, jobbe strukturert og holde hodet kaldt når det haster." data-en="At Radio Nova, I am responsible for IT operations, infrastructure and the tools used by the editorial team. My experience at Avarn Security and the Norwegian Armed Forces taught me to take responsibility, work methodically and stay calm under pressure.">
-                        I Radio Nova har jeg ansvar for IT-drift, infrastruktur og verktøyene redaksjonen bruker. Fra Avarn Security og Forsvaret er jeg vant til å ta ansvar, jobbe strukturert og holde hodet kaldt når det haster.
-                    </p>
-                    <div class="flex space-x-4">
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm" data-no="Backend" data-en="Backend">Backend</span>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm" data-no="Systemarkitektur" data-en="System Architecture">Systemarkitektur</span>
-                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm" data-no="Problemløsning" data-en="Problem-solving">Problemløsning</span>
-                    </div>
-                    <a href="/om-meg/" class="about-more-link" data-no="Bli bedre kjent med meg →" data-en="Get to know me better →">Bli bedre kjent med meg →</a>
-                </div>
-                <div class="about-aside">
-                    <div class="about-photo-wrap">
-                        <picture>
-                            <source srcset="assets/profile-2026.webp" type="image/webp">
-                            <img src="assets/profile-2026.jpg" alt="Portrett av Nithusan Krishnasamymudali" class="about-photo" width="800" height="1000" loading="lazy" decoding="async">
-                        </picture>
-                    </div>
-                    <div class="about-facts">
-                        <div>
-                            <span data-no="Utdanning" data-en="Education">Utdanning</span>
-                            <strong data-no="BSc. Informatikk" data-en="BSc. Computer Science">BSc. Informatikk</strong>
-                            <small data-no="UiO · fullført våren 2026" data-en="UiO · completed spring 2026">UiO · fullført våren 2026</small>
-                        </div>
-                        <div>
-                            <span data-no="Fokus" data-en="Focus">Fokus</span>
-                            <strong>Backend · systemarkitektur</strong>
-                            <small>Kotlin · Java · databaser</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Hva jeg ser etter Section -->
-    <section id="mal" class="current-focus py-16 section-muted reveal">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="focus-panel">
-                <div class="focus-heading">
-                    <div class="focus-status"><span aria-hidden="true"></span><span data-no="Tilgjengelig for nye muligheter" data-en="Available for new opportunities">Tilgjengelig for nye muligheter</span></div>
-                    <p class="focus-eyebrow" data-no="Mål nå" data-en="Current focus">Mål nå</p>
-                    <h2 data-no="Jeg vil bygge gode backend-løsninger i et team der jeg kan lære og bidra" data-en="I want to build solid backend solutions in a team where I can learn and contribute">Jeg vil bygge gode backend-løsninger i et team der jeg kan lære og bidra</h2>
-                    <p data-no="Jeg ser etter min første faste jobb, men er også åpen for internship, sommerjobb og traineeprogram." data-en="I am looking for my first full-time role, and I am also open to internships, summer roles and graduate programmes.">Jeg ser etter min første faste jobb, men er også åpen for internship, sommerjobb og traineeprogram.</p>
-                </div>
-                <div class="focus-details">
-                    <div class="focus-detail">
-                        <span class="focus-detail-label" data-no="Rolle" data-en="Role">Rolle</span>
-                        <strong data-no="Backendutvikler" data-en="Backend developer">Backendutvikler</strong>
-                        <small data-no="Fast · internship · trainee" data-en="Full-time · internship · graduate">Fast · internship · trainee</small>
-                    </div>
-                    <div class="focus-detail">
-                        <span class="focus-detail-label" data-no="Teknologi" data-en="Technology">Teknologi</span>
-                        <strong>Kotlin · Java</strong>
-                        <small>Spring Boot · REST · SQL</small>
-                    </div>
-                    <div class="focus-detail">
-                        <span class="focus-detail-label" data-no="Arbeidssted" data-en="Location">Arbeidssted</span>
-                        <strong>Oslo</strong>
-                        <small data-no="På kontoret · hybrid · remote" data-en="On-site · hybrid · remote">På kontoret · hybrid · remote</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Ferdigheter Section -->
-    <section id="ferdigheter" class="py-20 section-white reveal">
+    <section id="ferdigheter" class="view-panel py-20 section-white reveal" data-view="ferdigheter">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="section-title font-bold text-center text-gray-800" data-no="Mine ferdigheter" data-en="My skills">Mine ferdigheter</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="view-heading">
+                <p class="view-eyebrow" data-no="Verktøykassen min" data-en="My toolkit">Verktøykassen min</p>
+                <h2 data-no="Teknologi jeg har jobbet med" data-en="Technology I have worked with">Teknologi jeg har jobbet med</h2>
+                <p data-no="Jeg har mest erfaring med backend, men har også bygget apper for både iOS og Android." data-en="My main experience is in backend development, but I have also built apps for both iOS and Android.">Jeg har mest erfaring med backend, men har også bygget apper for både iOS og Android.</p>
+            </div>
+            <div class="skills-grid">
                 <div class="skill-card reveal">
                     <span class="skill-index">01</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800">Backend</h3>
                     <p class="text-gray-600 text-sm">Kotlin, Java, Spring Boot, REST API</p>
+                    <small data-no="Brukt i JobTracker og studieprosjekter" data-en="Used in JobTracker and university projects">Brukt i JobTracker og studieprosjekter</small>
                 </div>
                 <div class="skill-card reveal">
                     <span class="skill-index">02</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Databaser" data-en="Databases">Databaser</h3>
                     <p class="text-gray-600 text-sm">PostgreSQL, SQL, Room, SwiftData</p>
+                    <small data-no="Relasjonelle og lokale databaser" data-en="Relational and local databases">Relasjonelle og lokale databaser</small>
                 </div>
                 <div class="skill-card reveal">
                     <span class="skill-index">03</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Mobil" data-en="Mobile">Mobil</h3>
                     <p class="text-gray-600 text-sm">SwiftUI, Jetpack Compose, Android</p>
+                    <small data-no="Brukt i Spor økonomi og LiftOff" data-en="Used in Spor økonomi and LiftOff">Brukt i Spor økonomi og LiftOff</small>
                 </div>
                 <div class="skill-card reveal">
                     <span class="skill-index">04</span>
                     <h3 class="text-xl font-semibold mb-2 text-gray-800" data-no="Verktøy" data-en="Tools">Verktøy</h3>
                     <p class="text-gray-600 text-sm">Git, Docker, GitHub, VS Code</p>
+                    <small data-no="En del av den daglige arbeidsflyten min" data-en="Part of my everyday workflow">En del av den daglige arbeidsflyten min</small>
                 </div>
+            </div>
+            <div class="skills-practice reveal">
+                <div class="skills-practice-main">
+                    <p class="view-eyebrow" data-no="Slik bruker jeg det" data-en="How I use it">Slik bruker jeg det</p>
+                    <h3 data-no="Fra idé til fungerende løsning" data-en="From idea to working solution">Fra idé til fungerende løsning</h3>
+                    <p data-no="Jeg liker å jobbe med hele løpet: finne ut hva som faktisk skal løses, modellere data, bygge funksjonaliteten og forbedre den underveis." data-en="I enjoy working through the whole process: understanding the actual problem, modelling the data, building the functionality and improving it along the way.">Jeg liker å jobbe med hele løpet: finne ut hva som faktisk skal løses, modellere data, bygge funksjonaliteten og forbedre den underveis.</p>
+                    <div class="skills-flow" aria-label="Arbeidsflyt">
+                        <span data-no="Forstå behovet" data-en="Understand the need">Forstå behovet</span>
+                        <i aria-hidden="true">→</i>
+                        <span data-no="Bygge og teste" data-en="Build and test">Bygge og teste</span>
+                        <i aria-hidden="true">→</i>
+                        <span data-no="Forbedre løsningen" data-en="Improve the solution">Forbedre løsningen</span>
+                    </div>
+                </div>
+                <aside class="skills-current">
+                    <p data-no="Jobber med nå" data-en="Currently working on">Jobber med nå</p>
+                    <h3>Spor økonomi</h3>
+                    <span>SwiftUI · SwiftData · Supabase</span>
+                    <a href="#prosjekter" data-view-link="prosjekter" data-no="Se prosjektet →" data-en="View project →">Se prosjektet →</a>
+                </aside>
             </div>
         </div>
     </section>
 
     <!-- Kontakt Section -->
-    <section id="kontakt" class="py-20 section-muted reveal">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="section-title font-bold text-center mb-8 text-gray-800" data-no="Kontakt meg" data-en="Contact me">Kontakt meg</h2>
-            <p class="text-xl text-center text-gray-600 mb-10 max-w-2xl mx-auto" data-no="Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Send meg gjerne en e-post eller ta kontakt på LinkedIn." data-en="Do you have a backend role that might be a good fit, or would you like to know more about one of my projects? Send me an email or get in touch on LinkedIn.">
-                Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Send meg gjerne en e-post eller ta kontakt på LinkedIn.
-            </p>
-            
-            <div class="contact-bar section-surface reveal">
-                <a href="mailto:nithusank.2002@gmail.com" data-no="E-post" data-en="Email">E-post</a>
-                <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-                <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com/nithusan2002" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <section id="kontakt" class="view-panel py-20 section-muted reveal" data-view="kontakt">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="contact-layout">
+                <div class="contact-intro">
+                    <p class="view-eyebrow" data-no="La oss snakke" data-en="Let us talk">La oss snakke</p>
+                    <h2 data-no="Ta gjerne kontakt" data-en="Get in touch">Ta gjerne kontakt</h2>
+                    <p data-no="Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Jeg svarer gjerne på e-post eller LinkedIn." data-en="Do you have a backend role that might be a good fit, or would you like to know more about one of my projects? Feel free to contact me by email or LinkedIn.">Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Jeg svarer gjerne på e-post eller LinkedIn.</p>
+                    <a href="mailto:nithusank.2002@gmail.com" class="contact-cta" data-no="Send meg en e-post →" data-en="Send me an email →">Send meg en e-post →</a>
+                </div>
+                <div class="contact-links-grid reveal">
+                    <a href="mailto:nithusank.2002@gmail.com"><span data-no="E-post" data-en="Email">E-post</span><strong>nithusank.2002@gmail.com</strong><i aria-hidden="true">↗</i></a>
+                    <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong data-no="Profil og erfaring" data-en="Profile and experience">Profil og erfaring</strong><i aria-hidden="true">↗</i></a>
+                    <a href="https://github.com/nithusan2002" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong data-no="Kode og prosjekter" data-en="Code and projects">Kode og prosjekter</strong><i aria-hidden="true">↗</i></a>
+                    <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer"><span>CV</span><strong data-no="Åpne som PDF" data-en="Open as PDF">Åpne som PDF</strong><i aria-hidden="true">↗</i></a>
+                </div>
             </div>
         </div>
     </section>

@@ -3,43 +3,54 @@
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu.classList.toggle('mobile-open');
     const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
     mobileMenuBtn.setAttribute('aria-expanded', String(!expanded));
 });
 
 function closeMobileMenu() {
-    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('mobile-open');
     mobileMenuBtn.setAttribute('aria-expanded', 'false');
 }
 
 document.addEventListener('click', (event) => {
-    if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+    if (mobileMenu.classList.contains('mobile-open') && !mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
         closeMobileMenu();
     }
 });
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+function showView(viewName, updateUrl = true) {
+    const requested = document.querySelector(`[data-view="${viewName}"]`);
+    const target = requested || document.querySelector('[data-view="hjem"]');
+    const activeName = target.dataset.view;
 
-        if (target) {
-            const navHeight = document.querySelector('nav').offsetHeight;
-            const topPosition = target.offsetTop - navHeight + 10;
+    document.querySelectorAll('[data-view]').forEach(panel => {
+        const isActive = panel === target;
+        panel.classList.toggle('view-active', isActive);
+        panel.setAttribute('aria-hidden', String(!isActive));
+    });
 
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
+    document.querySelectorAll('[data-view-link]').forEach(link => {
+        const isActive = link.dataset.viewLink === activeName;
+        link.classList.toggle('active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+    });
 
-            // Close mobile menu if open
-            closeMobileMenu();
-        }
+    if (updateUrl) history.pushState(null, '', `#${activeName}`);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    closeMobileMenu();
+}
+
+document.querySelectorAll('[data-view-link]').forEach(link => {
+    link.addEventListener('click', event => {
+        event.preventDefault();
+        showView(link.dataset.viewLink);
     });
 });
+
+window.addEventListener('popstate', () => showView(location.hash.slice(1) || 'hjem', false));
 
 // Language switching functionality
 let currentLanguage = 'no';
@@ -60,9 +71,9 @@ function switchLanguage() {
     });
 
     // Update language toggle buttons
-    const toggleButtons = document.querySelectorAll('#language-toggle, #mobile-language-toggle');
+    const toggleButtons = document.querySelectorAll('#language-toggle');
     toggleButtons.forEach(button => {
-        button.textContent = currentLanguage === 'no' ? 'EN' : 'Norsk';
+        button.textContent = currentLanguage === 'no' ? 'English' : 'Norsk';
     });
 
     // Update document language
@@ -70,43 +81,8 @@ function switchLanguage() {
 }
 
 // Add event listeners to language toggle buttons
-document.getElementById('language-toggle').addEventListener('click', switchLanguage);
-document.getElementById('mobile-language-toggle').addEventListener('click', switchLanguage);
-
-// Add scroll effect to navigation
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 40) {
-        nav.classList.add('shadow-xl');
-    } else {
-        nav.classList.remove('shadow-xl');
-    }
-});
-
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const links = document.querySelectorAll('.nav-link');
-    const scrollPosition = window.scrollY + 120;
-
-    let current = 'hjem';
-    sections.forEach(section => {
-        if (scrollPosition >= section.offsetTop) {
-            current = section.id;
-        }
-    });
-
-    links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === `#${current}`) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', updateActiveNavLink);
-window.addEventListener('load', updateActiveNavLink);
+document.getElementById('language-toggle')?.addEventListener('click', switchLanguage);
+showView(location.hash.slice(1) || 'hjem', false);
 
 const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -119,6 +95,33 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 
 document.querySelectorAll('.reveal').forEach(element => {
     revealObserver.observe(element);
+});
+
+// Hobby galleries on the About view. Clicking the left or right half of an
+// image moves through the stack without adding visible arrow controls.
+document.querySelectorAll('[data-gallery]').forEach(gallery => {
+    const slides = [...gallery.querySelectorAll('[data-slide]')];
+    const count = gallery.querySelector('[data-gallery-count]');
+    const dots = gallery.querySelector('.gallery-dots');
+    let activeIndex = 0;
+
+    slides.forEach(() => dots?.insertAdjacentHTML('beforeend', '<i></i>'));
+    const indicators = dots ? [...dots.children] : [];
+
+    function showSlide(index) {
+        activeIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+            const isActive = slideIndex === activeIndex;
+            slide.classList.toggle('is-active', isActive);
+            slide.setAttribute('aria-hidden', String(!isActive));
+        });
+        indicators.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === activeIndex));
+        if (count) count.textContent = `${activeIndex + 1} / ${slides.length}`;
+    }
+
+    gallery.querySelector('[data-gallery-prev]')?.addEventListener('click', () => showSlide(activeIndex - 1));
+    gallery.querySelector('[data-gallery-next]')?.addEventListener('click', () => showSlide(activeIndex + 1));
+    showSlide(0);
 });
 
 // Project modal functionality
