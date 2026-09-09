@@ -378,7 +378,12 @@ h5 {
 }
 
 .project-thumb--jobtracker { padding-bottom: 2.75rem; }
-.project-thumb--jobtracker .browser-frame { transform: translateY(-0.3rem); }
+.project-thumb--jobtracker .browser-frame {
+    width: 82%;
+    max-width: 21rem;
+    transform: translateY(-0.35rem);
+}
+.project-thumb--jobtracker .project-thumb-screen { max-height: 7.5rem; }
 
 .browser-frame {
     position: relative;
