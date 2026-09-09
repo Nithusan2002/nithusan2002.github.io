@@ -801,11 +801,17 @@ h5 {
 
 .hobby-gallery { margin: -1.75rem -1.75rem 1.5rem; padding: 1rem 1rem 0; overflow: hidden; }
 .hobby-photo-stack { position: relative; aspect-ratio: 4 / 3; margin: 0.8rem 1.15rem 1.25rem; }
-.hobby-photo-placeholder { position: absolute; inset: 0; display: grid; place-items: center; color: #64748b; font-size: 0.78rem; font-weight: 750; letter-spacing: 0.04em; background: linear-gradient(145deg, #e7eef7, #d8e4f2); border: 2px solid #c3d2e4; border-radius: 0.9rem; box-shadow: 0 14px 26px rgba(25, 48, 82, 0.18); opacity: 0.82; transition: transform 0.28s ease, opacity 0.28s ease; }
-.hobby-photo-placeholder:nth-child(1) { transform: rotate(-5deg) translate(-0.65rem, 0.55rem) scale(0.96); background: #cbdced; }
-.hobby-photo-placeholder:nth-child(2) { transform: rotate(5deg) translate(0.65rem, 0.55rem) scale(0.96); background: #d8e5f2; }
-.hobby-photo-placeholder:nth-child(3) { transform: rotate(-2.5deg) translate(-0.2rem, 0.35rem) scale(0.975); background: #e2ebf5; }
-.hobby-photo-placeholder.is-active { z-index: 3; opacity: 1; transform: none; background: linear-gradient(145deg, #f4f8fd, #e1ecf8); border-color: #b8cce2; box-shadow: 0 16px 30px rgba(25, 48, 82, 0.2); }
+.hobby-photo-placeholder,
+.hobby-photo { position: absolute; inset: 0; display: grid; width: 100%; height: 100%; place-items: center; color: #64748b; font-size: 0.78rem; font-weight: 750; letter-spacing: 0.04em; background: linear-gradient(145deg, #e7eef7, #d8e4f2); border: 2px solid #c3d2e4; border-radius: 0.9rem; box-shadow: 0 14px 26px rgba(25, 48, 82, 0.18); opacity: 0.82; transition: transform 0.28s ease, opacity 0.28s ease; }
+.hobby-photo { object-fit: cover; object-position: center; }
+.hobby-photo-placeholder:nth-child(1),
+.hobby-photo:nth-child(1) { transform: rotate(-5deg) translate(-0.65rem, 0.55rem) scale(0.96); background: #cbdced; }
+.hobby-photo-placeholder:nth-child(2),
+.hobby-photo:nth-child(2) { transform: rotate(5deg) translate(0.65rem, 0.55rem) scale(0.96); background: #d8e5f2; }
+.hobby-photo-placeholder:nth-child(3),
+.hobby-photo:nth-child(3) { transform: rotate(-2.5deg) translate(-0.2rem, 0.35rem) scale(0.975); background: #e2ebf5; }
+.hobby-photo-placeholder.is-active,
+.hobby-photo.is-active { z-index: 3; opacity: 1; transform: none; background: linear-gradient(145deg, #f4f8fd, #e1ecf8); border-color: #b8cce2; box-shadow: 0 16px 30px rgba(25, 48, 82, 0.2); }
 .hobby-photo-placeholder span::before { display: block; margin: 0 auto 0.5rem; color: #8ca3bd; content: '＋'; font-size: 1.7rem; font-weight: 400; text-align: center; }
 .gallery-hitarea { position: absolute; z-index: 5; inset-block: 0; width: 50%; cursor: pointer; background: transparent; border: 0; }
 .gallery-hitarea:focus-visible { outline: 3px solid #0b57d0; outline-offset: -4px; }
