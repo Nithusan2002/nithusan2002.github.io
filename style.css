@@ -804,6 +804,7 @@ h5 {
 .hobby-photo-placeholder,
 .hobby-photo { position: absolute; inset: 0; display: grid; width: 100%; height: 100%; place-items: center; color: #64748b; font-size: 0.78rem; font-weight: 750; letter-spacing: 0.04em; background: linear-gradient(145deg, #e7eef7, #d8e4f2); border: 2px solid #c3d2e4; border-radius: 0.9rem; box-shadow: 0 14px 26px rgba(25, 48, 82, 0.18); opacity: 0.82; transition: transform 0.28s ease, opacity 0.28s ease; }
 .hobby-photo { object-fit: cover; object-position: center; }
+.hobby-photo--training { object-position: center 22%; }
 .hobby-photo--cooking { padding: 0; object-fit: cover; object-position: center 42%; }
 .hobby-photo-placeholder:nth-child(1),
 .hobby-photo:nth-child(1) { transform: rotate(-5deg) translate(-0.65rem, 0.55rem) scale(0.96); background: #cbdced; }
