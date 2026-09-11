@@ -55,6 +55,35 @@ window.addEventListener('popstate', () => showView(location.hash.slice(1) || 'hj
 // Language switching functionality
 let currentLanguage = 'no';
 
+const pageMetadata = {
+    no: {
+        title: 'Nithusan Krishnasamymudali | Backendutvikler',
+        description: 'Jeg er backendutvikler med bachelor fra UiO. Her finner du prosjektene mine i Kotlin, Spring Boot, PostgreSQL, Swift og SwiftUI.',
+        ogLocale: 'nb_NO',
+        ogTitle: 'Nithusan Krishnasamymudali | Backendutvikler',
+        ogDescription: 'Se prosjektene mine innen backend- og apputvikling.',
+        ogImageAlt: 'Portrett av Nithusan Krishnasamymudali'
+    },
+    en: {
+        title: 'Nithusan Krishnasamymudali | Backend Developer',
+        description: 'I am a backend developer with a bachelor\'s degree from the University of Oslo. Explore my projects in Kotlin, Spring Boot, PostgreSQL, Swift and SwiftUI.',
+        ogLocale: 'en_GB',
+        ogTitle: 'Nithusan Krishnasamymudali | Backend Developer',
+        ogDescription: 'Explore my backend and app development projects.',
+        ogImageAlt: 'Portrait of Nithusan Krishnasamymudali'
+    }
+};
+
+function updateMetadata() {
+    const metadata = pageMetadata[currentLanguage];
+    document.title = metadata.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', metadata.description);
+    document.querySelector('meta[property="og:locale"]')?.setAttribute('content', metadata.ogLocale);
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', metadata.ogTitle);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', metadata.ogDescription);
+    document.querySelector('meta[property="og:image:alt"]')?.setAttribute('content', metadata.ogImageAlt);
+}
+
 function switchLanguage() {
     currentLanguage = currentLanguage === 'no' ? 'en' : 'no';
 
@@ -70,6 +99,12 @@ function switchLanguage() {
         }
     });
 
+    ['aria-label', 'alt'].forEach(attribute => {
+        document.querySelectorAll(`[data-no-${attribute}][data-en-${attribute}]`).forEach(element => {
+            element.setAttribute(attribute, element.getAttribute(`data-${currentLanguage}-${attribute}`));
+        });
+    });
+
     // Update language toggle buttons
     const toggleButtons = document.querySelectorAll('#language-toggle');
     toggleButtons.forEach(button => {
@@ -78,6 +113,9 @@ function switchLanguage() {
 
     // Update document language
     document.documentElement.lang = currentLanguage;
+    updateMetadata();
+
+    if (activeProjectId) renderProjectModal(activeProjectId);
 }
 
 // Add event listeners to language toggle buttons
@@ -146,7 +184,7 @@ const projectData = {
             en: [
                 "Visualizes weather data relevant for rocket launches",
                 "Search, results, maps, launch windows and saved locations",
-                "Save favorite locations and launch windows",
+                "Save favourite locations and launch windows",
                 "Built with Jetpack Compose and Material 3",
                 "Local storage with Room"
             ]
@@ -249,10 +287,10 @@ const projectData = {
         };
 
         let lastFocusedElement = null;
+        let activeProjectId = null;
 
-        function openProjectModal(projectId) {
+        function renderProjectModal(projectId) {
             const project = projectData[projectId];
-            const modal = document.getElementById('project-modal');
             const modalTitle = document.getElementById('modal-title');
             const modalContent = document.getElementById('modal-content');
             const demoLink = document.getElementById('modal-demo-link');
@@ -274,7 +312,7 @@ const projectData = {
                             <figure class="modal-shot-card">
                                 <img
                                     src="${imageUrl}"
-                                    alt="${project.title[currentLang]} screenshot ${index + 1}"
+                                    alt="${currentLang === 'no' ? `Skjermbilde ${index + 1} fra ${project.title[currentLang]}` : `Screenshot ${index + 1} from ${project.title[currentLang]}`}"
                                     class="modal-shot-image"
                                     loading="lazy"
                                 >
@@ -308,6 +346,12 @@ const projectData = {
                     <p class="text-gray-600 leading-relaxed">${project.outcome[currentLang]}</p>
                 </div>
             `;
+        }
+
+        function openProjectModal(projectId) {
+            const modal = document.getElementById('project-modal');
+            activeProjectId = projectId;
+            renderProjectModal(projectId);
             
             lastFocusedElement = document.activeElement;
             modal.classList.remove('hidden');
@@ -321,6 +365,7 @@ const projectData = {
             modal.classList.add('hidden');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
+            activeProjectId = null;
             lastFocusedElement?.focus();
         }
 
