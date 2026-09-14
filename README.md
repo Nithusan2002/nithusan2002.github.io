@@ -54,3 +54,11 @@ npm run build:css
 ```
 
 Nettsiden er statisk og kan deretter åpnes via en lokal HTTP-server.
+
+## 📄 Lisens
+
+Kildekoden i dette repoet er tilgjengelig under [MIT-lisensen](LICENSE).
+
+Med mindre annet er oppgitt, er fotografier, CV-dokumenter, tekstinnhold,
+prosjektskjermbilder, profilering og øvrige ressurser beskyttet av opphavsrett:
+© 2025–2026 Nithusan Krishnasamymudali. Alle rettigheter reservert.
