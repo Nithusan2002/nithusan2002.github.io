@@ -3,6 +3,102 @@
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
+// A softly trailing pointer accent for mouse/trackpad users. It is created in
+// JavaScript so touch devices and reduced-motion users receive no extra markup.
+function initCursorVisual() {
+    const canUseCursorVisual = window.matchMedia(
+        '(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)'
+    ).matches;
+
+    if (!canUseCursorVisual) return;
+
+    const halo = document.createElement('div');
+    const dot = document.createElement('div');
+    halo.className = 'cursor-visual';
+    dot.className = 'cursor-visual-dot';
+    halo.setAttribute('aria-hidden', 'true');
+    dot.setAttribute('aria-hidden', 'true');
+    document.body.append(halo, dot);
+
+    let pointerX = -100;
+    let pointerY = -100;
+    let haloX = -100;
+    let haloY = -100;
+
+    function animateHalo() {
+        haloX += (pointerX - haloX) * 0.16;
+        haloY += (pointerY - haloY) * 0.16;
+        halo.style.translate = `${haloX}px ${haloY}px`;
+        requestAnimationFrame(animateHalo);
+    }
+
+    document.addEventListener('pointermove', event => {
+        if (event.pointerType && event.pointerType !== 'mouse') return;
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        dot.style.translate = `${pointerX}px ${pointerY}px`;
+        halo.classList.add('is-visible');
+        dot.classList.add('is-visible');
+
+        const interactive = event.target.closest('a, button, [role="button"], input, textarea, select');
+        halo.classList.toggle('is-interactive', Boolean(interactive));
+    });
+
+    document.addEventListener('pointerdown', () => halo.classList.add('is-pressed'));
+    document.addEventListener('pointerup', () => halo.classList.remove('is-pressed'));
+    document.documentElement.addEventListener('mouseleave', () => {
+        halo.classList.remove('is-visible', 'is-pressed');
+        dot.classList.remove('is-visible');
+    });
+
+    animateHalo();
+}
+
+initCursorVisual();
+
+function initPointerDetails() {
+    const supportsMotion = window.matchMedia(
+        '(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)'
+    ).matches;
+
+    if (!supportsMotion) return;
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('pointermove', event => {
+            const bounds = card.getBoundingClientRect();
+            const x = event.clientX - bounds.left;
+            const y = event.clientY - bounds.top;
+            const rotateY = ((x / bounds.width) - 0.5) * 3.5;
+            const rotateX = (0.5 - (y / bounds.height)) * 3.5;
+
+            card.style.setProperty('--spotlight-x', `${x}px`);
+            card.style.setProperty('--spotlight-y', `${y}px`);
+            card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+            card.classList.add('is-pointer-active');
+        });
+
+        card.addEventListener('pointerleave', () => {
+            card.style.transform = '';
+            card.classList.remove('is-pointer-active');
+        });
+    });
+
+    document.querySelectorAll('.cta-primary, .cta-secondary, .contact-cta').forEach(button => {
+        button.addEventListener('pointermove', event => {
+            const bounds = button.getBoundingClientRect();
+            const offsetX = (event.clientX - bounds.left - bounds.width / 2) * 0.16;
+            const offsetY = (event.clientY - bounds.top - bounds.height / 2) * 0.2;
+            button.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
+        });
+
+        button.addEventListener('pointerleave', () => {
+            button.style.transform = '';
+        });
+    });
+}
+
+initPointerDetails();
+
 mobileMenuBtn?.addEventListener('click', () => {
     mobileMenu.classList.toggle('mobile-open');
     const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
@@ -44,14 +140,23 @@ function showView(viewName, updateUrl = true) {
     closeMobileMenu();
 }
 
+function transitionToView(viewName, updateUrl = true) {
+    if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        showView(viewName, updateUrl);
+        return;
+    }
+
+    document.startViewTransition(() => showView(viewName, updateUrl));
+}
+
 document.querySelectorAll('[data-view-link]').forEach(link => {
     link.addEventListener('click', event => {
         event.preventDefault();
-        showView(link.dataset.viewLink);
+        transitionToView(link.dataset.viewLink);
     });
 });
 
-window.addEventListener('popstate', () => showView(location.hash.slice(1) || 'hjem', false));
+window.addEventListener('popstate', () => transitionToView(location.hash.slice(1) || 'hjem', false));
 
 // Language switching functionality
 let currentLanguage = 'no';
