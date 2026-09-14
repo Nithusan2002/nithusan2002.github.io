@@ -21,15 +21,36 @@ Koden bak min personlige portefølje: [www.nithusan.no](https://www.nithusan.no)
 ## 📂 Struktur
 ```text
 .
-├── index.html
-├── style.css
-├── script.js
+├── AGENTS.md
 ├── CNAME
+├── README.md
+├── index.html
+├── script.js
+├── style.css
+├── tailwind-input.css
+├── tailwind.config.js
+├── tailwind.min.css
+├── om-meg/
+│   └── index.html
 └── assets/
-    ├── profile.jpg
-    ├── screenshot.png
-    ├── RakettApp_SearchScreen.png
-    ├── RakettApp_Resultscreen.png
-    ├── RakettApp_Map.png
-    └── RakettApp_LaunchWindows.png
+    ├── Nithusan_Krishnasamymudali_CV.pdf
+    ├── profile-2026.webp
+    ├── RakettApp_*.webp
+    └── øvrige bilder og ikoner
 ```
+
+## 🛠️ Lokal utvikling
+
+Installer avhengighetene:
+
+```sh
+npm install
+```
+
+Bygg Tailwind-stilarket etter endringer i `tailwind-input.css` eller Tailwind-konfigurasjonen:
+
+```sh
+npm run build:css
+```
+
+Nettsiden er statisk og kan deretter åpnes via en lokal HTTP-server.
