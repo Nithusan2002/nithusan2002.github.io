@@ -477,6 +477,7 @@ h5 {
 
 .project-thumb {
     position: relative;
+    isolation: isolate;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -500,14 +501,20 @@ h5 {
 
 .cover-label {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     left: 1rem;
     bottom: 0.65rem;
+    padding: 0.3rem 0.55rem;
     color: #475569;
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    backdrop-filter: blur(4px);
 }
 
 .project-thumb--jobtracker { padding-bottom: 2.75rem; }
