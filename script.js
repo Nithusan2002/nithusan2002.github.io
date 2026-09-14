@@ -333,7 +333,47 @@ const projectData = {
         ],
         demoUrl: "https://github.com/Nithusan2002/LiftOff"
     },
-            sporOkonomi: {
+        poengjeger: {
+            title: {
+                no: "Poengjeger",
+                en: "Poengjeger"
+            },
+            description: {
+                no: "Poengjeger er en iOS-app jeg utvikler for å gjøre det enklere å finne relevante opptjeningsmuligheter for EuroBonus og Trumf før et kjøp. Appen samler kampanjer, vilkår og programguider i en oversiktlig feed.",
+                en: "Poengjeger is an iOS app I am developing to make it easier to find relevant EuroBonus and Trumf earning opportunities before a purchase. It brings campaigns, terms and programme guides together in a clear feed."
+            },
+            features: {
+                no: [
+                    "Kampanjefeed med søk og filtrering",
+                    "Detaljsider med vilkår, frister og tydelige handlingssteg",
+                    "Programguider for EuroBonus og Trumf",
+                    "Favoritter og lokal lagring av brukerinnstillinger",
+                    "Redaksjonell arbeidsflyt for kvalitetssikring av kampanjer"
+                ],
+                en: [
+                    "Campaign feed with search and filtering",
+                    "Detail pages with terms, deadlines and clear next steps",
+                    "Programme guides for EuroBonus and Trumf",
+                    "Favourites and local storage of user preferences",
+                    "Editorial workflow for reviewing campaign information"
+                ]
+            },
+            technologies: ["Swift", "SwiftUI", "Supabase", "REST API", "URLSession", "XCTest", "iOS"],
+            challenges: {
+                no: "Kampanjeinformasjon er spredt og blir raskt utdatert. Jeg har derfor lagt vekt på tydelige kilder og vilkår, en egen kvalitetssikringsflyt og et grensesnitt som gjør informasjonen lett å skanne i kjøpsøyeblikket.",
+                en: "Campaign information is fragmented and becomes outdated quickly. I therefore focused on clear sources and terms, a dedicated review workflow and an interface that makes the information easy to scan at the point of purchase."
+            },
+            outcome: {
+                no: "Appen er under aktiv utvikling. Grunnlaget er på plass med en SwiftUI-klient, Supabase-integrasjon, kampanjefeed, programguider, favoritter og automatiserte tester.",
+                en: "The app is under active development. The foundation is in place with a SwiftUI client, Supabase integration, a campaign feed, programme guides, favourites and automated tests."
+            },
+            demoLabel: {
+                no: "GitHub-repo",
+                en: "GitHub repository"
+            },
+            demoUrl: "https://github.com/Nithusan2002/PoengJeger"
+        },
+        sporOkonomi: {
             title: {
                 no: "Spor økonomi",
                 en: "Spor økonomi"
@@ -422,6 +462,8 @@ const projectData = {
             
             modalTitle.textContent = project.title[currentLang];
             demoLink.href = project.demoUrl;
+            demoLink.textContent = project.demoLabel?.[currentLang]
+                ?? (currentLang === 'no' ? 'GitHub-repo' : 'GitHub repository');
             
         const techTitle = currentLang === 'no' ? 'Teknologier:' : 'Technologies:';
         const challengesTitle = currentLang === 'no' ? 'Slik løste jeg det' : 'How I approached it';

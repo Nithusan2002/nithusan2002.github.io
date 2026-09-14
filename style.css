@@ -497,7 +497,11 @@ h5 {
 
 .project-thumb--jobtracker { background-color: #dcece8; }
 .project-thumb--spor { background-color: #e3ece4; }
+.project-thumb--poengjeger { background-color: #efe8dc; }
 .project-thumb--liftoff { background-color: #e4e8f2; }
+
+.project-thumb--poengjeger .app-identity strong { color: #3f321f; }
+.project-thumb--poengjeger .app-identity span { color: #76654b; }
 
 .cover-label {
     position: absolute;
