@@ -39,6 +39,7 @@ function showView(viewName, updateUrl = true) {
     });
 
     if (updateUrl) history.pushState(null, '', `#${activeName}`);
+    updateMetadata(activeName);
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     closeMobileMenu();
 }
@@ -74,9 +75,26 @@ const pageMetadata = {
     }
 };
 
-function updateMetadata() {
+const viewTitles = {
+    no: {
+        hjem: 'Nithusan Krishnasamymudali | Backendutvikler',
+        'om-meg': 'Om meg | Nithusan Krishnasamymudali',
+        prosjekter: 'Prosjekter | Nithusan Krishnasamymudali',
+        ferdigheter: 'Ferdigheter | Nithusan Krishnasamymudali',
+        kontakt: 'Kontakt | Nithusan Krishnasamymudali'
+    },
+    en: {
+        hjem: 'Nithusan Krishnasamymudali | Backend Developer',
+        'om-meg': 'About me | Nithusan Krishnasamymudali',
+        prosjekter: 'Projects | Nithusan Krishnasamymudali',
+        ferdigheter: 'Skills | Nithusan Krishnasamymudali',
+        kontakt: 'Contact | Nithusan Krishnasamymudali'
+    }
+};
+
+function updateMetadata(viewName = location.hash.slice(1) || 'hjem') {
     const metadata = pageMetadata[currentLanguage];
-    document.title = metadata.title;
+    document.title = viewTitles[currentLanguage][viewName] || metadata.title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', metadata.description);
     document.querySelector('meta[property="og:locale"]')?.setAttribute('content', metadata.ogLocale);
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', metadata.ogTitle);
