@@ -436,6 +436,28 @@ const projectData = {
             },
             technologies: ["Kotlin", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Gradle", "Docker", "HTML", "CSS", "JavaScript"],
             challenges: {
+        matlogg: {
+            title: { no: "MatLogg", en: "MatLogg" },
+            description: {
+                no: "MatLogg er en norsk iOS-app jeg utvikler for rask matlogging, ernæringsoversikt og måloppfølging. Matlogg, historikk og mål lagres lokalt i SQLite, slik at den daglige loggingen fungerer uten nett og uten innlogging.",
+                en: "MatLogg is a Norwegian iOS app I am developing for quick food logging, nutrition summaries and tracking goals. Food logs, history and goals are stored locally in SQLite, so everyday logging works offline without signing in."
+            },
+            features: {
+                no: ["Matlogging med dagsoversikt, favoritter og historikk", "Strekkodesøk via Open Food Facts og råvaresøk i Matvaretabellen", "Oppfølging av vekt og ernæringsmål", "Vannlogging og lagrede måltider", "Lokal profil med valgfri Supabase-konto"],
+                en: ["Food logging with daily summaries, favourites and history", "Barcode lookup via Open Food Facts and ingredient search in Matvaretabellen", "Weight and nutrition goal tracking", "Water logging and saved meals", "Local profile with an optional Supabase account"]
+            },
+            technologies: ["Swift", "SwiftUI", "SQLite", "MVVM", "Supabase Auth", "REST API"],
+            challenges: {
+                no: "Jeg har lagt vekt på pålitelig lokal lagring og at ernæringskilde og måleenhet bevares gjennom loggingen. Klienten følger MVVM med egne repositories og tjenester. Domenedata og synkhendelser skrives atomisk lokalt, mens opplasting er sperret i første lansering.",
+                en: "I have focused on reliable local storage and preserving nutrition sources and units throughout logging. The client uses MVVM with separate repositories and services. Domain data and sync events are written atomically to local storage, while uploads are disabled for the first release."
+            },
+            outcome: {
+                no: "Prosjektet er under aktiv MVP-utvikling og er ikke produksjonsklart. Lokal matlogging, dagsoversikt, historikk og måloppfølging er implementert. Første lansering bruker lokale domenedata uten skybackup eller synk mellom enheter; konto er valgfri.",
+                en: "The project is under active MVP development and is not production-ready. Local food logging, daily summaries, history and goal tracking are implemented. The first release uses local domain data without cloud backup or multi-device sync; an account is optional."
+            },
+            demoLabel: { no: "GitHub-repo", en: "GitHub repository" },
+            demoUrl: "https://github.com/Nithusan2002/MatLogg"
+        },
                 no: "Jeg holdt prosjektet bevisst lite nok til at jeg kunne jobbe med hele flyten selv. Frontend sender forespørsler til REST-API-et, som validerer dataene og lagrer dem i PostgreSQL.",
                 en: "I deliberately kept the project small enough to work on the entire flow myself. The frontend sends requests to the REST API, which validates the data and stores it in PostgreSQL."
             },

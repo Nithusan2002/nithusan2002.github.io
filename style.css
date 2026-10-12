@@ -459,7 +459,7 @@ h5 {
 .project-card.is-pointer-active::after { opacity: 1; }
 .project-card-body { display: flex; flex: 1; flex-direction: column; }
 .project-card-body > p:first-of-type { flex-grow: 1; }
-.project-actions { display: flex; align-items: center; gap: 1rem; margin-top: auto; padding-top: 0.25rem; }
+.project-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin-top: auto; padding-top: 0.25rem; }
 .project-primary-link { color: #0b57d0; font-weight: 700; }
 .project-primary-link:hover { color: #0842a3; }
 .project-secondary-link { color: #64748b; font-size: 0.875rem; font-weight: 600; }
@@ -500,8 +500,66 @@ h5 {
 .project-thumb--poengjeger { background-color: #efe8dc; }
 .project-thumb--liftoff { background-color: #e4e8f2; }
 
-.project-thumb--poengjeger .app-identity strong { color: #3f321f; }
-.project-thumb--poengjeger .app-identity span { color: #76654b; }
+/* Poengjeger: Core/DesignSystem/DesignTokens.swift, light appearance.
+   Text uses browser system colors, matching the app's semantic system labels. */
+.project-card--poengjeger {
+    --app-background: #f7f7f5;
+    --app-surface: #ffffff;
+    --app-primary: #0f766e;
+    --app-soft: #ddf3f0;
+    --app-neutral: #f2f0e8;
+    --app-border: #e3ded4;
+    --app-text: CanvasText;
+    --app-secondary: GrayText;
+    --app-glow: 15, 118, 110;
+    color-scheme: light;
+}
+/* Spor økonomi: Shared/Utils/AppTheme.swift, light appearance. */
+.project-card--spor {
+    --app-background: #f5f3f0;
+    --app-surface: #ffffff;
+    --app-primary: #1a5448;
+    --app-soft: #f5f3f0;
+    --app-neutral: #f5f3f0;
+    --app-border: #e6e2da;
+    --app-text: #223038;
+    --app-secondary: #66757d;
+    --app-glow: 26, 84, 72;
+}
+.project-card--app { background: var(--app-surface); }
+.project-card--app .project-thumb { background: var(--app-background); }
+.project-card--app .project-thumb::before {
+    background-image: radial-gradient(var(--app-border) 0.8px, transparent 0.8px);
+}
+.project-card--app::after {
+    background: radial-gradient(19rem circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(var(--app-glow), 0.12), transparent 58%);
+}
+.project-card--app .app-identity strong { color: var(--app-primary); }
+.project-card--app h3 { color: var(--app-text); }
+.project-card--app .app-identity span,
+.project-card--app .project-card-body > p:not(.project-status-note),
+.project-card--app .project-secondary-link { color: var(--app-secondary); }
+.project-card--app .cover-label {
+    color: var(--app-secondary);
+    background: var(--app-surface);
+    border-color: var(--app-border);
+}
+.project-card--app .app-technologies span,
+.project-card--app .project-featured-badge {
+    color: var(--app-primary);
+    background: var(--app-soft);
+    border-color: var(--app-border);
+}
+.project-card--app .project-status-note {
+    color: var(--app-secondary);
+    background: var(--app-neutral);
+    border-color: var(--app-border);
+}
+.project-card--app .project-primary-link,
+.project-card--app .project-primary-link:hover,
+.project-card--app .project-secondary-link:hover { color: var(--app-primary); }
+.project-card--app .project-actions a:focus-visible,
+.project-card--app .project-actions button:focus-visible { outline-color: var(--app-primary); }
 
 .cover-label {
     position: absolute;
@@ -527,6 +585,50 @@ h5 {
     max-width: 21rem;
     transform: translateY(-0.35rem);
 }
+/* MatLogg light-theme tokens from MatLogg/DesignSystem/Colors.swift. */
+.project-card--matlogg {
+    --matlogg-background: #fff5e8;
+    --matlogg-surface: #fffcf7;
+    --matlogg-warm-surface: #fcebdd;
+    --matlogg-muted-surface: #f4ede6;
+    --matlogg-ink: #24192e;
+    --matlogg-secondary: #70656d;
+    --matlogg-separator: #e9ddd4;
+    --matlogg-brand: #ff5268;
+    --matlogg-action: #c72e49;
+    background: var(--matlogg-surface);
+}
+.project-card--matlogg .project-thumb--matlogg { background: var(--matlogg-background); }
+.project-card--matlogg .project-thumb::before {
+    background-image: radial-gradient(var(--matlogg-separator) 0.8px, transparent 0.8px);
+}
+.project-card--matlogg::after {
+    background: radial-gradient(19rem circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(255, 82, 104, 0.12), transparent 58%);
+}
+.project-card--matlogg .app-identity strong,
+.project-card--matlogg h3 { color: var(--matlogg-ink); }
+.project-card--matlogg .app-identity span,
+.project-card--matlogg .project-card-body > p:not(.project-status-note),
+.project-card--matlogg .project-secondary-link { color: var(--matlogg-secondary); }
+.project-card--matlogg .cover-label {
+    color: var(--matlogg-secondary);
+    background: var(--matlogg-surface);
+    border-color: var(--matlogg-separator);
+}
+.project-card--matlogg .matlogg-technologies span {
+    color: var(--matlogg-ink);
+    background: var(--matlogg-warm-surface);
+}
+.project-card--matlogg .project-status-note {
+    color: var(--matlogg-secondary);
+    background: var(--matlogg-muted-surface);
+    border-color: var(--matlogg-separator);
+}
+.project-card--matlogg .project-primary-link,
+.project-card--matlogg .project-primary-link:hover,
+.project-card--matlogg .project-secondary-link:hover { color: var(--matlogg-action); }
+.project-card--matlogg .project-actions a:focus-visible,
+.project-card--matlogg .project-actions button:focus-visible { outline-color: var(--matlogg-action); }
 .project-thumb--jobtracker .project-thumb-screen { max-height: 7.5rem; }
 
 .browser-frame {
