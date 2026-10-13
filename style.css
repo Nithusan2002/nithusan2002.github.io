@@ -1007,7 +1007,7 @@ h5 {
     font-size:60px;
     color:var(--detail-color)}
 .detail-status {
-    font-size:10px;
+    font-size:12px;
     text-transform:uppercase;
     letter-spacing:1.5px;
     font-weight:700;
@@ -1025,7 +1025,7 @@ h5 {
     gap:7px;
     padding:20px 0}
 .detail-tech span {
-    font-size:11px;
+    font-size:12px;
     border:1px solid #dfe5e9;
     padding:5px 9px;
     border-radius:6px;
@@ -1064,7 +1064,7 @@ h5 {
     padding:0;
     margin:0}
 .detail-features li {
-    font-size:12px;
+    font-size:14px;
     line-height:1.6;
     color:var(--detail-color);
     position:relative;
@@ -1149,7 +1149,7 @@ h5 {
     color:#243342;
     margin-bottom:7px}
 .detail-role p {
-    font-size:13px;
+    font-size:14px;
     color:#526272;
     line-height:1.7}
 
@@ -1617,9 +1617,10 @@ html:not(.js) .project-primary-link { display: none; }
     flex-direction: column;
     gap: 28px;
     counter-reset: project;
+    container-type: inline-size;
 }
-#prosjekter .gallery-intro { max-width: 600px; margin: -8px 0 30px; color: #64748b; }
-#prosjekter .gallery-label { margin-bottom: 15px; color: #64748b; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+#prosjekter .gallery-intro { max-width: 600px; margin: -8px 0 30px; color: #526174; }
+#prosjekter .gallery-label { margin-bottom: 15px; color: #526174; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; }
 #prosjekter .project-card { counter-increment: project; border-radius: 22px; }
 #prosjekter .project-card::before {
     content: '0' counter(project);
@@ -1627,7 +1628,7 @@ html:not(.js) .project-primary-link { display: none; }
     top: 18px;
     right: 18px;
     z-index: 4;
-    color: #64748b;
+    color: #526174;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -1649,22 +1650,22 @@ html:not(.js) .project-primary-link { display: none; }
 #prosjekter .project-hero .project-card-body { padding: 32px; justify-content: center; }
 #prosjekter .project-hero h3 { font-size: 38px; letter-spacing: -1px; }
 #prosjekter .project-hero .project-card-body > p:first-of-type { flex-grow: 0; font-size: 15px; line-height: 1.7; }
-#prosjekter .project-featured-badge { align-self: flex-start; margin-bottom: 14px; padding: 7px 10px; border-radius: 5px; background: #fce5da; color: #a52b45; font-size: 10px; }
+#prosjekter .project-featured-badge { align-self: flex-start; margin-bottom: 14px; padding: 7px 10px; border-radius: 5px; background: #fce5da; color: #a52b45; font-size: 12px; }
 #prosjekter .project-hero .project-actions { margin-top: 18px; gap: 12px; }
 #prosjekter .more-projects { margin: 8px 0 -8px; color: #23354a; font-size: 20px; font-weight: 700; }
 #prosjekter .project-small-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 #prosjekter .project-small-grid .project-thumb { height: 210px; padding: 22px; }
 #prosjekter .project-small-grid .project-card-body { padding: 24px; }
 #prosjekter .project-small-grid h3 { font-size: 23px; margin-bottom: 10px; }
-#prosjekter .project-small-grid .project-card-body > p:first-of-type { font-size: 13px; line-height: 1.65; }
+#prosjekter .project-small-grid .project-card-body > p:first-of-type { font-size: 15px; line-height: 1.65; }
 #prosjekter .project-small-grid .app-identity { gap: 18px; }
 #prosjekter .project-small-grid .app-identity strong { font-size: 19px; }
 #prosjekter .project-small-grid .project-thumb-icon { width: 85px; height: 85px; border-radius: 22px; box-shadow: 0 15px 25px #10244314; }
 #prosjekter .project-small-grid .phone-pair { height: 185px; }
-#prosjekter .cover-label { left: 18px; bottom: 15px; font-size: 9px; letter-spacing: 1px; }
-#prosjekter .project-small-grid .project-status-note { font-size: 11px; }
-#prosjekter .project-small-grid .project-actions { padding-top: 15px; font-size: 12px; }
-#prosjekter .project-small-grid .project-secondary-link { font-size: 11px; }
+#prosjekter .cover-label { left: 18px; bottom: 15px; font-size: 11px; letter-spacing: 0.5px; }
+#prosjekter .project-small-grid .project-status-note { font-size: 13px; }
+#prosjekter .project-small-grid .project-actions { padding-top: 15px; font-size: 14px; }
+#prosjekter .project-small-grid .project-secondary-link { font-size: 13px; }
 #prosjekter .project-small-grid .project-thumb--jobtracker { padding: 25px 24px 0; align-items: flex-start; }
 #prosjekter .project-small-grid .browser-frame { width: 100%; }
 @media (max-width: 800px) {
@@ -1676,3 +1677,45 @@ html:not(.js) .project-primary-link { display: none; }
     #prosjekter .project-hero .project-actions { font-size: 13px; }
     #prosjekter .project-small-grid { grid-template-columns: 1fr; }
 }
+
+/* Keep the showcase comfortable when the sidebar reduces available space. */
+@container (max-width: 700px) {
+    #prosjekter .project-hero { grid-template-columns: 1fr; }
+    #prosjekter .project-hero .matlogg-showcase { min-height: 280px; }
+    #prosjekter .project-small-grid { grid-template-columns: 1fr; }
+}
+#prosjekter .project-card-body,
+#prosjekter .app-identity > div,
+.detail-hero > div,
+.detail-story > div { min-width: 0; }
+#prosjekter .project-card-body p,
+.detail-story p,
+.detail-role p { overflow-wrap: break-word; }
+#prosjekter .project-small-grid .app-identity span { font-size: 13px; }
+#prosjekter .project-primary-link { min-height: 44px; }
+#project-modal .detail-icon { flex-shrink: 0; }
+#project-modal .project-dialog { overscroll-behavior: contain; }
+#project-modal .detail-gallery { max-width: 100%; }
+#project-modal .detail-gallery:focus-visible { outline: 3px solid var(--detail-color); outline-offset: 3px; }
+@media (max-width: 640px) {
+    #project-modal .detail-heading { gap: 12px; }
+    #project-modal #modal-title { font-size: 22px; line-height: 1.2; }
+    #project-modal .detail-footer { flex-wrap: wrap; gap: 12px; padding-bottom: max(20px, env(safe-area-inset-bottom)); }
+    #project-modal .detail-footer > * { margin-left: 0; min-height: 44px; }
+    #prosjekter .project-small-grid .project-card-body { padding: 20px; }
+}
+
+/* Navy identity with calmer surfaces and project-specific accents. */
+.sidebar-layout, .section-muted { background: #f6f5f2; }
+#prosjekter .gallery-intro, #prosjekter .gallery-label { color: #5f646a; }
+#prosjekter .project-card { border-color: #e3e1dc; box-shadow: 0 12px 32px rgba(35,39,42,.045); }
+#prosjekter .project-card-body .flex span { color: #4c5359; background: #efefec; }
+#prosjekter .project-card--matlogg .matlogg-technologies span { color: #754c50; background: #f9e8dc; }
+#prosjekter .project-card--spor .app-technologies span { color: #205c50; background: #e6efea; }
+#prosjekter .project-card--poengjeger .app-technologies span { color: #09695e; background: #e1efea; }
+#prosjekter .project-card:has(.project-thumb--jobtracker) .project-primary-link { color: #205c50; }
+#prosjekter .project-secondary-link { color: #62676c; }
+#prosjekter .project-card::after { background: radial-gradient(19rem circle at var(--spotlight-x) var(--spotlight-y), rgba(120,125,118,.08), transparent 58%); }
+#prosjekter .project-card--matlogg::after { background: radial-gradient(19rem circle at var(--spotlight-x) var(--spotlight-y), rgba(183,47,75,.08), transparent 58%); }
+#prosjekter .project-card--spor::after, #prosjekter .project-card--poengjeger::after { background: radial-gradient(19rem circle at var(--spotlight-x) var(--spotlight-y), rgba(32,92,80,.08), transparent 58%); }
+.cursor-visual, .cursor-visual-dot { display: none; }

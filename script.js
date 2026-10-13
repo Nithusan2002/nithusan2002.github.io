@@ -528,7 +528,7 @@ const projectPresentation = {
         dialog.style.setProperty('--detail-color', presentation.color);
         dialog.style.setProperty('--detail-tint', presentation.tint);
         const langIndex = currentLang === 'no' ? 0 : 1;
-        const images = project.screenshots?.length ? `<section class="detail-gallery" aria-label="${currentLang === 'no' ? 'Skjermbilder' : 'Screenshots'}">${project.screenshots.map((src, i) => `<figure><img src="${src}" alt="${project.title[currentLang]} — ${currentLang === 'no' ? 'skjermbilde' : 'screenshot'} ${i+1}" loading="lazy"></figure>`).join('')}</section>` : '';
+        const images = project.screenshots?.length ? `<section class="detail-gallery" tabindex="0" role="region" aria-label="${currentLang === 'no' ? 'Skjermbilder' : 'Screenshots'}">${project.screenshots.map((src, i) => `<figure><img src="${src}" alt="${project.title[currentLang]} — ${currentLang === 'no' ? 'skjermbilde' : 'screenshot'} ${i+1}" loading="lazy"></figure>`).join('')}</section>` : '';
         modalContent.innerHTML = `
             <div class="detail-hero">
                 ${presentation.icon ? `<img class="detail-icon" src="${presentation.icon}" alt="">` : '<span class="detail-symbol" aria-hidden="true">↗</span>'}
@@ -540,7 +540,7 @@ const projectPresentation = {
             ${project.features?.[currentLang]?.length ? `<section class="detail-features"><h3>${currentLang === 'no' ? 'Dette kan appen' : 'What the app does'}</h3><ul>${project.features[currentLang].map(feature => `<li>${feature}</li>`).join('')}</ul></section>` : ''}
             <div class="detail-role"><h3>${currentLang === 'no' ? 'Min rolle' : 'My role'}</h3><p>${projectId === 'webapp' ? (currentLang === 'no' ? 'Utviklet i gruppe i IN2000 ved UiO. Jeg bidro som del av utviklingsteamet.' : 'Built as a team in IN2000 at UiO. I contributed as a member of the development team.') : (currentLang === 'no' ? 'Eget prosjekt — jeg jobber med design og utvikling.' : 'Personal project — I work on design and development.')}</p></div>
             <section class="detail-story"><span class="detail-number">02</span><div><h3>${currentLang === 'no' ? 'Hvordan er den bygget?' : 'How is it built?'}</h3><p>${project.challenges[currentLang]}</p></div></section>
-            <section class="detail-story"><span class="detail-number">03</span><div><h3>${currentLang === 'no' ? 'Hva lærte jeg / hvor står prosjektet?' : 'What I learned / project status'}</h3><p>${project.outcome[currentLang]}</p></div></section>
+            <section class="detail-story"><span class="detail-number">03</span><div><h3>${currentLang === 'no' ? 'Status og erfaringer' : 'Status and experience'}</h3><p>${project.outcome[currentLang]}</p></div></section>
         `;
         }
 
@@ -548,6 +548,7 @@ const projectPresentation = {
             const modal = document.getElementById('project-modal');
             activeProjectId = projectId;
             renderProjectModal(projectId);
+            modal.querySelector('.project-dialog').scrollTop = 0;
             
             lastFocusedElement = document.activeElement;
             modal.hidden = false;
@@ -600,7 +601,7 @@ const projectPresentation = {
             if (e.key === 'Tab') {
                 const modal = document.getElementById('project-modal');
                 if (modal.classList.contains('hidden')) return;
-                const focusable = [...modal.querySelectorAll('button, a[href]')];
+                const focusable = [...modal.querySelectorAll('button, a[href], [tabindex="0"]')];
                 const first = focusable[0];
                 const last = focusable[focusable.length - 1];
                 if (e.shiftKey && (document.activeElement === first || document.activeElement === modal.querySelector('.project-dialog'))) {
