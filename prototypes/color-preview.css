@@ -1,0 +1,14 @@
+/* Navy identity with calmer surfaces and project-specific accents. */
+.sidebar-layout, .section-muted { background: #f6f5f2; }
+#prosjekter .gallery-intro, #prosjekter .gallery-label { color: #5f646a; }
+#prosjekter .project-card { border-color: #e3e1dc; box-shadow: 0 12px 32px rgba(35,39,42,.045); }
+#prosjekter .project-card-body .flex span { color: #4c5359; background: #efefec; }
+#prosjekter .project-card--matlogg .matlogg-technologies span { color: #754c50; background: #f9e8dc; }
+#prosjekter .project-card--spor .app-technologies span { color: #205c50; background: #e6efea; }
+#prosjekter .project-card--poengjeger .app-technologies span { color: #09695e; background: #e1efea; }
+#prosjekter .project-card:has(.project-thumb--jobtracker) .project-primary-link { color: #205c50; }
+#prosjekter .project-secondary-link { color: #62676c; }
+#prosjekter .project-card::after { background: radial-gradient(19rem circle at var(--spotlight-x) var(--spotlight-y), rgba(120,125,118,.08), transparent 58%); }
+#prosjekter .project-card--matlogg::after { background: radial-gradient(19rem circle at var(--spotlight-x) var(--spotlight-y), rgba(183,47,75,.08), transparent 58%); }
+#prosjekter .project-card--spor::after, #prosjekter .project-card--poengjeger::after { background: radial-gradient(19rem circle at var(--spotlight-x) var(--spotlight-y), rgba(32,92,80,.08), transparent 58%); }
+.cursor-visual, .cursor-visual-dot { display: none; }

@@ -28,7 +28,7 @@
     <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="tailwind.min.css?v=20260928">
-    <link rel="stylesheet" href="style.css?v=20261013-showcase-colors">
+    <link rel="stylesheet" href="style.css?v=20261013-control-alignment">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -462,9 +462,9 @@
                     <!-- Content will be dynamically inserted here -->
                 </div>
 
-                <div class="detail-footer flex justify-end space-x-4">
-                    <button type="button" onclick="closeProjectModal()" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition duration-300" data-no="Lukk" data-en="Close">Lukk</button>
-                    <a id="modal-demo-link" href="https://github.com/Nithusan2002/LiftOff" target="_blank" rel="noopener noreferrer" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300" data-no="GitHub-repo" data-en="GitHub repository">GitHub-repo</a>
+                <div class="detail-footer">
+                    <button type="button" onclick="closeProjectModal()" class="detail-action detail-action--secondary" data-no="Lukk" data-en="Close">Lukk</button>
+                    <a id="modal-demo-link" href="https://github.com/Nithusan2002/LiftOff" target="_blank" rel="noopener noreferrer" class="detail-action detail-action--primary" data-no="GitHub-repo" data-en="GitHub repository">GitHub-repo</a>
                 </div>
             </div>
         </div>
@@ -482,6 +482,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=20261013-showcase-colors"></script>
+    <script src="script.js?v=20261013-control-alignment"></script>
 </body>
 </html>

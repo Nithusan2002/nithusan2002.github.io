@@ -74,7 +74,7 @@ function initCursorVisual() {
     });
 }
 
-initCursorVisual();
+// The native cursor is retained; the decorative cursor is disabled.
 
 function initPointerDetails() {
     const supportsMotion = window.matchMedia(
@@ -548,11 +548,11 @@ const projectPresentation = {
             const modal = document.getElementById('project-modal');
             activeProjectId = projectId;
             renderProjectModal(projectId);
-            modal.querySelector('.project-dialog').scrollTop = 0;
             
             lastFocusedElement = document.activeElement;
             modal.hidden = false;
             modal.classList.remove('hidden');
+            modal.querySelector('.project-dialog').scrollTop = 0;
             pageRegions.forEach(region => { region.inert = true; });
             document.body.style.overflow = 'hidden';
             modal.querySelector('.project-dialog').focus();
