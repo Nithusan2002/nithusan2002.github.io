@@ -431,8 +431,8 @@ const projectData = {
                 en: "I wanted the app to work without an account or internet connection. Data is therefore stored on the phone with SwiftData, while Supabase is only used by people who choose to create an account."
             },
             outcome: {
-                no: "Jeg jobber fortsatt med appen. Repoet har over 490 commits og mer enn 140 enhets- og UI-tester. Personvernside og vilkår er klare før publisering i App Store.",
-                en: "I am still working on the app. The repository has 490+ commits and more than 140 unit and UI tests. The privacy policy and terms are ready ahead of an App Store release."
+                no: "Appen er fortsatt under utvikling. Prosjektet har enhets- og UI-tester. Personvernside og vilkår er klargjort før publisering i App Store.",
+                en: "The app is still in development. The project includes unit and UI tests. The privacy policy and terms are prepared ahead of an App Store release."
             },
             demoUrl: "https://github.com/Nithusan2002/spor-okonomi"
         },
@@ -452,8 +452,8 @@ const projectData = {
                 en: "I have focused on reliable local storage and preserving nutrition sources and units throughout logging. The client uses MVVM with separate repositories and services. Domain data and sync events are written atomically to local storage, while uploads are disabled for the first release."
             },
             outcome: {
-                no: "Prosjektet er under aktiv MVP-utvikling og er ikke produksjonsklart. Lokal matlogging, dagsoversikt, historikk og måloppfølging er implementert. Første lansering bruker lokale domenedata uten skybackup eller synk mellom enheter; konto er valgfri.",
-                en: "The project is under active MVP development and is not production-ready. Local food logging, daily summaries, history and goal tracking are implemented. The first release uses local domain data without cloud backup or multi-device sync; an account is optional."
+                no: "Lokal matlogging, dagsoversikt, historikk og måloppfølging er implementert. Appen er under utvikling. Første versjon lagrer data lokalt, uten skybackup eller synk mellom enheter.",
+                en: "Local food logging, daily summaries, history and goal tracking are implemented. The app is in development. The first version stores data locally, without cloud backup or multi-device sync."
             },
             demoLabel: { no: "GitHub-repo", en: "GitHub repository" },
             demoUrl: "https://github.com/Nithusan2002/MatLogg"
@@ -498,6 +498,14 @@ const projectData = {
         },
         };
 
+const projectPresentation = {
+            sporOkonomi: {icon:'assets/icon-sage.svg', color:'#205c50', tint:'#e6efea', no:'Budsjett uten styr.', en:'Budgeting made simple.', status:['Under utvikling','In development']},
+            matlogg: {icon:'assets/matlogg-app-icon.png', color:'#b72f4b', tint:'#fff1e3', no:'Matlogging som passer hverdagen.', en:'Food logging for everyday life.', status:['Under utvikling','In development']},
+            poengjeger: {icon:'assets/poengjeger-app-icon.png', color:'#09695e', tint:'#e1efea', no:'Sjekk før du handler.', en:'Check before you shop.', status:['Under utvikling','In development']},
+            webapp: {color:'#3456a4', tint:'#e8eefb', no:'Værdata for neste oppskytning.', en:'Weather data for the next launch.', status:['Studieprosjekt · gruppearbeid','University project · team work']},
+            jobTracker: {color:'#205c50', tint:'#e1efec', no:'Alle søknadene. Én oversikt.', en:'Every application. One overview.', status:['Ikke publisert ennå','Not deployed yet']}
+};
+
         let lastFocusedElement = null;
         let activeProjectId = null;
         const pageRegions = [...document.querySelectorAll('.side-nav, body > h1, body > main, body > footer')];
@@ -515,52 +523,25 @@ const projectData = {
             demoLink.textContent = project.demoLabel?.[currentLang]
                 ?? (currentLang === 'no' ? 'GitHub-repo' : 'GitHub repository');
             
-        const techTitle = currentLang === 'no' ? 'Teknologier:' : 'Technologies:';
-        const challengesTitle = currentLang === 'no' ? 'Slik løste jeg det' : 'How I approached it';
-        const outcomeTitle = currentLang === 'no' ? 'Resultat:' : 'Outcome:';
-        const screenshotsTitle = currentLang === 'no' ? 'Skjermbilder:' : 'Screenshots:';
-        const screenshotsSection = project.screenshots?.length ? `
-                <div class="modal-section">
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800">${screenshotsTitle}</h3>
-                    <div class="modal-shot-grid ${project.screenshotLayout === 'wide' ? 'wide' : ''}">
-                        ${project.screenshots.map((imageUrl, index) => `
-                            <figure class="modal-shot-card">
-                                <img
-                                    src="${imageUrl}"
-                                    alt="${currentLang === 'no' ? `Skjermbilde ${index + 1} fra ${project.title[currentLang]}` : `Screenshot ${index + 1} from ${project.title[currentLang]}`}"
-                                    class="modal-shot-image"
-                                    loading="lazy"
-                                >
-                            </figure>
-                        `).join('')}
-                    </div>
-                </div>
-            ` : '';
-        
+        const presentation = projectPresentation[projectId];
+        const dialog = document.querySelector('.project-dialog');
+        dialog.style.setProperty('--detail-color', presentation.color);
+        dialog.style.setProperty('--detail-tint', presentation.tint);
+        const langIndex = currentLang === 'no' ? 0 : 1;
+        const images = project.screenshots?.length ? `<section class="detail-gallery" aria-label="${currentLang === 'no' ? 'Skjermbilder' : 'Screenshots'}">${project.screenshots.map((src, i) => `<figure><img src="${src}" alt="${project.title[currentLang]} — ${currentLang === 'no' ? 'skjermbilde' : 'screenshot'} ${i+1}" loading="lazy"></figure>`).join('')}</section>` : '';
         modalContent.innerHTML = `
-                ${screenshotsSection}
-                <div class="modal-section">
-                    <h3>${currentLang === 'no' ? 'Dette laget jeg' : 'What I built'}</h3>
-                    <p class="text-gray-600 leading-relaxed">${project.description[currentLang]}</p>
-                </div>
-                
-                <div class="modal-section">
-                    <h3>${techTitle}</h3>
-                    <div class="flex flex-wrap gap-2">
-                        ${project.technologies.map(tech => `<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">${tech}</span>`).join('')}
-                    </div>
-                </div>
-                
-                <div class="modal-section">
-                    <h3>${challengesTitle}</h3>
-                    <p class="text-gray-600 leading-relaxed">${project.challenges[currentLang]}</p>
-                </div>
-                
-                <div class="modal-section">
-                    <h3>${outcomeTitle}</h3>
-                    <p class="text-gray-600 leading-relaxed">${project.outcome[currentLang]}</p>
-                </div>
-            `;
+            <div class="detail-hero">
+                ${presentation.icon ? `<img class="detail-icon" src="${presentation.icon}" alt="">` : '<span class="detail-symbol" aria-hidden="true">↗</span>'}
+                <div><span class="detail-status">${presentation.status[langIndex]}</span><p class="detail-tagline">${presentation[currentLang]}</p></div>
+            </div>
+            <div class="detail-tech" aria-label="${currentLang === 'no' ? 'Teknologier' : 'Technologies'}">${project.technologies.map(tech => `<span>${tech}</span>`).join('')}</div>
+            ${images}
+            <section class="detail-story"><span class="detail-number">01</span><div><h3>${currentLang === 'no' ? 'Hva gjør den?' : 'What does it do?'}</h3><p>${project.description[currentLang]}</p></div></section>
+            ${project.features?.[currentLang]?.length ? `<section class="detail-features"><h3>${currentLang === 'no' ? 'Dette kan appen' : 'What the app does'}</h3><ul>${project.features[currentLang].map(feature => `<li>${feature}</li>`).join('')}</ul></section>` : ''}
+            <div class="detail-role"><h3>${currentLang === 'no' ? 'Min rolle' : 'My role'}</h3><p>${projectId === 'webapp' ? (currentLang === 'no' ? 'Utviklet i gruppe i IN2000 ved UiO. Jeg bidro som del av utviklingsteamet.' : 'Built as a team in IN2000 at UiO. I contributed as a member of the development team.') : (currentLang === 'no' ? 'Eget prosjekt — jeg jobber med design og utvikling.' : 'Personal project — I work on design and development.')}</p></div>
+            <section class="detail-story"><span class="detail-number">02</span><div><h3>${currentLang === 'no' ? 'Hvordan er den bygget?' : 'How is it built?'}</h3><p>${project.challenges[currentLang]}</p></div></section>
+            <section class="detail-story"><span class="detail-number">03</span><div><h3>${currentLang === 'no' ? 'Hva lærte jeg / hvor står prosjektet?' : 'What I learned / project status'}</h3><p>${project.outcome[currentLang]}</p></div></section>
+        `;
         }
 
         function openProjectModal(projectId) {
@@ -622,7 +603,7 @@ const projectData = {
                 const focusable = [...modal.querySelectorAll('button, a[href]')];
                 const first = focusable[0];
                 const last = focusable[focusable.length - 1];
-                if (e.shiftKey && document.activeElement === first) {
+                if (e.shiftKey && (document.activeElement === first || document.activeElement === modal.querySelector('.project-dialog'))) {
                     e.preventDefault();
                     last.focus();
                 } else if (!e.shiftKey && document.activeElement === last) {

@@ -28,7 +28,7 @@
     <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="tailwind.min.css?v=20260928">
-    <link rel="stylesheet" href="style.css?v=20261013-project-cards">
+    <link rel="stylesheet" href="style.css?v=20261013-project-showcase">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -227,57 +227,40 @@
     <section id="prosjekter" class="view-panel py-20 section-muted reveal" data-view="prosjekter">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-title font-bold text-center text-gray-800" data-no="Mine prosjekter" data-en="My projects">Mine prosjekter</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Prosjekt 1 -->
-                <article class="project-card section-surface overflow-hidden card-hover reveal">
-                    <div class="project-thumb project-thumb--liftoff h-56">
-                        <div class="phone-pair" role="group" aria-label="Skjermbilder fra LiftOff-appen" data-no-aria-label="Skjermbilder fra LiftOff-appen" data-en-aria-label="Screenshots from the LiftOff app">
-                            <img src="assets/RakettApp_SearchScreen.webp" alt="Søkeskjerm i LiftOff" data-no-alt="Søkeskjerm i LiftOff" data-en-alt="Search screen in LiftOff" class="phone-shot phone-shot--back" width="1179" height="2556" loading="lazy" decoding="async">
-                            <img src="assets/RakettApp_Map.webp" alt="Kartskjerm i LiftOff" data-no-alt="Kartskjerm i LiftOff" data-en-alt="Map screen in LiftOff" class="phone-shot phone-shot--front" width="1179" height="2556" loading="lazy" decoding="async">
-                        </div>
-                        <span class="cover-label" data-no="Android · værdata" data-en="Android · weather data">Android · værdata</span>
-                    </div>
-                    <div class="project-card-body p-6">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="LiftOff" data-en="LiftOff">LiftOff</h3>
-                        <p class="text-gray-600 mb-4" data-no="I IN2000 laget gruppen min en Android-app som samler værdata for rakettoppskytninger. Appen har kart, favorittsteder og lokal lagring." data-en="For the IN2000 course, my group built an Android app that gathers weather data for rocket launches. It includes maps, saved locations and local storage.">I IN2000 laget gruppen min en Android-app som samler værdata for rakettoppskytninger. Appen har kart, favorittsteder og lokal lagring.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Kotlin</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Android Studio</span>
-                        </div>
-                        <div class="project-actions"><button type="button" onclick="openProjectModal('webapp')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
-                        <a href="https://github.com/Nithusan2002/LiftOff" target="_blank" rel="noopener noreferrer" class="project-secondary-link">GitHub →</a></div>
-                    </div>
-                </article>
-
-                <!-- Prosjekt 2: Poengjeger -->
-                <article class="project-card project-card--app project-card--poengjeger section-surface overflow-hidden card-hover reveal">
-                    <div class="project-thumb project-thumb--poengjeger h-56">
-                        <div class="app-identity">
-                            <img src="assets/poengjeger-app-icon.png" alt="Poengjeger-appikon" data-no-alt="Poengjeger-appikon" data-en-alt="Poengjeger app icon" class="project-thumb-icon" width="1024" height="1024" loading="lazy" decoding="async">
-                            <div>
-                                <strong>Poengjeger</strong>
-                                <span data-no="Sjekk før du handler" data-en="Check before you shop">Sjekk før du handler</span>
-                            </div>
-                        </div>
-                        <span class="cover-label">iOS · SwiftUI</span>
-                    </div>
-                    <div class="project-card-body p-6">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="Poengjeger" data-en="Poengjeger">Poengjeger</h3>
-                        <p class="text-gray-600 mb-4" data-no="En iOS-app under utvikling som samler opptjeningsmuligheter for EuroBonus og Trumf. Brukeren kan finne aktuelle kampanjer og den beste veien til flere poeng før et kjøp." data-en="An iOS app in development that brings together earning opportunities for EuroBonus and Trumf. Users can find current campaigns and the best way to earn more points before a purchase.">En iOS-app under utvikling som samler opptjeningsmuligheter for EuroBonus og Trumf. Brukeren kan finne aktuelle kampanjer og den beste veien til flere poeng før et kjøp.</p>
-                        <div class="app-technologies flex flex-wrap gap-2 mb-4">
+<p class="gallery-intro" data-no="Fra hverdagsproblemer til egne apper. Her er noe av det jeg bygger." data-en="From everyday problems to apps of my own. Here are some things I’m building.">Fra hverdagsproblemer til egne apper. Her er noe av det jeg bygger.</p>
+<div class="gallery-label" data-no="Prosjektutstilling · 05 prosjekter" data-en="Project showcase · 05 projects">Prosjektutstilling · 05 prosjekter</div>
+<div class="project-gallery">
+<article class="project-card project-hero project-card--matlogg section-surface overflow-hidden card-hover reveal">
+                    <div class="project-thumb matlogg-showcase">
+<div class="app-identity">
+<img src="assets/matlogg-app-icon.png" alt="MatLogg-appikon" data-no-alt="MatLogg-appikon" data-en-alt="MatLogg app icon" class="project-thumb-icon" width="1024" height="1024">
+<div>
+<strong>MatLogg</strong>
+<span data-no="Matlogging i hverdagen" data-en="Everyday food logging">Matlogging i hverdagen</span>
+</div>
+</div>
+<span class="cover-label">iOS · SwiftUI · SQLite</span>
+</div>
+<div class="project-card-body p-6">
+                        <span class="project-featured-badge" data-no="Fremhevet prosjekt · under utvikling" data-en="Featured project · in development">Fremhevet prosjekt · under utvikling</span>
+<h3 class="text-xl font-semibold mb-3 text-gray-800">MatLogg</h3>
+                        <p class="text-gray-600 mb-4" data-no="Matlogging som passer hverdagen. Logg måltider, følg ernæring og hold oversikt over mål — også uten nett." data-en="Food logging for everyday life. Log meals, track nutrition and follow your goals — even offline.">Matlogging som passer hverdagen. Logg måltider, følg ernæring og hold oversikt over mål — også uten nett.</p>
+                        <div class="matlogg-technologies flex flex-wrap gap-2 mb-4">
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Swift</span>
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">SwiftUI</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Supabase</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">SQLite</span>
                         </div>
-                        <p class="project-status-note mb-4" data-no="Under utvikling · kommer snart til iPhone" data-en="In development · coming soon to iPhone">Under utvikling · kommer snart til iPhone</p>
-                        <div class="project-actions"><button type="button" onclick="openProjectModal('poengjeger')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
-                        <a href="https://github.com/Nithusan2002/PoengJeger" target="_blank" rel="noopener noreferrer" class="project-secondary-link">GitHub ↗</a>
-                        <a href="https://nithusan.no/poengjeger/" target="_blank" rel="noopener noreferrer" class="project-secondary-link" data-no="Hjemmeside ↗" data-en="Website ↗">Hjemmeside ↗</a></div>
+                        <p class="project-status-note mb-4" data-no="Under utvikling · lokal lagring uten skysynk" data-en="In development · local storage without cloud sync">Under utvikling · lokal lagring uten skysynk</p>
+                        <div class="project-actions">
+<button type="button" onclick="openProjectModal('matlogg')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                        <a href="https://github.com/Nithusan2002/MatLogg" target="_blank" rel="noopener noreferrer" class="project-secondary-link">GitHub ↗</a>
+                        <a href="https://nithusan.no/MatLogg/" target="_blank" rel="noopener noreferrer" class="project-secondary-link" data-no="Hjemmeside ↗" data-en="Website ↗">Hjemmeside ↗</a>
+</div>
                     </div>
                 </article>
-
-                <!-- Prosjekt 3: Spor økonomi -->
-                <article class="project-card project-card--app project-card--spor section-surface overflow-hidden card-hover reveal">
+<h3 class="more-projects" data-no="Flere prosjekter" data-en="More projects">Flere prosjekter</h3>
+<div class="project-small-grid">
+<article class="project-card project-card--app project-card--spor section-surface overflow-hidden card-hover reveal">
                     <div class="project-thumb project-thumb--spor h-56">
                         <div class="app-identity">
                             <img src="assets/icon-sage.svg" alt="Spor økonomi-ikon" data-no-alt="Spor økonomi-ikon" data-en-alt="Spor økonomi icon" class="project-thumb-icon" width="140" height="140" loading="lazy" decoding="async">
@@ -289,52 +272,32 @@
                         <span class="cover-label">iOS · SwiftUI</span>
                     </div>
                     <div class="project-card-body p-6">
-                        <span class="project-featured-badge" data-no="Fremhevet prosjekt" data-en="Featured project">Fremhevet prosjekt</span>
+
                         <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="Spor økonomi" data-en="Spor økonomi">Spor økonomi</h3>
-                        <p class="text-gray-600 mb-4" data-no="En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned. Her kan du samle budsjett, faste utgifter, sparing og investeringer på ett sted." data-en="An iOS app I am building to make it easy to see how much money you have left each month. It brings budgets, recurring expenses, savings and investments together in one place.">En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned. Her kan du samle budsjett, faste utgifter, sparing og investeringer på ett sted.</p>
+                        <p class="text-gray-600 mb-4" data-no="Se hva du har igjen denne måneden. Budsjett, faste utgifter og sparing samlet i én iOS-app." data-en="See what’s left this month. Budgets, recurring expenses and savings in one iOS app.">Se hva du har igjen denne måneden. Budsjett, faste utgifter og sparing samlet i én iOS-app.</p>
                         <div class="app-technologies flex flex-wrap gap-2 mb-4">
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Swift</span>
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">SwiftUI</span>
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">iOS</span>
                         </div>
-                        <div class="project-actions"><button type="button" onclick="openProjectModal('sporOkonomi')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                        <div class="project-actions">
+<button type="button" onclick="openProjectModal('sporOkonomi')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
                         <a href="https://github.com/Nithusan2002/spor-okonomi" target="_blank" rel="noopener noreferrer" class="project-secondary-link">GitHub ↗</a>
-                        <a href="https://nithusan.no/spor-okonomi/" target="_blank" rel="noopener noreferrer" class="project-secondary-link" data-no="Hjemmeside ↗" data-en="Website ↗">Hjemmeside ↗</a></div>
+                        <a href="https://nithusan.no/spor-okonomi/" target="_blank" rel="noopener noreferrer" class="project-secondary-link" data-no="Hjemmeside ↗" data-en="Website ↗">Hjemmeside ↗</a>
+</div>
                     </div>
                 </article>
-
-                <!-- MatLogg -->
-                <article class="project-card project-card--matlogg section-surface overflow-hidden card-hover reveal">
-                    <div class="project-thumb project-thumb--matlogg h-56">
-                        <div class="app-identity">
-                            <img src="assets/matlogg-app-icon.png" alt="MatLogg-appikon" data-no-alt="MatLogg-appikon" data-en-alt="MatLogg app icon" class="project-thumb-icon" width="1024" height="1024" loading="lazy" decoding="async">
-                            <div>
-                                <strong>MatLogg</strong>
-                                <span data-no="Matlogging i hverdagen" data-en="Everyday food logging">Matlogging i hverdagen</span>
-                            </div>
-                        </div>
-                        <span class="cover-label">iOS · SQLite</span>
-                    </div>
-                    <div class="project-card-body p-6">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800">MatLogg</h3>
-                        <p class="text-gray-600 mb-4" data-no="En norsk iOS-app jeg utvikler for rask matlogging og oversikt over ernæring og mål. Matloggen lagres lokalt og fungerer uten nett, med produktsøk via strekkode og norske matvaredata når du er tilkoblet." data-en="A Norwegian iOS app I am developing for quick food logging and tracking nutrition and goals. The food log is stored locally and works offline, with barcode product lookup and Norwegian food data when connected.">En norsk iOS-app jeg utvikler for rask matlogging og oversikt over ernæring og mål. Matloggen lagres lokalt og fungerer uten nett, med produktsøk via strekkode og norske matvaredata når du er tilkoblet.</p>
-                        <div class="matlogg-technologies flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Swift</span>
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">SwiftUI</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">SQLite</span>
-                        </div>
-                        <p class="project-status-note mb-4" data-no="Under utvikling · lokal lagring uten skysynk" data-en="In development · local storage without cloud sync">Under utvikling · lokal lagring uten skysynk</p>
-                        <div class="project-actions"><button type="button" onclick="openProjectModal('matlogg')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
-                        <a href="https://github.com/Nithusan2002/MatLogg" target="_blank" rel="noopener noreferrer" class="project-secondary-link">GitHub ↗</a>
-                        <a href="https://nithusan.no/MatLogg/" target="_blank" rel="noopener noreferrer" class="project-secondary-link" data-no="Hjemmeside ↗" data-en="Website ↗">Hjemmeside ↗</a></div>
-                    </div>
-                </article>
-
-                <!-- Prosjekt 4: JobTracker -->
-                <article class="project-card section-surface overflow-hidden card-hover reveal">
+<article class="project-card section-surface overflow-hidden card-hover reveal">
                     <div class="project-thumb project-thumb--jobtracker h-56">
                         <div class="browser-frame">
-                            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+                            <div class="browser-bar" aria-hidden="true">
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+</div>
                             <img src="assets/jobtracker-screenshot.webp" alt="Skjermbilde av JobTracker-nettappen" data-no-alt="Skjermbilde av JobTracker-nettappen" data-en-alt="Screenshot of the JobTracker web app" class="project-thumb-screen" width="800" height="556" loading="lazy" decoding="async">
                         </div>
                         <span class="cover-label">Web · REST API</span>
@@ -348,14 +311,64 @@
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">PostgreSQL</span>
                         </div>
                         <p class="project-status-note mb-4" data-no="Koden er klar for produksjonssetting, men appen ligger ikke ute ennå" data-en="The code is ready to deploy, but the app is not live yet">Koden er klar for produksjonssetting, men appen ligger ikke ute ennå</p>
-                        <div class="project-actions"><button type="button" onclick="openProjectModal('jobTracker')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
-                        <a href="https://github.com/Nithusan2002/jobtracker-api" target="_blank" rel="noopener noreferrer" class="project-secondary-link" data-no="GitHub →" data-en="GitHub →">GitHub →</a></div>
+                        <div class="project-actions">
+<button type="button" onclick="openProjectModal('jobTracker')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                        <a href="https://github.com/Nithusan2002/jobtracker-api" target="_blank" rel="noopener noreferrer" class="project-secondary-link" data-no="GitHub →" data-en="GitHub →">GitHub →</a>
+</div>
                     </div>
                 </article>
-
-            </div>
-        </div>
-    </section>
+<article class="project-card project-card--app project-card--poengjeger section-surface overflow-hidden card-hover reveal">
+                    <div class="project-thumb project-thumb--poengjeger h-56">
+                        <div class="app-identity">
+                            <img src="assets/poengjeger-app-icon.png" alt="Poengjeger-appikon" data-no-alt="Poengjeger-appikon" data-en-alt="Poengjeger app icon" class="project-thumb-icon" width="1024" height="1024" loading="lazy" decoding="async">
+                            <div>
+                                <strong>Poengjeger</strong>
+                                <span data-no="Sjekk før du handler" data-en="Check before you shop">Sjekk før du handler</span>
+                            </div>
+                        </div>
+                        <span class="cover-label">iOS · SwiftUI</span>
+                    </div>
+                    <div class="project-card-body p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="Poengjeger" data-en="Poengjeger">Poengjeger</h3>
+                        <p class="text-gray-600 mb-4" data-no="Finn opptjeningsmuligheter for EuroBonus og Trumf før du handler." data-en="Find EuroBonus and Trumf earning opportunities before you shop.">Finn opptjeningsmuligheter for EuroBonus og Trumf før du handler.</p>
+                        <div class="app-technologies flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Swift</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">SwiftUI</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Supabase</span>
+                        </div>
+                        <p class="project-status-note mb-4" data-no="Under utvikling · kommer snart til iPhone" data-en="In development · coming soon to iPhone">Under utvikling · kommer snart til iPhone</p>
+                        <div class="project-actions">
+<button type="button" onclick="openProjectModal('poengjeger')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                        <a href="https://github.com/Nithusan2002/PoengJeger" target="_blank" rel="noopener noreferrer" class="project-secondary-link">GitHub ↗</a>
+                        <a href="https://nithusan.no/poengjeger/" target="_blank" rel="noopener noreferrer" class="project-secondary-link" data-no="Hjemmeside ↗" data-en="Website ↗">Hjemmeside ↗</a>
+</div>
+                    </div>
+                </article>
+<article class="project-card section-surface overflow-hidden card-hover reveal">
+                    <div class="project-thumb project-thumb--liftoff h-56">
+                        <div class="phone-pair" role="group" aria-label="Skjermbilder fra LiftOff-appen" data-no-aria-label="Skjermbilder fra LiftOff-appen" data-en-aria-label="Screenshots from the LiftOff app">
+                            <img src="assets/RakettApp_SearchScreen.webp" alt="Søkeskjerm i LiftOff" data-no-alt="Søkeskjerm i LiftOff" data-en-alt="Search screen in LiftOff" class="phone-shot phone-shot--back" width="1179" height="2556" loading="lazy" decoding="async">
+                            <img src="assets/RakettApp_Map.webp" alt="Kartskjerm i LiftOff" data-no-alt="Kartskjerm i LiftOff" data-en-alt="Map screen in LiftOff" class="phone-shot phone-shot--front" width="1179" height="2556" loading="lazy" decoding="async">
+                        </div>
+                        <span class="cover-label" data-no="Android · værdata" data-en="Android · weather data">Android · værdata</span>
+                    </div>
+                    <div class="project-card-body p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800" data-no="LiftOff" data-en="LiftOff">LiftOff</h3>
+                        <p class="text-gray-600 mb-4" data-no="Værdata, kart og oppskytningsvinduer for raketter. Bygget i gruppe ved UiO." data-en="Weather data, maps and rocket launch windows. Built as a team at UiO.">Værdata, kart og oppskytningsvinduer for raketter. Bygget i gruppe ved UiO.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Kotlin</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Android Studio</span>
+                        </div>
+                        <div class="project-actions">
+<button type="button" onclick="openProjectModal('webapp')" class="project-primary-link" data-no="Se prosjekt →" data-en="View project →">Se prosjekt →</button>
+                        <a href="https://github.com/Nithusan2002/LiftOff" target="_blank" rel="noopener noreferrer" class="project-secondary-link">GitHub →</a>
+</div>
+                    </div>
+                </article>
+</div>
+</div>
+</div>
+</section>
 
     <!-- Ferdigheter Section -->
     <section id="ferdigheter" class="view-panel py-20 section-white reveal" data-view="ferdigheter">
@@ -440,16 +453,16 @@
     <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
         <div class="project-dialog bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto" tabindex="-1">
             <div class="p-6">
-                <div class="flex justify-between items-center mb-6">
+                <div class="detail-heading flex justify-between items-center">
                     <h2 id="modal-title" class="text-3xl font-bold text-gray-800">Prosjekt Detaljer</h2>
                     <button type="button" onclick="closeProjectModal()" class="modal-close text-gray-500 hover:text-gray-700 text-2xl" aria-label="Lukk prosjektvindu" data-no-aria-label="Lukk prosjektvindu" data-en-aria-label="Close project dialog">&times;</button>
                 </div>
 
-                <div id="modal-content" class="space-y-6">
+                <div id="modal-content">
                     <!-- Content will be dynamically inserted here -->
                 </div>
 
-                <div class="flex justify-end mt-8 space-x-4">
+                <div class="detail-footer flex justify-end space-x-4">
                     <button type="button" onclick="closeProjectModal()" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition duration-300" data-no="Lukk" data-en="Close">Lukk</button>
                     <a id="modal-demo-link" href="https://github.com/Nithusan2002/LiftOff" target="_blank" rel="noopener noreferrer" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300" data-no="GitHub-repo" data-en="GitHub repository">GitHub-repo</a>
                 </div>
@@ -469,6 +482,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=20261013-project-cards"></script>
+    <script src="script.js?v=20261013-project-showcase"></script>
 </body>
 </html>
