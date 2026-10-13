@@ -110,8 +110,21 @@ kan brukes ved behov.
 
 ## 📄 Lisens
 
-Kildekoden i dette repoet er tilgjengelig under [MIT-lisensen](LICENSE).
+Egen HTML-, CSS- og JavaScript-kode i dette repoet er tilgjengelig under
+[MIT-lisensen](LICENSE). MIT tillater også kommersiell gjenbruk, med krav om
+at lisens- og opphavsrettsteksten beholdes.
 
 Med mindre annet er oppgitt, er fotografier, CV-dokumenter, tekstinnhold,
 prosjektskjermbilder, profilering og øvrige ressurser beskyttet av opphavsrett:
 © 2025–2026 Nithusan Krishnasamymudali. Alle rettigheter reservert.
+Dette gjelder også tekst og annet innhold som er innebygd i kildekodefiler.
+
+Tredjepartskode, fonter og andre tredjepartsressurser følger sine egne
+lisenser og opphavsrettsmerknader:
+
+- Inter: SIL Open Font License 1.1, se [lisens og opphavsrett](assets/fonts/Inter-OFL.txt).
+- Space Grotesk: SIL Open Font License 1.1, se [lisens og opphavsrett](assets/fonts/Space-Grotesk-OFL.txt).
+- Tailwind CSS: MIT, med lisens i den installerte `tailwindcss`-pakken.
+
+Repoets MIT-lisens gir ikke i seg selv tillatelse til å gjenbruke bilder,
+CV, tekstinnhold eller profilering.

@@ -23,7 +23,25 @@ SOFTWARE.
 Content and assets
 ------------------
 
-The MIT License above applies only to the source code in this repository.
+The MIT License above applies only to original source code authored by
+Nithusan Krishnasamymudali in this repository, including HTML, CSS, and
+JavaScript. Text and other content embedded in source files are covered by
+the content and assets terms below, not by the MIT License.
 Unless otherwise stated, photographs, CV documents, written content, project
 screenshots, branding, and other assets are copyright (c) 2025-2026 Nithusan
 Krishnasamymudali. All rights reserved.
+
+Third-party materials
+---------------------
+
+Third-party code, fonts, libraries, and other materials remain subject to
+their respective licenses and copyright notices. Neither the MIT License
+above nor the content and assets notice replaces those terms or claims
+ownership of third-party materials.
+
+The bundled Inter and Space Grotesk fonts are licensed under the SIL Open
+Font License 1.1. Their copyright notices and full license texts are included
+in assets/fonts/Inter-OFL.txt and assets/fonts/Space-Grotesk-OFL.txt.
+
+Tailwind CSS is licensed under the MIT License by its respective copyright
+holders. Its license is included in the installed tailwindcss package.
