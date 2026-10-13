@@ -1,4 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('assets/fonts/inter-latin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url('assets/fonts/space-grotesk-latin.woff2') format('woff2');
+}
 
 :root {
     --bg: #f3f7ff;
@@ -26,6 +40,22 @@
     white-space: nowrap;
     border: 0;
 }
+
+.skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 10001;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    font-weight: 700;
+    background: #0b57d0;
+    border-radius: 0.5rem;
+    transform: translateY(-150%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus { transform: translateY(0); }
 
 button {
     min-width: 2.75rem;
@@ -456,6 +486,7 @@ h5 {
     transition: opacity 0.25s ease;
 }
 
+.js .project-card { cursor: pointer; }
 .project-card.is-pointer-active::after { opacity: 1; }
 .project-card-body { display: flex; flex: 1; flex-direction: column; }
 .project-card-body > p:first-of-type { flex-grow: 1; }
@@ -497,6 +528,50 @@ h5 {
 
 .project-thumb--jobtracker { background-color: #dcece8; }
 .project-thumb--spor { background-color: #e3ece4; }
+/* MatLogg light-theme tokens from MatLogg/DesignSystem/Colors.swift. */
+.project-card--matlogg {
+    --matlogg-background: #fff5e8;
+    --matlogg-surface: #fffcf7;
+    --matlogg-warm-surface: #fcebdd;
+    --matlogg-muted-surface: #f4ede6;
+    --matlogg-ink: #24192e;
+    --matlogg-secondary: #70656d;
+    --matlogg-separator: #e9ddd4;
+    --matlogg-brand: #ff5268;
+    --matlogg-action: #c72e49;
+    background: var(--matlogg-surface);
+}
+.project-card--matlogg .project-thumb--matlogg { background: var(--matlogg-background); }
+.project-card--matlogg .project-thumb::before {
+    background-image: radial-gradient(var(--matlogg-separator) 0.8px, transparent 0.8px);
+}
+.project-card--matlogg::after {
+    background: radial-gradient(19rem circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(255, 82, 104, 0.12), transparent 58%);
+}
+.project-card--matlogg .app-identity strong,
+.project-card--matlogg h3 { color: var(--matlogg-ink); }
+.project-card--matlogg .app-identity span,
+.project-card--matlogg .project-card-body > p:not(.project-status-note),
+.project-card--matlogg .project-secondary-link { color: var(--matlogg-secondary); }
+.project-card--matlogg .cover-label {
+    color: var(--matlogg-secondary);
+    background: var(--matlogg-surface);
+    border-color: var(--matlogg-separator);
+}
+.project-card--matlogg .matlogg-technologies span {
+    color: var(--matlogg-ink);
+    background: var(--matlogg-warm-surface);
+}
+.project-card--matlogg .project-status-note {
+    color: var(--matlogg-secondary);
+    background: var(--matlogg-muted-surface);
+    border-color: var(--matlogg-separator);
+}
+.project-card--matlogg .project-primary-link,
+.project-card--matlogg .project-primary-link:hover,
+.project-card--matlogg .project-secondary-link:hover { color: var(--matlogg-action); }
+.project-card--matlogg .project-actions a:focus-visible,
+.project-card--matlogg .project-actions button:focus-visible { outline-color: var(--matlogg-action); }
 .project-thumb--poengjeger { background-color: #efe8dc; }
 .project-thumb--liftoff { background-color: #e4e8f2; }
 
@@ -585,50 +660,6 @@ h5 {
     max-width: 21rem;
     transform: translateY(-0.35rem);
 }
-/* MatLogg light-theme tokens from MatLogg/DesignSystem/Colors.swift. */
-.project-card--matlogg {
-    --matlogg-background: #fff5e8;
-    --matlogg-surface: #fffcf7;
-    --matlogg-warm-surface: #fcebdd;
-    --matlogg-muted-surface: #f4ede6;
-    --matlogg-ink: #24192e;
-    --matlogg-secondary: #70656d;
-    --matlogg-separator: #e9ddd4;
-    --matlogg-brand: #ff5268;
-    --matlogg-action: #c72e49;
-    background: var(--matlogg-surface);
-}
-.project-card--matlogg .project-thumb--matlogg { background: var(--matlogg-background); }
-.project-card--matlogg .project-thumb::before {
-    background-image: radial-gradient(var(--matlogg-separator) 0.8px, transparent 0.8px);
-}
-.project-card--matlogg::after {
-    background: radial-gradient(19rem circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(255, 82, 104, 0.12), transparent 58%);
-}
-.project-card--matlogg .app-identity strong,
-.project-card--matlogg h3 { color: var(--matlogg-ink); }
-.project-card--matlogg .app-identity span,
-.project-card--matlogg .project-card-body > p:not(.project-status-note),
-.project-card--matlogg .project-secondary-link { color: var(--matlogg-secondary); }
-.project-card--matlogg .cover-label {
-    color: var(--matlogg-secondary);
-    background: var(--matlogg-surface);
-    border-color: var(--matlogg-separator);
-}
-.project-card--matlogg .matlogg-technologies span {
-    color: var(--matlogg-ink);
-    background: var(--matlogg-warm-surface);
-}
-.project-card--matlogg .project-status-note {
-    color: var(--matlogg-secondary);
-    background: var(--matlogg-muted-surface);
-    border-color: var(--matlogg-separator);
-}
-.project-card--matlogg .project-primary-link,
-.project-card--matlogg .project-primary-link:hover,
-.project-card--matlogg .project-secondary-link:hover { color: var(--matlogg-action); }
-.project-card--matlogg .project-actions a:focus-visible,
-.project-card--matlogg .project-actions button:focus-visible { outline-color: var(--matlogg-action); }
 .project-thumb--jobtracker .project-thumb-screen { max-height: 7.5rem; }
 
 .browser-frame {
@@ -1048,9 +1079,11 @@ h5 {
 .hobby-gallery--portrait .hobby-photo-stack { width: min(62%, 14rem); aspect-ratio: 9 / 16; margin-inline: auto; }
 .hobby-photo-placeholder,
 .hobby-photo { position: absolute; inset: 0; display: grid; width: 100%; height: 100%; place-items: center; color: #64748b; font-size: 0.78rem; font-weight: 750; letter-spacing: 0.04em; background: linear-gradient(145deg, #e7eef7, #d8e4f2); border: 2px solid #c3d2e4; border-radius: 0.9rem; box-shadow: 0 14px 26px rgba(25, 48, 82, 0.18); opacity: 0.82; transition: transform 0.28s ease, opacity 0.28s ease; }
-.hobby-photo { object-fit: cover; object-position: center; }
-.hobby-photo--training { object-position: center; }
-.hobby-photo--cooking { padding: 0; object-fit: cover; object-position: center 42%; }
+.hobby-photo { overflow: hidden; }
+.hobby-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.hobby-photo--training img { object-position: center; }
+.hobby-photo--cooking { padding: 0; }
+.hobby-photo--cooking img { object-position: center 42%; }
 .hobby-photo-placeholder:nth-child(1),
 .hobby-photo:nth-child(1) { transform: rotate(-5deg) translate(-0.65rem, 0.55rem) scale(0.96); background: #cbdced; }
 .hobby-photo-placeholder:nth-child(2),
@@ -1083,12 +1116,17 @@ h5 {
 }
 
 .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.js .reveal {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
-.reveal.visible {
+.js .reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -1215,7 +1253,7 @@ h5 {
 .sidebar-layout > .fixed { margin-left: 17rem; }
 
 .sidebar-layout .view-panel { min-height: calc(100vh - 5.5rem); }
-.sidebar-layout .view-panel:not(.view-active) { display: none; }
+.js .sidebar-layout .view-panel:not(.view-active) { display: none; }
 .sidebar-layout .view-active { animation: view-in 0.32s ease both; }
 .sidebar-layout .hero { padding-top: 0; }
 .sidebar-layout.personal-page .personal-hero { padding-top: 6rem; }
@@ -1256,6 +1294,7 @@ h5 {
 .contact-links-grid span { margin-bottom: 0.3rem; color: #0b57d0; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
 .contact-links-grid strong { padding-right: 1.5rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.92rem; }
 .contact-links-grid i { position: absolute; top: 1rem; right: 1rem; color: #0b57d0; font-style: normal; font-size: 1.1rem; }
+.project-secondary-link { display: inline-flex; min-height: 2.75rem; align-items: center; padding-inline: 0.5rem; }
 .sidebar-layout #prosjekter,
 .sidebar-layout #om,
 .sidebar-layout #mal,
@@ -1336,8 +1375,9 @@ h5 {
     }
 
     .side-nav .mobile-menu-button { display: grid; min-width: 2.75rem; min-height: 2.75rem; place-items: center; }
-    .side-nav-content { display: none; padding-top: 1rem; }
-    .side-nav-content.mobile-open { display: flex; max-height: calc(100vh - 5rem); overflow-y: auto; }
+    .side-nav-content { padding-top: 1rem; }
+    .js .side-nav-content { display: none; }
+    .js .side-nav-content.mobile-open { display: flex; max-height: calc(100vh - 5rem); overflow-y: auto; }
     .side-nav-links { gap: 0.15rem; }
     .side-nav-footer { margin-top: 1rem; padding-bottom: 0.25rem; }
     .sidebar-layout > section,
@@ -1355,7 +1395,15 @@ h5 {
     .skills-grid .skill-card { min-height: 12rem; }
     .skills-practice { grid-template-columns: 1fr; }
     .contact-layout { grid-template-columns: 1fr; min-height: 0; }
+
+    html:not(.js) .side-nav { position: static; }
+    html:not(.js) .side-nav .mobile-menu-button { display: none; }
+    html:not(.js) .side-nav-content { display: flex; }
+    html:not(.js) .sidebar-layout .hero { padding-top: 0; }
 }
+
+html:not(.js) .language-pill,
+html:not(.js) .project-primary-link { display: none; }
 
 @media (max-width: 560px) {
     .contact-links-grid { grid-template-columns: 1fr; }

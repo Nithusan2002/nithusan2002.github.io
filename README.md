@@ -15,8 +15,8 @@ Koden bak min personlige portefølje: [www.nithusan.no](https://www.nithusan.no)
 - HTML5
 - CSS3
 - JavaScript (vanilla)
-- Tailwind CSS (CDN)
-- Google Fonts (`Inter`, `Space Grotesk`)
+- Tailwind CSS (lokalt generert og versjonert)
+- Lokalt hostede fonter (`Inter`, `Space Grotesk`)
 
 ## 📂 Struktur
 ```text

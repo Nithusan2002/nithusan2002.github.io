@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js');
+
 // Mobile menu toggle
 //
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -24,12 +26,22 @@ function initCursorVisual() {
     let pointerY = -100;
     let haloX = -100;
     let haloY = -100;
+    let animationFrame = null;
 
     function animateHalo() {
         haloX += (pointerX - haloX) * 0.16;
         haloY += (pointerY - haloY) * 0.16;
         halo.style.translate = `${haloX}px ${haloY}px`;
-        requestAnimationFrame(animateHalo);
+
+        if (Math.hypot(pointerX - haloX, pointerY - haloY) > 0.1) {
+            animationFrame = requestAnimationFrame(animateHalo);
+        } else {
+            animationFrame = null;
+        }
+    }
+
+    function requestHaloFrame() {
+        if (animationFrame === null) animationFrame = requestAnimationFrame(animateHalo);
     }
 
     document.addEventListener('pointermove', event => {
@@ -37,6 +49,7 @@ function initCursorVisual() {
         pointerX = event.clientX;
         pointerY = event.clientY;
         dot.style.translate = `${pointerX}px ${pointerY}px`;
+        requestHaloFrame();
         halo.classList.add('is-visible');
         dot.classList.add('is-visible');
 
@@ -49,9 +62,16 @@ function initCursorVisual() {
     document.documentElement.addEventListener('mouseleave', () => {
         halo.classList.remove('is-visible', 'is-pressed');
         dot.classList.remove('is-visible');
+        if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+        animationFrame = null;
     });
 
-    animateHalo();
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && animationFrame !== null) {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = null;
+        }
+    });
 }
 
 initCursorVisual();
@@ -168,7 +188,7 @@ const pageMetadata = {
         ogLocale: 'nb_NO',
         ogTitle: 'Nithusan Krishnasamymudali | Backendutvikler',
         ogDescription: 'Se prosjektene mine innen backend- og apputvikling.',
-        ogImageAlt: 'Portrett av Nithusan Krishnasamymudali'
+        ogImageAlt: 'Nithusan Krishnasamymudali – backendutvikler'
     },
     en: {
         title: 'Nithusan Krishnasamymudali | Backend Developer',
@@ -176,7 +196,7 @@ const pageMetadata = {
         ogLocale: 'en_GB',
         ogTitle: 'Nithusan Krishnasamymudali | Backend Developer',
         ogDescription: 'Explore my backend and app development projects.',
-        ogImageAlt: 'Portrait of Nithusan Krishnasamymudali'
+        ogImageAlt: 'Nithusan Krishnasamymudali – backend developer'
     }
 };
 
@@ -205,6 +225,9 @@ function updateMetadata(viewName = location.hash.slice(1) || 'hjem') {
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', metadata.ogTitle);
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', metadata.ogDescription);
     document.querySelector('meta[property="og:image:alt"]')?.setAttribute('content', metadata.ogImageAlt);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', metadata.ogTitle);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', metadata.ogDescription);
+    document.querySelector('meta[name="twitter:image:alt"]')?.setAttribute('content', metadata.ogImageAlt);
 }
 
 function switchLanguage() {
@@ -245,18 +268,22 @@ function switchLanguage() {
 document.getElementById('language-toggle')?.addEventListener('click', switchLanguage);
 showView(location.hash.slice(1) || 'hjem', false);
 
-const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.15 });
+if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
 
-document.querySelectorAll('.reveal').forEach(element => {
-    revealObserver.observe(element);
-});
+    document.querySelectorAll('.reveal').forEach(element => {
+        revealObserver.observe(element);
+    });
+} else {
+    document.querySelectorAll('.reveal').forEach(element => element.classList.add('visible'));
+}
 
 // Hobby galleries on the About view. Clicking the left or right half of an
 // image moves through the stack without adding visible arrow controls.
@@ -409,6 +436,28 @@ const projectData = {
             },
             demoUrl: "https://github.com/Nithusan2002/spor-okonomi"
         },
+        matlogg: {
+            title: { no: "MatLogg", en: "MatLogg" },
+            description: {
+                no: "MatLogg er en norsk iOS-app jeg utvikler for rask matlogging, ernæringsoversikt og måloppfølging. Matlogg, historikk og mål lagres lokalt i SQLite, slik at den daglige loggingen fungerer uten nett og uten innlogging.",
+                en: "MatLogg is a Norwegian iOS app I am developing for quick food logging, nutrition summaries and tracking goals. Food logs, history and goals are stored locally in SQLite, so everyday logging works offline without signing in."
+            },
+            features: {
+                no: ["Matlogging med dagsoversikt, favoritter og historikk", "Strekkodesøk via Open Food Facts og råvaresøk i Matvaretabellen", "Oppfølging av vekt og ernæringsmål", "Vannlogging og lagrede måltider", "Lokal profil med valgfri Supabase-konto"],
+                en: ["Food logging with daily summaries, favourites and history", "Barcode lookup via Open Food Facts and ingredient search in Matvaretabellen", "Weight and nutrition goal tracking", "Water logging and saved meals", "Local profile with an optional Supabase account"]
+            },
+            technologies: ["Swift", "SwiftUI", "SQLite", "MVVM", "Supabase Auth", "REST API"],
+            challenges: {
+                no: "Jeg har lagt vekt på pålitelig lokal lagring og at ernæringskilde og måleenhet bevares gjennom loggingen. Klienten følger MVVM med egne repositories og tjenester. Domenedata og synkhendelser skrives atomisk lokalt, mens opplasting er sperret i første lansering.",
+                en: "I have focused on reliable local storage and preserving nutrition sources and units throughout logging. The client uses MVVM with separate repositories and services. Domain data and sync events are written atomically to local storage, while uploads are disabled for the first release."
+            },
+            outcome: {
+                no: "Prosjektet er under aktiv MVP-utvikling og er ikke produksjonsklart. Lokal matlogging, dagsoversikt, historikk og måloppfølging er implementert. Første lansering bruker lokale domenedata uten skybackup eller synk mellom enheter; konto er valgfri.",
+                en: "The project is under active MVP development and is not production-ready. Local food logging, daily summaries, history and goal tracking are implemented. The first release uses local domain data without cloud backup or multi-device sync; an account is optional."
+            },
+            demoLabel: { no: "GitHub-repo", en: "GitHub repository" },
+            demoUrl: "https://github.com/Nithusan2002/MatLogg"
+        },
         jobTracker: {
             title: {
                 no: "JobTracker",
@@ -436,28 +485,6 @@ const projectData = {
             },
             technologies: ["Kotlin", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Gradle", "Docker", "HTML", "CSS", "JavaScript"],
             challenges: {
-        matlogg: {
-            title: { no: "MatLogg", en: "MatLogg" },
-            description: {
-                no: "MatLogg er en norsk iOS-app jeg utvikler for rask matlogging, ernæringsoversikt og måloppfølging. Matlogg, historikk og mål lagres lokalt i SQLite, slik at den daglige loggingen fungerer uten nett og uten innlogging.",
-                en: "MatLogg is a Norwegian iOS app I am developing for quick food logging, nutrition summaries and tracking goals. Food logs, history and goals are stored locally in SQLite, so everyday logging works offline without signing in."
-            },
-            features: {
-                no: ["Matlogging med dagsoversikt, favoritter og historikk", "Strekkodesøk via Open Food Facts og råvaresøk i Matvaretabellen", "Oppfølging av vekt og ernæringsmål", "Vannlogging og lagrede måltider", "Lokal profil med valgfri Supabase-konto"],
-                en: ["Food logging with daily summaries, favourites and history", "Barcode lookup via Open Food Facts and ingredient search in Matvaretabellen", "Weight and nutrition goal tracking", "Water logging and saved meals", "Local profile with an optional Supabase account"]
-            },
-            technologies: ["Swift", "SwiftUI", "SQLite", "MVVM", "Supabase Auth", "REST API"],
-            challenges: {
-                no: "Jeg har lagt vekt på pålitelig lokal lagring og at ernæringskilde og måleenhet bevares gjennom loggingen. Klienten følger MVVM med egne repositories og tjenester. Domenedata og synkhendelser skrives atomisk lokalt, mens opplasting er sperret i første lansering.",
-                en: "I have focused on reliable local storage and preserving nutrition sources and units throughout logging. The client uses MVVM with separate repositories and services. Domain data and sync events are written atomically to local storage, while uploads are disabled for the first release."
-            },
-            outcome: {
-                no: "Prosjektet er under aktiv MVP-utvikling og er ikke produksjonsklart. Lokal matlogging, dagsoversikt, historikk og måloppfølging er implementert. Første lansering bruker lokale domenedata uten skybackup eller synk mellom enheter; konto er valgfri.",
-                en: "The project is under active MVP development and is not production-ready. Local food logging, daily summaries, history and goal tracking are implemented. The first release uses local domain data without cloud backup or multi-device sync; an account is optional."
-            },
-            demoLabel: { no: "GitHub-repo", en: "GitHub repository" },
-            demoUrl: "https://github.com/Nithusan2002/MatLogg"
-        },
                 no: "Jeg holdt prosjektet bevisst lite nok til at jeg kunne jobbe med hele flyten selv. Frontend sender forespørsler til REST-API-et, som validerer dataene og lagrer dem i PostgreSQL.",
                 en: "I deliberately kept the project small enough to work on the entire flow myself. The frontend sends requests to the REST API, which validates the data and stores it in PostgreSQL."
             },
@@ -473,6 +500,7 @@ const projectData = {
 
         let lastFocusedElement = null;
         let activeProjectId = null;
+        const pageRegions = [...document.querySelectorAll('.side-nav, body > h1, body > main, body > footer')];
 
         function renderProjectModal(projectId) {
             const project = projectData[projectId];
@@ -541,8 +569,9 @@ const projectData = {
             renderProjectModal(projectId);
             
             lastFocusedElement = document.activeElement;
+            modal.hidden = false;
             modal.classList.remove('hidden');
-            modal.setAttribute('aria-hidden', 'false');
+            pageRegions.forEach(region => { region.inert = true; });
             document.body.style.overflow = 'hidden';
             modal.querySelector('.project-dialog').focus();
         }
@@ -550,11 +579,28 @@ const projectData = {
         function closeProjectModal() {
             const modal = document.getElementById('project-modal');
             modal.classList.add('hidden');
-            modal.setAttribute('aria-hidden', 'true');
+            modal.hidden = true;
+            pageRegions.forEach(region => { region.inert = false; });
             document.body.style.overflow = 'auto';
             activeProjectId = null;
             lastFocusedElement?.focus();
         }
+
+        // Keep the native button as the keyboard control while extending its
+        // click target to the card. Links and text selection retain their behavior.
+        document.querySelectorAll('.project-card').forEach(card => {
+            const projectButton = card.querySelector('.project-primary-link');
+            if (!projectButton) return;
+
+            card.addEventListener('click', event => {
+                if (event.defaultPrevented || event.button !== 0) return;
+                if (event.target.closest('a, button, input, select, textarea, [role="button"]')) return;
+                if (window.getSelection()?.isCollapsed === false) return;
+
+                projectButton.focus({ preventScroll: true });
+                projectButton.click();
+            });
+        });
 
         // Close modal when clicking outside
         document.getElementById('project-modal').addEventListener('click', function(e) {
