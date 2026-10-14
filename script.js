@@ -1,80 +1,7 @@
-document.documentElement.classList.add('js');
-
 // Mobile menu toggle
 //
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
-
-// A softly trailing pointer accent for mouse/trackpad users. It is created in
-// JavaScript so touch devices and reduced-motion users receive no extra markup.
-function initCursorVisual() {
-    const canUseCursorVisual = window.matchMedia(
-        '(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)'
-    ).matches;
-
-    if (!canUseCursorVisual) return;
-
-    const halo = document.createElement('div');
-    const dot = document.createElement('div');
-    halo.className = 'cursor-visual';
-    dot.className = 'cursor-visual-dot';
-    halo.setAttribute('aria-hidden', 'true');
-    dot.setAttribute('aria-hidden', 'true');
-    document.body.append(halo, dot);
-
-    let pointerX = -100;
-    let pointerY = -100;
-    let haloX = -100;
-    let haloY = -100;
-    let animationFrame = null;
-
-    function animateHalo() {
-        haloX += (pointerX - haloX) * 0.16;
-        haloY += (pointerY - haloY) * 0.16;
-        halo.style.translate = `${haloX}px ${haloY}px`;
-
-        if (Math.hypot(pointerX - haloX, pointerY - haloY) > 0.1) {
-            animationFrame = requestAnimationFrame(animateHalo);
-        } else {
-            animationFrame = null;
-        }
-    }
-
-    function requestHaloFrame() {
-        if (animationFrame === null) animationFrame = requestAnimationFrame(animateHalo);
-    }
-
-    document.addEventListener('pointermove', event => {
-        if (event.pointerType && event.pointerType !== 'mouse') return;
-        pointerX = event.clientX;
-        pointerY = event.clientY;
-        dot.style.translate = `${pointerX}px ${pointerY}px`;
-        requestHaloFrame();
-        halo.classList.add('is-visible');
-        dot.classList.add('is-visible');
-
-        const interactive = event.target.closest('a, button, [role="button"], input, textarea, select');
-        halo.classList.toggle('is-interactive', Boolean(interactive));
-    });
-
-    document.addEventListener('pointerdown', () => halo.classList.add('is-pressed'));
-    document.addEventListener('pointerup', () => halo.classList.remove('is-pressed'));
-    document.documentElement.addEventListener('mouseleave', () => {
-        halo.classList.remove('is-visible', 'is-pressed');
-        dot.classList.remove('is-visible');
-        if (animationFrame !== null) cancelAnimationFrame(animationFrame);
-        animationFrame = null;
-    });
-
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden && animationFrame !== null) {
-            cancelAnimationFrame(animationFrame);
-            animationFrame = null;
-        }
-    });
-}
-
-// The native cursor is retained; the decorative cursor is disabled.
 
 function initPointerDetails() {
     const supportsMotion = window.matchMedia(
@@ -158,6 +85,7 @@ function showView(viewName, updateUrl = true) {
     updateMetadata(activeName);
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     closeMobileMenu();
+    if (updateUrl) document.getElementById('main-content').focus({ preventScroll: true });
 }
 
 function transitionToView(viewName, updateUrl = true) {
@@ -168,6 +96,11 @@ function transitionToView(viewName, updateUrl = true) {
 
     document.startViewTransition(() => showView(viewName, updateUrl));
 }
+
+document.querySelector('.skip-link')?.addEventListener('click', event => {
+    event.preventDefault();
+    document.getElementById('main-content').focus();
+});
 
 document.querySelectorAll('[data-view-link]').forEach(link => {
     link.addEventListener('click', event => {
@@ -184,7 +117,7 @@ let currentLanguage = 'no';
 const pageMetadata = {
     no: {
         title: 'Nithusan Krishnasamymudali | Backendutvikler',
-        description: 'Jeg er backendutvikler med bachelor fra UiO. Her finner du prosjektene mine i Kotlin, Spring Boot, PostgreSQL, Swift og SwiftUI.',
+        description: 'Backendutvikler med bachelor i informatikk fra UiO. Se mine prosjekter med Kotlin, Spring Boot og PostgreSQL, og apper for iOS og Android.',
         ogLocale: 'nb_NO',
         ogTitle: 'Nithusan Krishnasamymudali | Backendutvikler',
         ogDescription: 'Se prosjektene mine innen backend- og apputvikling.',
@@ -192,7 +125,7 @@ const pageMetadata = {
     },
     en: {
         title: 'Nithusan Krishnasamymudali | Backend Developer',
-        description: 'I am a backend developer with a bachelor\'s degree from the University of Oslo. Explore my projects in Kotlin, Spring Boot, PostgreSQL, Swift and SwiftUI.',
+        description: 'Backend developer with a computer science degree from the University of Oslo. Explore my Kotlin, Spring Boot and PostgreSQL projects, plus iOS and Android apps.',
         ogLocale: 'en_GB',
         ogTitle: 'Nithusan Krishnasamymudali | Backend Developer',
         ogDescription: 'Explore my backend and app development projects.',
@@ -261,6 +194,7 @@ function switchLanguage() {
     document.documentElement.lang = currentLanguage;
     updateMetadata();
 
+    document.dispatchEvent(new Event('portfolio-language-change'));
     if (activeProjectId) renderProjectModal(activeProjectId);
 }
 
@@ -268,33 +202,28 @@ function switchLanguage() {
 document.getElementById('language-toggle')?.addEventListener('click', switchLanguage);
 showView(location.hash.slice(1) || 'hjem', false);
 
-if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
+// Keep content visible from the first paint; view transitions provide motion.
 
-    document.querySelectorAll('.reveal').forEach(element => {
-        revealObserver.observe(element);
-    });
-} else {
-    document.querySelectorAll('.reveal').forEach(element => element.classList.add('visible'));
-}
-
-// Hobby galleries on the About view. Clicking the left or right half of an
-// image moves through the stack without adding visible arrow controls.
+// Hobby galleries retain native buttons for Tab, Enter and Space.
 document.querySelectorAll('[data-gallery]').forEach(gallery => {
     const slides = [...gallery.querySelectorAll('[data-slide]')];
+    if (!slides.length) return;
     const count = gallery.querySelector('[data-gallery-count]');
+    const status = gallery.querySelector('[data-gallery-status]');
     const dots = gallery.querySelector('.gallery-dots');
     let activeIndex = 0;
 
     slides.forEach(() => dots?.insertAdjacentHTML('beforeend', '<i></i>'));
     const indicators = dots ? [...dots.children] : [];
+
+    function updateStatus() {
+        if (!status) return;
+        const description = slides[activeIndex].querySelector('img')?.alt || '';
+        const position = currentLanguage === 'no'
+            ? `Bilde ${activeIndex + 1} av ${slides.length}`
+            : `Photo ${activeIndex + 1} of ${slides.length}`;
+        status.textContent = `${position}: ${description}`;
+    }
 
     function showSlide(index) {
         activeIndex = (index + slides.length) % slides.length;
@@ -305,10 +234,19 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
         });
         indicators.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === activeIndex));
         if (count) count.textContent = `${activeIndex + 1} / ${slides.length}`;
+        updateStatus();
     }
 
     gallery.querySelector('[data-gallery-prev]')?.addEventListener('click', () => showSlide(activeIndex - 1));
     gallery.querySelector('[data-gallery-next]')?.addEventListener('click', () => showSlide(activeIndex + 1));
+    gallery.addEventListener('keydown', event => {
+        if (!event.target.closest('[data-gallery-prev], [data-gallery-next]')) return;
+        if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        showSlide(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+    document.addEventListener('portfolio-language-change', updateStatus);
     showSlide(0);
 });
 
@@ -353,10 +291,10 @@ const projectData = {
             en: "The project gave me experience developing an Android app in a team, connecting to external APIs and storing data locally."
         },
         screenshots: [
-            "assets/RakettApp_SearchScreen.webp",
-            "assets/RakettApp_Resultscreen.webp",
-            "assets/RakettApp_Map.webp",
-            "assets/RakettApp_LaunchWindows.webp"
+            { src: "assets/RakettApp_SearchScreen.webp", width: 1080, height: 2220, alt: { no: "LiftOff: søk etter sted og tidspunkt for rakettoppskytning", en: "LiftOff: search for a rocket launch location and time" } },
+            { src: "assets/RakettApp_Resultscreen.webp", width: 1080, height: 2220, alt: { no: "LiftOff: værresultater for valgt sted og tidspunkt", en: "LiftOff: weather results for the selected location and time" } },
+            { src: "assets/RakettApp_Map.webp", width: 1080, height: 2220, alt: { no: "LiftOff: kart over oppskytningsstedet", en: "LiftOff: map of the launch location" } },
+            { src: "assets/RakettApp_LaunchWindows.webp", width: 1080, height: 2220, alt: { no: "LiftOff: oversikt over mulige oppskytningsvinduer", en: "LiftOff: overview of possible launch windows" } }
         ],
         demoUrl: "https://github.com/Nithusan2002/LiftOff"
     },
@@ -419,7 +357,7 @@ const projectData = {
                 ],
                 en: [
                     "Budget planning with income and expenses",
-                    "Automatic monthly creation of recurring expenses",
+                    "Automatic monthly creation of recurring entries",
                     "Investment overview with snapshots",
                     "Import and export of data",
                     "Can be used locally without an account"
@@ -492,7 +430,7 @@ const projectData = {
                 no: "Resultatet er en fungerende webapp med fem REST-endepunkter for å opprette, hente, endre og slette jobbsøknader. Koden og oppsettet ligger på GitHub.",
                 en: "The result is a working web app with five REST endpoints for creating, retrieving, editing and deleting job applications. The code and setup are available on GitHub."
             },
-            screenshots: ["assets/jobtracker-screenshot.webp"],
+            screenshots: [{ src: "assets/jobtracker-screenshot.webp", width: 800, height: 556, alt: { no: "JobTracker: oversikt over jobbsøknader med søk og statusfilter", en: "JobTracker: job application overview with search and status filtering" } }],
             screenshotLayout: "wide",
             demoUrl: "https://github.com/Nithusan2002/jobtracker-api"
         },
@@ -500,7 +438,7 @@ const projectData = {
 
 const projectPresentation = {
             sporOkonomi: {icon:'assets/icon-sage.svg', color:'#205c50', tint:'#e6efea', no:'Budsjett uten styr.', en:'Budgeting made simple.', status:['Under utvikling','In development']},
-            matlogg: {icon:'assets/matlogg-app-icon.png', color:'#b72f4b', tint:'#fff1e3', no:'Matlogging som passer hverdagen.', en:'Food logging for everyday life.', status:['Under utvikling','In development']},
+            matlogg: {icon:'assets/matlogg-app-icon-160.webp', color:'#b72f4b', tint:'#fff1e3', no:'Matlogging som passer hverdagen.', en:'Food logging for everyday life.', status:['Under utvikling','In development']},
             poengjeger: {icon:'assets/poengjeger-app-icon.png', color:'#09695e', tint:'#e1efea', no:'Sjekk før du handler.', en:'Check before you shop.', status:['Under utvikling','In development']},
             webapp: {color:'#3456a4', tint:'#e8eefb', no:'Værdata for neste oppskytning.', en:'Weather data for the next launch.', status:['Studieprosjekt · gruppearbeid','University project · team work']},
             jobTracker: {color:'#205c50', tint:'#e1efec', no:'Alle søknadene. Én oversikt.', en:'Every application. One overview.', status:['Ikke publisert ennå','Not deployed yet']}
@@ -528,10 +466,10 @@ const projectPresentation = {
         dialog.style.setProperty('--detail-color', presentation.color);
         dialog.style.setProperty('--detail-tint', presentation.tint);
         const langIndex = currentLang === 'no' ? 0 : 1;
-        const images = project.screenshots?.length ? `<section class="detail-gallery" tabindex="0" role="region" aria-label="${currentLang === 'no' ? 'Skjermbilder' : 'Screenshots'}">${project.screenshots.map((src, i) => `<figure><img src="${src}" alt="${project.title[currentLang]} — ${currentLang === 'no' ? 'skjermbilde' : 'screenshot'} ${i+1}" loading="lazy"></figure>`).join('')}</section>` : '';
+        const images = project.screenshots?.length ? `<section class="detail-gallery" tabindex="0" role="region" aria-label="${currentLang === 'no' ? 'Skjermbilder' : 'Screenshots'}">${project.screenshots.map(image => `<figure><img src="${image.src}" alt="${image.alt[currentLang]}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async"></figure>`).join('')}</section>` : '';
         modalContent.innerHTML = `
             <div class="detail-hero">
-                ${presentation.icon ? `<img class="detail-icon" src="${presentation.icon}" alt="">` : '<span class="detail-symbol" aria-hidden="true">↗</span>'}
+                ${presentation.icon ? `<img class="detail-icon" src="${presentation.icon}" alt="" width="160" height="160" decoding="async">` : '<span class="detail-symbol" aria-hidden="true">↗</span>'}
                 <div><span class="detail-status">${presentation.status[langIndex]}</span><p class="detail-tagline">${presentation[currentLang]}</p></div>
             </div>
             <div class="detail-tech" aria-label="${currentLang === 'no' ? 'Teknologier' : 'Technologies'}">${project.technologies.map(tech => `<span>${tech}</span>`).join('')}</div>
@@ -594,7 +532,9 @@ const projectPresentation = {
         // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
+                const menuWasOpen = mobileMenu.classList.contains('mobile-open');
                 closeMobileMenu();
+                if (menuWasOpen) mobileMenuBtn.focus();
                 if (!document.getElementById('project-modal').classList.contains('hidden')) closeProjectModal();
             }
 

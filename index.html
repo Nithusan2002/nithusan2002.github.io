@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nithusan Krishnasamymudali | Backendutvikler</title>
-    <meta name="description" content="Jeg er backendutvikler med bachelor fra UiO. Her finner du prosjektene mine i Kotlin, Spring Boot, PostgreSQL, Swift og SwiftUI.">
+    <meta name="description" content="Backendutvikler med bachelor i informatikk fra UiO. Se mine prosjekter med Kotlin, Spring Boot og PostgreSQL, og apper for iOS og Android.">
     <meta name="author" content="Nithusan Krishnasamymudali">
     <meta name="theme-color" content="#0f4aa7">
     <link rel="canonical" href="https://nithusan.no/">
@@ -25,10 +25,12 @@
     <meta name="twitter:description" content="Se prosjektene mine innen backend- og apputvikling.">
     <meta name="twitter:image" content="https://nithusan.no/assets/og-portfolio.jpg">
     <meta name="twitter:image:alt" content="Nithusan Krishnasamymudali – backendutvikler">
+    <!-- Apply enhanced layout before the first paint to avoid layout shifts. -->
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="tailwind.min.css?v=20260928">
-    <link rel="stylesheet" href="style.css?v=20261013-control-alignment">
+    <link rel="stylesheet" href="style.css?v=20261013-accessibility">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -53,7 +55,7 @@
     <!-- Navigation -->
     <nav class="side-nav" aria-label="Hovedmeny" data-no-aria-label="Hovedmeny" data-en-aria-label="Main navigation">
         <div class="side-nav-header">
-            <a href="#hjem" class="site-name" data-view-link="hjem" aria-label="Nithusan Krishnasamymudali – hjem" data-no-aria-label="Nithusan Krishnasamymudali – hjem" data-en-aria-label="Nithusan Krishnasamymudali – home">Nithusan K.</a>
+            <a href="#hjem" class="site-name" data-view-link="hjem" aria-label="Nithusan K. – hjem" data-no-aria-label="Nithusan K. – hjem" data-en-aria-label="Nithusan K. – home">Nithusan K.</a>
             <button type="button" id="mobile-menu-btn" class="mobile-menu-button" aria-label="Åpne meny" data-no-aria-label="Åpne meny" data-en-aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -75,9 +77,8 @@
         </div>
     </nav>
 
+    <main id="main-content" tabindex="-1">
     <h1 class="sr-only" data-no="Nithusan Krishnasamymudali – backendutviklerportfolio" data-en="Nithusan Krishnasamymudali – backend developer portfolio">Nithusan Krishnasamymudali – backendutviklerportfolio</h1>
-
-    <main id="main-content">
 
     <!-- Hero Section -->
     <section id="hjem" class="hero view-panel view-active flex items-center text-white reveal" data-view="hjem">
@@ -97,7 +98,7 @@
                 <div class="hero-panel reveal">
                     <div class="hero-panel-card mb-4">
                         <p class="text-sm uppercase tracking-wider text-cyan-100 mb-2" data-no="Fremhevet prosjekt" data-en="Featured project">Fremhevet prosjekt</p>
-                        <h3 class="text-2xl font-bold mb-2">Spor økonomi</h3>
+                        <h2 class="text-2xl font-bold mb-2">Spor økonomi</h2>
                         <p class="text-blue-50 text-sm leading-relaxed" data-no="En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned. Budsjett, faste utgifter, sparing og investeringer samles på ett sted." data-en="An iOS app I am building to make it easy to see how much money you have left each month. Budgets, recurring expenses, savings and investments are brought together in one place.">En iOS-app jeg lager for å gjøre det enkelt å se hvor mye du har igjen hver måned. Budsjett, faste utgifter, sparing og investeringer samles på ett sted.</p>
                     </div>
                     <div id="hero-tech-list" class="hero-tech-list">
@@ -185,10 +186,10 @@
                                     <source srcset="assets/hobby-cooking-3.avif" type="image/avif">
                                     <img src="assets/hobby-cooking-3.jpg" alt="Ramen med dumplings og egg" data-no-alt="Ramen med dumplings og egg" data-en-alt="Ramen with dumplings and eggs" width="720" height="1280" loading="lazy" decoding="async">
                                 </picture>
-                                <button type="button" class="gallery-hitarea gallery-prev" data-gallery-prev aria-label="Forrige bilde" data-no-aria-label="Forrige bilde" data-en-aria-label="Previous photo"></button>
-                                <button type="button" class="gallery-hitarea gallery-next" data-gallery-next aria-label="Neste bilde" data-no-aria-label="Neste bilde" data-en-aria-label="Next photo"></button>
+                                <button type="button" class="gallery-hitarea gallery-prev" data-gallery-prev aria-label="Forrige bilde" data-no-aria-label="Forrige bilde" data-en-aria-label="Previous photo"><span class="gallery-arrow" aria-hidden="true">‹</span></button>
+                                <button type="button" class="gallery-hitarea gallery-next" data-gallery-next aria-label="Neste bilde" data-no-aria-label="Neste bilde" data-en-aria-label="Next photo"><span class="gallery-arrow" aria-hidden="true">›</span></button>
                             </div>
-                            <div class="gallery-meta"><span data-gallery-count>1 / 3</span><div class="gallery-dots" aria-hidden="true"></div></div>
+                            <div class="gallery-meta"><span data-gallery-count aria-hidden="true">1 / 3</span><span class="sr-only" data-gallery-status role="status" aria-live="polite" aria-atomic="true"></span><div class="gallery-dots" aria-hidden="true"></div></div>
                         </section>
                         <span>02</span>
                         <h3 data-no="Matlaging" data-en="Cooking">Matlaging</h3>
@@ -209,10 +210,10 @@
                                     <source srcset="assets/hobby-travel-3.avif" type="image/avif">
                                     <img src="assets/hobby-travel-3.jpg" alt="Nithusan ved et fyrtårn og palmetrær på Sri Lanka" data-no-alt="Nithusan ved et fyrtårn og palmetrær på Sri Lanka" data-en-alt="Nithusan by a lighthouse and palm trees in Sri Lanka" width="1024" height="1280" loading="lazy" decoding="async">
                                 </picture>
-                                <button type="button" class="gallery-hitarea gallery-prev" data-gallery-prev aria-label="Forrige bilde" data-no-aria-label="Forrige bilde" data-en-aria-label="Previous photo"></button>
-                                <button type="button" class="gallery-hitarea gallery-next" data-gallery-next aria-label="Neste bilde" data-no-aria-label="Neste bilde" data-en-aria-label="Next photo"></button>
+                                <button type="button" class="gallery-hitarea gallery-prev" data-gallery-prev aria-label="Forrige bilde" data-no-aria-label="Forrige bilde" data-en-aria-label="Previous photo"><span class="gallery-arrow" aria-hidden="true">‹</span></button>
+                                <button type="button" class="gallery-hitarea gallery-next" data-gallery-next aria-label="Neste bilde" data-no-aria-label="Neste bilde" data-en-aria-label="Next photo"><span class="gallery-arrow" aria-hidden="true">›</span></button>
                             </div>
-                            <div class="gallery-meta"><span data-gallery-count>1 / 3</span><div class="gallery-dots" aria-hidden="true"></div></div>
+                            <div class="gallery-meta"><span data-gallery-count aria-hidden="true">1 / 3</span><span class="sr-only" data-gallery-status role="status" aria-live="polite" aria-atomic="true"></span><div class="gallery-dots" aria-hidden="true"></div></div>
                         </section>
                         <span>03</span>
                         <h3 data-no="Reising" data-en="Travelling">Reising</h3>
@@ -233,7 +234,7 @@
 <article class="project-card project-hero project-card--matlogg section-surface overflow-hidden card-hover reveal">
                     <div class="project-thumb matlogg-showcase">
 <div class="app-identity">
-<img src="assets/matlogg-app-icon.png" alt="MatLogg-appikon" data-no-alt="MatLogg-appikon" data-en-alt="MatLogg app icon" class="project-thumb-icon" width="1024" height="1024">
+<img src="assets/matlogg-app-icon-160.webp" srcset="assets/matlogg-app-icon-160.webp 160w, assets/matlogg-app-icon-320.webp 320w" sizes="135px" alt="MatLogg-appikon" data-no-alt="MatLogg-appikon" data-en-alt="MatLogg app icon" class="project-thumb-icon" width="160" height="160" loading="lazy" decoding="async">
 <div>
 <strong>MatLogg</strong>
 <span data-no="Matlogging i hverdagen" data-en="Everyday food logging">Matlogging i hverdagen</span>
@@ -347,8 +348,8 @@
 <article class="project-card section-surface overflow-hidden card-hover reveal">
                     <div class="project-thumb project-thumb--liftoff h-56">
                         <div class="phone-pair" role="group" aria-label="Skjermbilder fra LiftOff-appen" data-no-aria-label="Skjermbilder fra LiftOff-appen" data-en-aria-label="Screenshots from the LiftOff app">
-                            <img src="assets/RakettApp_SearchScreen.webp" alt="Søkeskjerm i LiftOff" data-no-alt="Søkeskjerm i LiftOff" data-en-alt="Search screen in LiftOff" class="phone-shot phone-shot--back" width="1179" height="2556" loading="lazy" decoding="async">
-                            <img src="assets/RakettApp_Map.webp" alt="Kartskjerm i LiftOff" data-no-alt="Kartskjerm i LiftOff" data-en-alt="Map screen in LiftOff" class="phone-shot phone-shot--front" width="1179" height="2556" loading="lazy" decoding="async">
+                            <img src="assets/RakettApp_SearchScreen.webp" alt="Søkeskjerm i LiftOff" data-no-alt="Søkeskjerm i LiftOff" data-en-alt="Search screen in LiftOff" class="phone-shot phone-shot--back" width="1080" height="2220" loading="lazy" decoding="async">
+                            <img src="assets/RakettApp_Map.webp" alt="Kartskjerm i LiftOff" data-no-alt="Kartskjerm i LiftOff" data-en-alt="Map screen in LiftOff" class="phone-shot phone-shot--front" width="1080" height="2220" loading="lazy" decoding="async">
                         </div>
                         <span class="cover-label" data-no="Android · værdata" data-en="Android · weather data">Android · værdata</span>
                     </div>
@@ -482,6 +483,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=20261013-control-alignment"></script>
+    <script src="script.js?v=20261013-accessibility"></script>
 </body>
 </html>
