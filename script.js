@@ -3,6 +3,16 @@
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
+const sidebarToggle = document.getElementById('sidebar-toggle');
+sidebarToggle?.addEventListener('click', () => {
+    const collapsed = document.body.classList.toggle('sidebar-collapsed');
+    sidebarToggle.setAttribute('aria-expanded', String(!collapsed));
+    sidebarToggle.dataset.noAriaLabel = collapsed ? 'Åpne sidemenyen' : 'Minimer sidemenyen';
+    sidebarToggle.dataset.enAriaLabel = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
+    sidebarToggle.setAttribute('aria-label', document.documentElement.lang === 'en'
+        ? sidebarToggle.dataset.enAriaLabel : sidebarToggle.dataset.noAriaLabel);
+});
+
 // A softly trailing pointer accent for mouse/trackpad users. It is created in
 // JavaScript so touch devices and reduced-motion users receive no extra markup.
 function initCursorVisual() {
@@ -624,3 +634,23 @@ const projectPresentation = {
                 }
             }
         });
+
+
+// The mail link and copy action remain separate keyboard controls.
+document.getElementById('copy-email')?.addEventListener('click', async () => {
+    const status = document.getElementById('copy-email-status');
+    const address = document.getElementById('contact-email-address').textContent.trim();
+    status.textContent = '';
+    let no, en;
+    try {
+        await navigator.clipboard.writeText(address);
+        no = 'Kopiert';
+        en = 'Copied';
+    } catch {
+        no = 'Kopiering feilet';
+        en = 'Copy failed';
+    }
+    status.dataset.no = no;
+    status.dataset.en = en;
+    status.textContent = currentLanguage === 'no' ? no : en;
+});

@@ -30,7 +30,7 @@
     <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="tailwind.min.css?v=20260928">
-    <link rel="stylesheet" href="style.css?v=20261014-cursor">
+    <link rel="stylesheet" href="style.css?v=20261014-contact">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -56,6 +56,9 @@
     <nav class="side-nav" aria-label="Hovedmeny" data-no-aria-label="Hovedmeny" data-en-aria-label="Main navigation">
         <div class="side-nav-header">
             <a href="#hjem" class="site-name" data-view-link="hjem" aria-label="Nithusan K. – hjem" data-no-aria-label="Nithusan K. – hjem" data-en-aria-label="Nithusan K. – home">Nithusan K.</a>
+            <button type="button" id="sidebar-toggle" class="sidebar-toggle" aria-expanded="true" aria-controls="mobile-menu" aria-label="Minimer sidemenyen" data-no-aria-label="Minimer sidemenyen" data-en-aria-label="Collapse sidebar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
             <button type="button" id="mobile-menu-btn" class="mobile-menu-button" aria-label="Åpne meny" data-no-aria-label="Åpne meny" data-en-aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -435,14 +438,20 @@
                 <div class="contact-intro">
                     <p class="view-eyebrow" data-no="La oss snakke" data-en="Let us talk">La oss snakke</p>
                     <h2 data-no="Ta gjerne kontakt" data-en="Get in touch">Ta gjerne kontakt</h2>
-                    <p data-no="Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Jeg svarer gjerne på e-post eller LinkedIn." data-en="Do you have a backend role that might be a good fit, or would you like to know more about one of my projects? Feel free to contact me by email or LinkedIn.">Har du en backendstilling som kan passe, eller vil du høre mer om et av prosjektene mine? Jeg svarer gjerne på e-post eller LinkedIn.</p>
+                    <p data-no="Har du en backendstilling som kan passe, eller spørsmål om prosjektene mine? Ta gjerne kontakt." data-en="Do you have a backend role that might be a good fit, or questions about my projects? Get in touch.">Har du en backendstilling som kan passe, eller spørsmål om prosjektene mine? Ta gjerne kontakt.</p>
                     <a href="mailto:nithusank.2002@gmail.com" class="contact-cta" data-no="Send meg en e-post →" data-en="Send me an email →">Send meg en e-post →</a>
                 </div>
+                <div class="contact-channels">
                 <div class="contact-links-grid reveal">
-                    <a href="mailto:nithusank.2002@gmail.com"><span data-no="E-post" data-en="Email">E-post</span><strong>nithusank.2002@gmail.com</strong><i aria-hidden="true">↗</i></a>
-                    <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong data-no="Profil og erfaring" data-en="Profile and experience">Profil og erfaring</strong><i aria-hidden="true">↗</i></a>
-                    <a href="https://github.com/nithusan2002" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong data-no="Kode og prosjekter" data-en="Code and projects">Kode og prosjekter</strong><i aria-hidden="true">↗</i></a>
-                    <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer"><span>CV</span><strong data-no="Åpne som PDF" data-en="Open as PDF">Åpne som PDF</strong><i aria-hidden="true">↗</i></a>
+                    <div class="contact-email-card">
+                        <a href="mailto:nithusank.2002@gmail.com"><span data-no="E-post" data-en="Email">E-post</span><strong id="contact-email-address">nithusank.2002@gmail.com</strong><i aria-hidden="true">✉</i></a>
+                        <button type="button" id="copy-email" class="copy-email" data-no="Kopier" data-en="Copy" aria-label="Kopier e-postadressen" data-no-aria-label="Kopier e-postadressen" data-en-aria-label="Copy email address">Kopier</button>
+                    <p id="copy-email-status" class="copy-email-status" role="status" aria-live="polite" aria-atomic="true"></p>
+                    </div>
+                    <a href="https://linkedin.com/in/nithusan-k" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><strong data-no="Se LinkedIn-profil" data-en="View LinkedIn profile">Se LinkedIn-profil</strong><i aria-hidden="true">↗</i></a>
+                    <a href="https://github.com/nithusan2002" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong data-no="Se kode på GitHub" data-en="View code on GitHub">Se kode på GitHub</strong><i aria-hidden="true">↗</i></a>
+                    <a href="assets/Nithusan_Krishnasamymudali_CV.pdf" target="_blank" rel="noopener noreferrer"><span>CV</span><strong data-no="Åpne CV (PDF)" data-en="Open CV (PDF)">Åpne CV (PDF)</strong><i aria-hidden="true">↗</i></a>
+                </div>
                 </div>
             </div>
         </div>
@@ -483,6 +492,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=20261014-cursor"></script>
+    <script src="script.js?v=20261014-contact"></script>
 </body>
 </html>
