@@ -3,6 +3,77 @@
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
+// A softly trailing pointer accent for mouse/trackpad users. It is created in
+// JavaScript so touch devices and reduced-motion users receive no extra markup.
+function initCursorVisual() {
+    const canUseCursorVisual = window.matchMedia(
+        '(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)'
+    ).matches;
+
+    if (!canUseCursorVisual) return;
+
+    const halo = document.createElement('div');
+    const dot = document.createElement('div');
+    halo.className = 'cursor-visual';
+    dot.className = 'cursor-visual-dot';
+    halo.setAttribute('aria-hidden', 'true');
+    dot.setAttribute('aria-hidden', 'true');
+    document.body.append(halo, dot);
+
+    let pointerX = -100;
+    let pointerY = -100;
+    let haloX = -100;
+    let haloY = -100;
+    let animationFrame = null;
+
+    function animateHalo() {
+        haloX += (pointerX - haloX) * 0.16;
+        haloY += (pointerY - haloY) * 0.16;
+        halo.style.translate = `${haloX}px ${haloY}px`;
+
+        if (Math.hypot(pointerX - haloX, pointerY - haloY) > 0.1) {
+            animationFrame = requestAnimationFrame(animateHalo);
+        } else {
+            animationFrame = null;
+        }
+    }
+
+    function requestHaloFrame() {
+        if (animationFrame === null) animationFrame = requestAnimationFrame(animateHalo);
+    }
+
+    document.addEventListener('pointermove', event => {
+        if (event.pointerType && event.pointerType !== 'mouse') return;
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        dot.style.translate = `${pointerX}px ${pointerY}px`;
+        requestHaloFrame();
+        halo.classList.add('is-visible');
+        dot.classList.add('is-visible');
+
+        const interactive = event.target.closest('a, button, [role="button"], input, textarea, select');
+        halo.classList.toggle('is-interactive', Boolean(interactive));
+    });
+
+    document.addEventListener('pointerdown', () => halo.classList.add('is-pressed'));
+    document.addEventListener('pointerup', () => halo.classList.remove('is-pressed'));
+    document.documentElement.addEventListener('mouseleave', () => {
+        halo.classList.remove('is-visible', 'is-pressed');
+        dot.classList.remove('is-visible');
+        if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+    });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && animationFrame !== null) {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = null;
+        }
+    });
+}
+
+initCursorVisual();
+
 function initPointerDetails() {
     const supportsMotion = window.matchMedia(
         '(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)'
