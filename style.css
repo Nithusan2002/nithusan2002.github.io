@@ -443,6 +443,8 @@ h5 {
 .project-primary-link:hover { color: #0842a3; }
 .project-secondary-link { color: #64748b; font-size: 0.875rem; font-weight: 600; }
 .project-secondary-link:hover { color: #334155; }
+.project-evidence { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.75rem; margin-bottom: 1rem; color: #475569; font-size: 0.875rem; }
+.project-evidence a { display: inline-flex; align-items: center; min-height: 2.75rem; text-decoration: underline; text-underline-offset: 3px; }
 
 .project-card-body .flex span {
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;

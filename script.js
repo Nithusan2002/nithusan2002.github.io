@@ -492,14 +492,18 @@ const projectData = {
                     "Søk og filtrering på status",
                     "Redigering og sletting fra webgrensesnittet",
                     "REST-API med validering og tydelige 400/404-feilsvar",
-                    "Dockerfile og Render-oppsett følger med i repoet"
+                    "Dockerfile og Render-oppsett følger med i repoet",
+                    "17 integrasjonstesttilfeller mot PostgreSQL med Testcontainers",
+                    "GitHub Actions kjører tester og bygger appen på push og pull requests"
                 ],
                 en: [
                     "Register applications with company, role, date, status, link, and notes",
                     "Search and status filtering",
                     "Edit and delete applications from the web interface",
                     "REST API with validation and clear 400/404 error responses",
-                    "The repository includes a Dockerfile and Render setup"
+                    "The repository includes a Dockerfile and Render setup",
+                    "17 integration test cases against PostgreSQL with Testcontainers",
+                    "GitHub Actions runs the tests and builds the app on pushes and pull requests"
                 ]
             },
             technologies: ["Kotlin", "Spring Boot", "Spring Data JPA", "PostgreSQL", "Gradle", "Docker", "HTML", "CSS", "JavaScript"],
@@ -508,8 +512,8 @@ const projectData = {
                 en: "I deliberately kept the project small enough to work on the entire flow myself. The frontend sends requests to the REST API, which validates the data and stores it in PostgreSQL."
             },
             outcome: {
-                no: "Resultatet er en fungerende webapp med fem REST-endepunkter for å opprette, hente, endre og slette jobbsøknader. Koden og oppsettet ligger på GitHub.",
-                en: "The result is a working web app with five REST endpoints for creating, retrieving, editing and deleting job applications. The code and setup are available on GitHub."
+                no: "Resultatet er en webapp med fem REST-endepunkter for å opprette, hente, endre og slette jobbsøknader. Alle 17 integrasjonstesttilfeller og JAR-bygget bestod i GitHub Actions 18. oktober 2026. Koden og Docker- og Render-oppsettet ligger på GitHub. Appen er ikke publisert ennå.",
+                en: "The result is a web app with five REST endpoints for creating, retrieving, editing and deleting job applications. All 17 integration test cases and the JAR build passed in GitHub Actions on 18 October 2026. The code and Docker and Render configuration are available on GitHub. The app is not deployed yet."
             },
             screenshots: [{ src: "assets/jobtracker-screenshot.webp", width: 800, height: 556, alt: { no: "JobTracker: oversikt over jobbsøknader med søk og statusfilter", en: "JobTracker: job application overview with search and status filtering" } }],
             screenshotLayout: "wide",
