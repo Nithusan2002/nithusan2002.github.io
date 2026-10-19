@@ -493,7 +493,7 @@ const projectData = {
                     "Redigering og sletting fra webgrensesnittet",
                     "REST-API med validering og tydelige 400/404-feilsvar",
                     "Dockerfile og Render-oppsett følger med i repoet",
-                    "17 integrasjonstesttilfeller mot PostgreSQL med Testcontainers",
+                    "43 automatiserte tester, inkludert API- og migreringstester mot PostgreSQL med Testcontainers",
                     "GitHub Actions kjører tester og bygger appen på push og pull requests"
                 ],
                 en: [
@@ -502,7 +502,7 @@ const projectData = {
                     "Edit and delete applications from the web interface",
                     "REST API with validation and clear 400/404 error responses",
                     "The repository includes a Dockerfile and Render setup",
-                    "17 integration test cases against PostgreSQL with Testcontainers",
+                    "43 automated tests, including API and migration tests against PostgreSQL with Testcontainers",
                     "GitHub Actions runs the tests and builds the app on pushes and pull requests"
                 ]
             },
@@ -512,12 +512,13 @@ const projectData = {
                 en: "I deliberately kept the project small enough to work on the entire flow myself. The frontend sends requests to the REST API, which validates the data and stores it in PostgreSQL."
             },
             outcome: {
-                no: "Resultatet er en webapp med fem REST-endepunkter for å opprette, hente, endre og slette jobbsøknader. Alle 17 integrasjonstesttilfeller og JAR-bygget bestod i GitHub Actions 18. oktober 2026. Koden og Docker- og Render-oppsettet ligger på GitHub. Appen er ikke publisert ennå.",
-                en: "The result is a web app with five REST endpoints for creating, retrieving, editing and deleting job applications. All 17 integration test cases and the JAR build passed in GitHub Actions on 18 October 2026. The code and Docker and Render configuration are available on GitHub. The app is not deployed yet."
+                no: "Resultatet er en webapp med fem REST-endepunkter for å opprette, hente, endre og slette jobbsøknader. Alle 43 automatiserte testtilfeller og JAR-bygget bestod i GitHub Actions 18. oktober 2026. Demoen kjører på Render med PostgreSQL hos Supabase. Den bruker fiktive data og nullstilles ved oppstart og hvert 30. minutt. Første oppstart etter inaktivitet kan ta et par minutter. Koden ligger på GitHub.",
+                en: "The result is a web app with five REST endpoints for creating, retrieving, editing and deleting job applications. All 43 automated test cases and the JAR build passed in GitHub Actions on 18 October 2026. The demo runs on Render with PostgreSQL on Supabase. It uses fictional data and resets on startup and every 30 minutes. The first request after inactivity may take a couple of minutes. The code is available on GitHub."
             },
             screenshots: [{ src: "assets/jobtracker-screenshot.webp", width: 800, height: 556, alt: { no: "JobTracker: oversikt over jobbsøknader med søk og statusfilter", en: "JobTracker: job application overview with search and status filtering" } }],
             screenshotLayout: "wide",
-            demoUrl: "https://github.com/Nithusan2002/jobtracker-api"
+            demoLabel: { no: "Prøv demo", en: "Try demo" },
+            demoUrl: "https://jobtracker-api-3npj.onrender.com/"
         },
         };
 
@@ -526,7 +527,7 @@ const projectPresentation = {
             matlogg: {icon:'assets/matlogg-app-icon-160.webp', color:'#b72f4b', tint:'#fff1e3', no:'Matlogging som passer hverdagen.', en:'Food logging for everyday life.', status:['Under utvikling','In development']},
             poengjeger: {icon:'assets/poengjeger-app-icon.png', color:'#09695e', tint:'#e1efea', no:'Sjekk før du handler.', en:'Check before you shop.', status:['Under utvikling','In development']},
             webapp: {color:'#3456a4', tint:'#e8eefb', no:'Værdata for neste oppskytning.', en:'Weather data for the next launch.', status:['Studieprosjekt · gruppearbeid','University project · team work']},
-            jobTracker: {color:'#205c50', tint:'#e1efec', no:'Alle søknadene. Én oversikt.', en:'Every application. One overview.', status:['Ikke publisert ennå','Not deployed yet']}
+            jobTracker: {color:'#205c50', tint:'#e1efec', no:'Alle søknadene. Én oversikt.', en:'Every application. One overview.', status:['Offentlig demo','Public demo']}
 };
 
         let lastFocusedElement = null;
